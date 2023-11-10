@@ -37,10 +37,8 @@ import TermsCondition from "./components/pages/termsCondition";
 import Wishlist from "./components/pages/wishlist";
 
 //harish
-import {Home} from "./components/home";
+
 import { Home2 } from "./components/home2";
-import { Home3 } from "./components/home3";
-import { Home4 } from "./components/home4";
 import { Dashboard } from "./components/instructor/dashboard";
 import { InstructorList } from "./components/instructor/list";
 import InstructorGrid from "./components/instructor/grid";
@@ -107,8 +105,6 @@ import NewPassword from "./components/pages/newPassword";
     {/* <Route path="/" element={<Home />} /> */}
     <Route path="/" element={<Home2 />} />
       <Route path="/home2" element={<Home2 />} />
-      <Route path="/home3" element={<Home3 />} />
-      <Route path="/home4" element={<Home4 />} />
       <Route path="/instructor-dashboard" element={<Dashboard />} />
       <Route path="/instructor-list" element={<InstructorList />} />
       <Route path="/instructor-grid" element={<InstructorGrid />} />

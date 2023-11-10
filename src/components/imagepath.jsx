@@ -1,7 +1,7 @@
-export { default as headlogo } from "../assets/img/logo.png";
-export { default as logo } from "../assets/img/logo.svg";
-export { default as logoPng } from "../assets/img/logo/logo.png";
-export { default as logoSvg } from "../assets/img/logo/logo.svg";
+export { default as headlogo } from "../assets/img/logo/main-logo.png";
+export { default as logo } from "../assets/img/logo/main-logo.png";
+export { default as logoPng } from "../assets/img/logo/main-logo.png";
+export { default as logoSvg } from "../assets/img/logo/main-logo.png";
 export { default as logoFivePng } from "../assets/img/logo/logo-five.png";
 export { default as logoFiveSvg } from "../assets/img/logo/logo-five.svg";
 export { default as Share } from "../assets/img/share.png";

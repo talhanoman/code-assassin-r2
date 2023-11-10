@@ -15,7 +15,7 @@ const Header2 = () => {
   };
 
   // Mobile Menu Toggle
-  const [setMobileMenu] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState(false);
   const [mobileSubMenu2, setMobileSubMenu2] = useState(false);
   const [mobileSubMenu22, setMobileSubMenu22] = useState(false);
@@ -117,29 +117,7 @@ const Header2 = () => {
                 <li className="has-submenu menu-effect active">
                   <Link to="/">
                     Home{" "}
-                    <i
-                      className="fas fa-chevron-down"
-                      onClick={openMobileSubMenu}
-                    ></i>
                   </Link>
-                  <ul
-                    className={
-                      mobileSubMenu ? "submenu submenuShow" : "submenu"
-                    }
-                  >
-                    <li>
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li className="active">
-                      <Link to="/home2">Home Two</Link>
-                    </li>
-                    <li>
-                      <Link to="/home3">Home Three</Link>
-                    </li>
-                    <li>
-                      <Link to="/home4">Home Four</Link>
-                    </li>
-                  </ul>
                 </li>
                 <li className="has-submenu menu-effect">
                   <Link to="">
