@@ -1706,11 +1706,12 @@ html.menu-opened body {
 	margin-bottom: 25px;
 }
 .home-slide-text h1 {
-	font-weight: 700;
+	font-weight: 900;
     font-size: 48px;
     margin-bottom: 40px;
     line-height: 1.2;
     max-width: 500px;
+    color: #fc7f50 !important; 
 }
 .home-slide-text p {
     font-weight: 500;
