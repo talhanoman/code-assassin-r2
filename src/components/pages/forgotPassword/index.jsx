@@ -1,47 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { LoginImg, logo } from "../../imagepath";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import OwlCarousel from "react-owl-carousel";
 import { Link } from "react-router-dom";
+import { HandleForgotPassword } from "../../../api/post";
 
 const ForgotPassword = () => {
 
-    var settings = {
-        //autoWidth: true,
-        items: 2,
-        margin: 25,
-        dots: true,
-        nav: true,
-        navText: [
-          '<i className="fas fa-arrow-left"></i>',
-          '<i className="fas fa-arrow-right"></i>',
-        ],
-    
-        loop: true,
-        responsiveClass: true,
-        responsive: {
-          0: {
-            items: 1,
-          },
-          768: {
-            items: 1,
-          },
-          1170: {
-            items: 1,
-          },
-        },
-      };
+  var settings = {
+    //autoWidth: true,
+    items: 2,
+    margin: 25,
+    dots: true,
+    nav: true,
+    navText: [
+      '<i className="fas fa-arrow-left"></i>',
+      '<i className="fas fa-arrow-right"></i>',
+    ],
 
+    loop: true,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 1,
+      },
+      1170: {
+        items: 1,
+      },
+    },
+  };
+
+  const [email, setEmail] = useState('');
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+    HandleForgotPassword({email})
+  }
   return (
     <>
       <div className="main-wrapper">
         <div className="row">
           {/* Login Banner */}
           <div className="col-md-6 login-bg">
-          <OwlCarousel 
-            {...settings}
-            className="owl-carousel login-slide owl-theme">
+            <OwlCarousel
+              {...settings}
+              className="owl-carousel login-slide owl-theme">
               <div className="welcome-login">
                 <div className="login-banner">
                   <img
@@ -121,20 +127,23 @@ const ForgotPassword = () => {
                 </div>
                 <h1>Forgot Password ?</h1>
                 <div className="reset-password">
-                  <p>Enter your email to reset your password.</p>
+                  <p>Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.</p>
                 </div>
-                <form action="/login">
+                <form onSubmit={handleForgotPassword}>
                   <div className="form-group">
                     <label className="form-control-label">Email</label>
                     <input
                       type="email"
                       className="form-control"
-                      placeholder="Enter your email address"
+                      placeholder="Username or email"
+                      required
+                      value={email}
+                      onChange={(e)=>{setEmail(e.target.value)}}
                     />
                   </div>
                   <div className="d-grid">
                     <button className="btn btn-start" type="submit">
-                      Submit
+                      RESET PASSWORD
                     </button>
                   </div>
                 </form>
