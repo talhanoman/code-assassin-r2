@@ -27,11 +27,6 @@ import PrivacyPolicy from "./components/pages/policy";
 import PricingPlan from "./components/pages/pricingPlan";
 import PricingPlan2 from "./components/pages/pricingPlan/pricingPlan2";
 import Register from "./components/pages/register";
-import RegisterOne from "./components/pages/register/register1";
-import RegisterTwo from "./components/pages/register/register2";
-import RegisterThree from "./components/pages/register/register3";
-import RegisterFour from "./components/pages/register/register4";
-import RegisterFive from "./components/pages/register/register5";
 import Support from "./components/pages/support";
 import TermsCondition from "./components/pages/termsCondition";
 import Wishlist from "./components/pages/wishlist";
@@ -142,11 +137,6 @@ import NewPassword from "./components/pages/newPassword";
        <Route path="/login" element={<Login/>} />
        <Route path="/new-password" element={<NewPassword/>} />
        <Route path="/register" element={<Register/>} />
-       <Route path="/register1" element={<RegisterOne/>} />
-       <Route path="/register2" element={<RegisterTwo/>} />
-       <Route path="/register3" element={<RegisterThree/>} />
-       <Route path="/register4" element={<RegisterFour/>} />
-       <Route path="/register5" element={<RegisterFive/>} />
        <Route path="/forgot-password" element={<ForgotPassword/>} />
        <Route path="/term-condition" element={<TermsCondition/>} />
        <Route path="/privacy-policy" element={<PrivacyPolicy/>} />

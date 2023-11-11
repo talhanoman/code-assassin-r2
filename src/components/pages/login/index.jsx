@@ -6,10 +6,12 @@ import { LoginImg, logo, NetIcon1, NetIcon2 } from "../../imagepath";
 import FeatherIcon from "feather-icons-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { HandleLogin } from "../../../api/post";
 
 const Login = () => {
 
   const [passwordType, setPasswordType] = useState("password");
+  const [username, setUsername] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
   
@@ -52,6 +54,15 @@ const Login = () => {
         },
     };
 
+
+    const handleLogin = (e)=>{
+      e.preventDefault();
+      let userData={
+        username : username,
+        password : passwordInput
+      }
+      HandleLogin(userData)
+    }
   return (
     <>
       <div className="main-wrapper log-wrap">
@@ -139,20 +150,23 @@ const Login = () => {
                       <Link to="/">Back to Home</Link>
                     </div>
                   </div>
-                  <h1>Sign into Your Account</h1>
-                  <form action="/instructor-dashboard">
+                  <h1>Hi, Welcome back!</h1>
+                  <form onSubmit={handleLogin}>
                     <div className="form-group">
                       <label className="form-control-label">Email</label>
                       <input
                         type="email"
                         className="form-control"
-                        placeholder="Enter your email address"
+                        placeholder="Username or Email Address"
+                        value={username}
+                        onChange={(e)=> setUsername(e.target.value)}
+                        required
                       />
                     </div>
                     <div className="form-group">
                       <label className="form-control-label">Password</label>
                       <div className="pass-group">
-                      <input type={passwordType} onChange={handlePasswordChange} value={passwordInput} name="password" className="form-control" placeholder="Password" />
+                      <input required type={passwordType} onChange={handlePasswordChange} value={passwordInput} name="password" className="form-control" placeholder="Password" />
                      <span className="toggle-password feather-eye" onClick={togglePassword}>
                      { passwordType==="password"? <FeatherIcon icon="eye"/>:<FeatherIcon icon="eye-off"/> }
                      </span>
@@ -168,7 +182,7 @@ const Login = () => {
                     <div className="remember-me">
                       <label className="custom_check mr-2 mb-0 d-inline-flex remember-me">
                         {" "}
-                        Remember me
+                        Keep me signed in
                         <input type="checkbox" name="radio" />
                         <span className="checkmark" />
                       </label>
@@ -186,36 +200,9 @@ const Login = () => {
                   </form>
                 </div>
               </div>
-              <div className="google-bg text-center">
-                <span>
-                  <Link to="#">Or sign in with</Link>
-                </span>
-                <div className="sign-google">
-                  <ul>
-                    <li>
-                      <Link to="#">
-                        <img
-                          src={NetIcon1}
-                          className="img-fluid"
-                          alt="Logo"
-                        />{" "}
-                        Sign In using Google
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="#">
-                        <img
-                          src={NetIcon2}
-                          className="img-fluid"
-                          alt="Logo"
-                        />
-                        Sign In using Facebook
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+              <div className="google-bg text-center">                
                 <p className="mb-0">
-                  New User ? <Link to="/register">Create an Account</Link>
+                Don't have an account? <Link to="/register">Register Now</Link>
                 </p>
               </div>
             </div>

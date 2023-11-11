@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import OwlCarousel from "react-owl-carousel";
-import { LoginImg, logo, NetIcon1, NetIcon2 } from "../../imagepath";
+import { LoginImg, logo } from "../../imagepath";
 import { useState } from "react";
 import { HandleRegistration } from "../../../api/post";
 // import "../../../assets/js/jquery-3.6.0.min.js"
@@ -242,6 +242,8 @@ const Register = () => {
                       className="form-control"
                       placeholder="Enter your First Name"
                       required
+                      value={firstName}
+                      onChange={(e)=>setFirstName(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
@@ -251,6 +253,8 @@ const Register = () => {
                       className="form-control"
                       placeholder="Enter your Last Name"
                       required
+                      value={lastName}
+                      onChange={(e)=>setLastName(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
@@ -260,6 +264,8 @@ const Register = () => {
                       className="form-control"
                       placeholder="Enter your Username"
                       required
+                      value={username}
+                      onChange={(e)=>setUsername(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
@@ -269,6 +275,8 @@ const Register = () => {
                       className="form-control"
                       placeholder="Enter your email address"
                       required
+                      value={email}
+                      onChange={(e)=> setEmail(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
