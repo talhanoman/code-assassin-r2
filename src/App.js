@@ -91,6 +91,7 @@ import CourseStudent from "./components/student/courseStudent";
 import PurchaseHistory from "./components/student/purchaseHistory";
 import ViewInvoice from "./components/student/invoice/viewInvoice";
 import NewPassword from "./components/pages/newPassword";
+import AppGithub from "./sample";
 
  const App = () => {
   return (
@@ -206,6 +207,10 @@ import NewPassword from "./components/pages/newPassword";
 
       {/*Student Routes  */}
       <Route path="/setting-edit-profile" element={<StudentEditProfile />} />
+      <Route
+        path="/github"
+        element={<AppGithub />}
+      />
       <Route path="/setting-student-accounts" element={<StudentAccounts />} />
       <Route path="/setting-student-billing" element={<StudentBilling />} />
       <Route

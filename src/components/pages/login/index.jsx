@@ -190,7 +190,7 @@ const Login = () => {
                     <div className="d-grid">
                       <Link
 
-                        to="/instructor-dashboard"
+                        to="/deposit-student-dashboard"
                         className="btn btn-start"
                         type="submit"
                       >

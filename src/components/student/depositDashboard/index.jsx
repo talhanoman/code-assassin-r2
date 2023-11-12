@@ -52,7 +52,7 @@ export default function StudentDepositDashboard() {
                         <div className="view-all-grp d-flex">
                           <div className="student-ticket-view">
                             <h3>50</h3>
-                            <p>Purchased Courses</p>
+                            <p>Enrolled Courses</p>
                             <Link to="/purchase-history">View All</Link>
                           </div>
                           <div className="img-deposit-ticket">
@@ -68,7 +68,7 @@ export default function StudentDepositDashboard() {
                         <div className="view-all-grp d-flex">
                           <div className="student-ticket-view">
                             <h3>30</h3>
-                            <p>Total Transactions</p>
+                            <p>Active Courses</p>
                             <Link to="/deposit-student">View All</Link>
                           </div>
                           <div className="img-deposit-ticket">
@@ -84,7 +84,7 @@ export default function StudentDepositDashboard() {
                         <div className="view-all-grp d-flex">
                           <div className="student-ticket-view">
                             <h3>20</h3>
-                            <p>Total Deposit</p>
+                            <p>Completed Courses</p>
                             <Link to="/transactions-student">View All</Link>
                           </div>
                           <div className="img-deposit-ticket">
