@@ -70,9 +70,8 @@ Version      : 1.0
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@import url('./custom.css');
 html {
     height: 100%;
 }
@@ -3066,7 +3065,13 @@ html.menu-opened body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: center;
     margin: 20px 0;
+    font-weight: 500;
+}
+.home-two .about-section li > i
+{
+    margin-right: 4px;
 }
 .home-two .about-section li .list-icon {
     text-transform: capitalize;

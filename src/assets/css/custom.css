@@ -1,0 +1,17 @@
+.orange-checkbox-list li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-weight: 400;
+}
+.orange-checkbox-list li > i
+{
+    margin-right: 4px;
+}
+
+i.orange-checkmark {
+    color: #FF602E;
+    padding-left: 2px;
+}

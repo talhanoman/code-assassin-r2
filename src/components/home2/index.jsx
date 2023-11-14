@@ -59,6 +59,7 @@ import {
   SkillsIcon01,
   SkillsIcon02,
   SkillsIcon03,
+  Faang
 } from "../imagepath";
 import { LeadingCompanies } from "./slider/leadingCompanies";
 import AOS from "aos";
@@ -88,7 +89,7 @@ export const Home2 = () => {
       backgroundColor: "white",
       border: state.isFocused ? 0 : 0,
       paddingLeft: "5px",
-      marginTop:"1px",
+      marginTop: "1px",
       // This line disable the blue border
       boxShadow: state.isFocused ? 0 : 0,
       borderRadius: state.isSelected ? "0" : "10px",
@@ -216,27 +217,20 @@ export const Home2 = () => {
                 data-aos="fade-up"
               >
                 <div className="header-two-title">
-                  <p className="tagline">Learn with DreamLMS</p>
+                  <p className="tagline">Become the SUPER candidate</p>
                   <h2 className="mb-0">
-                    Get Trained By Experts & Professionals around the World
+                    Learn from the BEST industry experts
                   </h2>
                 </div>
                 <div className="header-two-title">
-                  <p className="about-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Quam dolor fermentum massa viverra congue proin. A volutpat
-                    eget ultrices velit nunc orci. Commodo quis integer a felis
-                    ac vel mauris a morbi. Scelerisque nunc accumsan elementum
-                    aenean nisl lacinia. Congue enim aliquet ac vitae turpis.
-                    Neque, bibendum imperdiet sed ullamcorper morbi amet.
-                    Facilisi odio amet, nunc quam ut nulla purus adipiscing
-                    pharetra.
-                  </p>
-                  <div className="about-button more-details">
-                    <Link to="/course-list" className="discover-btn">
-                      Learn more <i className="fas fa-arrow-right ms-2"></i>
-                    </Link>
-                  </div>
+                  <ul class="px-0">
+                    <li><i className="fas fa-check-circle orange-checkmark"></i>Dominate EVERY interview with ease</li>
+                    <li><i className="fas fa-check-circle orange-checkmark"></i>Know the HIDDEN secrets and shortcuts</li>
+                    <li><i className="fas fa-check-circle orange-checkmark"></i>Step-by-Step plan for a GUARANTEED win !</li>
+                    <li><i className="fas fa-check-circle orange-checkmark"></i>Small batch = More quality time with mentors</li>
+                    <li><i className="fas fa-check-circle orange-checkmark"></i>Top students get referral opportunities.</li>
+                    <li><i className="fas fa-check-circle orange-checkmark"></i>Live Whatsapp Group for constant support.</li>
+                  </ul>
                 </div>
               </div>
 
@@ -254,11 +248,11 @@ export const Home2 = () => {
                           </div>
                           <div className="count-content-three course-count ms-0">
                             <h4>
-                            <span className="d-flex"> 
-                            <CountUp start={0} end={10} delay={1} duration={4}/>K
-                         </span>
+                              <span className="d-flex">
+                                Conquer DSA
+                              </span>
                             </h4>
-                            <p className="mb-0">Online Courses</p>
+
                           </div>
                         </div>
                       </div>
@@ -274,12 +268,11 @@ export const Home2 = () => {
                           </div>
                           <div className="count-content-three course-count ms-0">
                             <h4>
-                            <span className="d-flex"> 
-                            <CountUp start={0} end={215} delay={1}/>+
-+
-                         </span>
+                              <span className="d-flex">
+                                AI Essentials
+                              </span>
                             </h4>
-                            <p className="mb-0">Expert Tutors</p>
+
                           </div>
                         </div>
                       </div>
@@ -296,11 +289,10 @@ export const Home2 = () => {
                           </div>
                           <div className="count-content-three course-count ms-0">
                             <h4>
-                            <span className="d-flex"> 
-                           <CountUp start={0} end={10} delay={1} duration={4}/>K
-                         </span>
+                              <span className="d-flex">
+                                Getting Placed
+                              </span>
                             </h4>
-                            <p className="mb-0">Ceritified Courses</p>
                           </div>
                         </div>
                       </div>
@@ -317,11 +309,10 @@ export const Home2 = () => {
                           </div>
                           <div className="count-content-three course-count ms-0">
                             <h4>
-                            <span className="d-flex"> 
-                            <CountUp start={0} end={10} delay={1} duration={4}/>K
-                         </span>
+                              <span className="d-flex">
+                                DEV Mastery
+                              </span>
                             </h4>
-                            <p className="mb-0">Online Students</p>
                           </div>
                         </div>
                       </div>
@@ -496,8 +487,8 @@ export const Home2 = () => {
           </div>
           <div className="container">
             <div className="header-two-title text-center" data-aos="fade-up">
-              <p className="tagline">What’s New</p>
-              <h2>Featured Courses</h2>
+              <p className="tagline">Take Initiative</p>
+              <h2>Enroll Today</h2>
               <div className="header-two-text m-auto text-center d-block">
                 <p className="mb-0">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget
@@ -506,409 +497,11 @@ export const Home2 = () => {
                 </p>
               </div>
             </div>
-            <div className="featured-courses-two">
-              <div className="row">
-                {/*Featured Courses  */}
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6 col-sm-12 d-flex"
-                  data-aos="fade-down"
-                >
-                  <div className="featured-details-two">
-                    <div className="product-item-two">
-                      <div className="product-img-two">
-                        <Link to="/course-details">
-                          <img className="img-fluid" alt="" src={Courses1} />
-                        </Link>
-                        <div className="price-text">
-                          <h4>
-                            <span>PHP</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-details-content">
-                        <div className="image-info">
-                          <img className="img-fluid" alt="" src={Avatar1} />
-                        </div>
-                        <div className="rating">
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <span className="ms-3">203 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              The Complete Web Developer PHP framework Course
-                              2.0
-                            </Link>
-                          </h3>
-                          <p className="me-3">
-                            By
-                            <span className="text-danger ms-2">
-                              Russell T. Johnson
-                            </span>
-                          </p>
-                        </div>
-
-                        <div className="featured-info-time d-flex align-items-center">
-                          <div className="hours-time-two d-flex align-items-center">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <p>6hr 30min</p>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price">
-                              <h3>
-                                $400 <span>$99.00</span>
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/*Featured Courses  */}
-
-                {/*Featured Courses  */}
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6 col-sm-12 d-flex"
-                  data-aos="fade-down"
-                >
-                  <div className="featured-details-two">
-                    <div className="product-item-two">
-                      <div className="product-img-two">
-                        <Link to="/course-details">
-                          <img className="img-fluid" alt="" src={Courses2} />
-                        </Link>
-                        <div className="price-text">
-                          <h4>
-                            <span>Wordpress</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-details-content">
-                        <div className="image-info">
-                          <img className="img-fluid" alt="" src={Avatar2} />
-                        </div>
-                        <div className="rating">
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              Wordpress for Beginners - Master Wordpress Quickly
-                            </Link>
-                          </h3>
-                          <p className="me-3">
-                            By
-                            <span className="text-danger ms-2">
-                              Cristofer Nolen
-                            </span>
-                          </p>
-                        </div>
-
-                        <div className="featured-info-time d-flex align-items-center">
-                          <div className="rating-img d-flex align-items-center">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <span>6hr 30min</span>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price">
-                              <h3>
-                                $300 <span>$99.00</span>
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/*Featured Courses  */}
-
-                {/*Featured Courses  */}
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6 col-sm-12 d-flex"
-                  data-aos="fade-down"
-                >
-                  <div className="featured-details-two">
-                    <div className="product-item-two">
-                      <div className="product-img-two">
-                        <Link to="/course-details">
-                          <img className="img-fluid" alt="" src={Courses3} />
-                        </Link>
-                        <div className="price-text">
-                          <h4>
-                            <span>Angular</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-details-content">
-                        <div className="image-info">
-                          <img className="img-fluid" alt="" src={Avatar3} />
-                        </div>
-                        <div className="rating">
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              Learn Angular Fundamentals From beginning to
-                              advance lavel
-                            </Link>
-                          </h3>
-                          <p className="me-3">
-                            By
-                            <span className="text-danger ms-2">
-                              Cristofer Nolen
-                            </span>
-                          </p>
-                        </div>
-
-                        <div className="featured-info-time d-flex align-items-center">
-                          <div className="rating-img d-flex align-items-center">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <span>6hr 30min</span>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price">
-                              <h3>
-                                $300 <span>$99.00</span>
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/*Featured Courses  */}
-
-                {/*Featured Courses  */}
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6 col-sm-12 d-flex"
-                  data-aos="fade-down"
-                >
-                  <div className="featured-details-two">
-                    <div className="product-item-two">
-                      <div className="product-img-two">
-                        <Link to="/course-details">
-                          <img className="img-fluid" alt="" src={Courses4} />
-                        </Link>
-                        <div className="price-text">
-                          <h4>
-                            <span>HTML5</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-details-content">
-                        <div className="image-info">
-                          <img className="img-fluid" alt="" src={Avatar4} />
-                        </div>
-                        <div className="rating">
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              Build Responsive Real World Websites with HTML5
-                              and CSS3
-                            </Link>
-                          </h3>
-                          <p className="me-3">
-                            By
-                            <span className="text-danger ms-2">
-                              Cristofer Nolen
-                            </span>
-                          </p>
-                        </div>
-
-                        <div className="featured-info-time d-flex align-items-center">
-                          <div className="rating-img d-flex align-items-center">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <span>6hr 30min</span>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price">
-                              <h3>
-                                $300 <span>$99.00</span>
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/*Featured Courses  */}
-
-                {/*Featured Courses  */}
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6 col-sm-12 d-flex"
-                  data-aos="fade-down"
-                >
-                  <div className="featured-details-two">
-                    <div className="product-item-two">
-                      <div className="product-img-two">
-                        <Link to="/course-details">
-                          <img className="img-fluid" alt="" src={Courses5} />
-                        </Link>
-                        <div className="price-text">
-                          <h4>
-                            <span>C#</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-details-content">
-                        <div className="image-info">
-                          <img className="img-fluid" alt="" src={Avatar5} />
-                        </div>
-                        <div className="rating">
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              C# Developers Double Your Coding Speed with Visual
-                              Studio
-                            </Link>
-                          </h3>
-                          <p className="me-3">
-                            By
-                            <span className="text-danger ms-2">
-                              Cristofer Nolen
-                            </span>
-                          </p>
-                        </div>
-
-                        <div className="featured-info-time d-flex align-items-center">
-                          <div className="rating-img d-flex align-items-center">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <span>6hr 30min</span>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price">
-                              <h3>
-                                $300 <span>$99.00</span>
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/*Featured Courses  */}
-
-                {/*Featured Courses  */}
-
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6 col-sm-12 d-flex"
-                  data-aos="fade-down"
-                >
-                  <div className="featured-details-two">
-                    <div className="product-item-two">
-                      <div className="product-img-two">
-                        <Link to="/course-details">
-                          <img className="img-fluid" alt="" src={Courses6} />
-                        </Link>
-                        <div className="price-text">
-                          <h4>
-                            <span>UI/UX</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-details-content">
-                        <div className="image-info">
-                          <img className="img-fluid" alt="" src={Avatar6} />
-                        </div>
-                        <div className="rating">
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <i className="fas fa-star filled"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              Information About UI/UX Design Degree
-                            </Link>
-                          </h3>
-                          <p className="me-3">
-                            By
-                            <span className="text-danger ms-2">
-                              Cristofer Nolen
-                            </span>
-                          </p>
-                        </div>
-
-                        <div className="featured-info-time d-flex align-items-center">
-                          <div className="rating-img d-flex align-items-center">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <span>6hr 30min</span>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price">
-                              <h3>
-                                $300 <span>$99.00</span>
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/*Featured Courses  */}
-              </div>
-            </div>
             {/* View All Courses */}
             <div className="col-lg-12" data-aos="fade-up">
               <div className="more-details text-center">
                 <Link to="/course-details" className="discover-btn">
-                  View all Courses <i className="fas fa-arrow-right ms-2"></i>
+                  Get Started <i className="fas fa-arrow-right ms-2"></i>
                 </Link>
               </div>
             </div>
@@ -931,10 +524,13 @@ export const Home2 = () => {
                 <div className="growup-images-two">
                   <div className="growup-skills-img">
                     <img
-                      className=""
-                      src={Skill1}
-                      alt="image-banner"
+                      className="mw-100"
+                      src={Faang}
+                      alt='Faang'
                       title="image-banner"
+                      style={{
+                        borderRadius: '24px'
+                      }}
                     />
                   </div>
                 </div>
@@ -944,26 +540,36 @@ export const Home2 = () => {
                 className="col-xl-6 col-lg-6 col-md-7 col-12 wow fadeInLeft"
                 data-aos="fade-left"
               >
-                <div className="header-two-title">
-                  <p className="tagline">Growup Your Skill</p>
-                  <h2 className="text-navy">Learn Anything you want today</h2>
+                <div className="header-two-title px-2">
+                  <h2>INTERVIEW <span className="text-orange">A TO Z</span></h2>
                   <div className="header-two-text">
+                    <p>By the end of this program, you will be 100% confident that you will<br /> clear that interview and land your dream job!</p>
+                    <p>You will learn DSA, Resume/CV building, Interview communication<br /> skills, and much more…</p>
+                    <p>You’ll be completely equipped with all the information you need to<br /> get that dream job.</p>
                     <p className="mb-0">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Quam dolor fermentum massa viverra congue proin. A
-                      volutpat eget ultrices velit nunc orci. Commodo quis
-                      integer a felis ac vel mauris a morbi. Scelerisque nunc
-                      accumsan elementum aenean nisl lacinia. Congue enim
-                      aliquet ac vitae turpis. Neque, bibendum imperdiet sed
-                      ullamcorper morbi amet. Facilisi odio amet, nunc quam ut
-                      nulla purus adipiscing pharetra.
+                      Tier 3 college? No Coding background? Afraid of coding?
+                     <br/>– Doesn’t matter.
                     </p>
+                    <hr />
+                    <div className="d-flex justify-content-between">
+                      <ul className="px-0 orange-checkbox-list">
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>Personal Mentorship</li>
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>Complete Development</li>
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>Career Guidance</li>
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>Interview Skills</li>
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>AI Essentials</li>
+                        
+                      </ul>
+                      <ul className="px-0 orange-checkbox-list">
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>Student Community</li>
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>Expert Secrets</li>
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>Weekly accountability check</li>
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>Resume/CV building</li>
+                        <li><i className="fas fa-check-circle orange-checkmark"></i>4 Projects in CV</li>
+                        
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className="about-button more-details">
-                  <Link to="/register" className="discover-btn">
-                    Join Today <i className="fas fa-arrow-right ms-2"></i>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -1147,7 +753,7 @@ export const Home2 = () => {
                     <div className="col-md-4 col-sm-12" data-aos="fade-up">
                       <div className="course-count-two course-count">
                         <h4>
-                          <span className="counterUp text-orange"><CountUp start={0} end={253085} delay={0}/></span>
+                          <span className="counterUp text-orange"><CountUp start={0} end={253085} delay={0} /></span>
                         </h4>
                         <h5>Students Enrolled</h5>
                       </div>
@@ -1155,7 +761,7 @@ export const Home2 = () => {
                     <div className="col-md-4 col-sm-12" data-aos="fade-up">
                       <div className="course-count-two  course-count">
                         <h4>
-                          <span className="counterUp text-green"> <CountUp start={0} end={1205} delay={0.2} duration={2}/></span>
+                          <span className="counterUp text-green"> <CountUp start={0} end={1205} delay={0.2} duration={2} /></span>
                         </h4>
                         <h5>Total Courses</h5>
                       </div>
@@ -1163,7 +769,7 @@ export const Home2 = () => {
                     <div className="col-md-4 col-sm-12" data-aos="fade-up">
                       <div className="course-count-two  course-count">
                         <h4>
-                          <span className="counterUp text-blue"><CountUp start={0} end={253085} delay={0}/></span>
+                          <span className="counterUp text-blue"><CountUp start={0} end={253085} delay={0} /></span>
                         </h4>
                         <h5>Students Worldwide</h5>
                       </div>
@@ -1188,234 +794,6 @@ export const Home2 = () => {
                   aenean accumsan bibendum gravida maecenas augue elementum et
                   neque. Suspendisse imperdiet.
                 </p>
-              </div>
-            </div>
-            {/* Trending Course Group */}
-
-            <div className="trending-course-main">
-              <div className="row">
-                <div
-                  className="col-xl-6 col-lg-12 col-md-12"
-                  data-aos="fade-down"
-                >
-                  <div className="trending-courses-group">
-                    <div className="trending-courses-two">
-                      <div className="product-img course-column-img">
-                        <Link to="/instructor-profile">
-                          <img className="img-fluid" alt="" src={Skill01} />
-                        </Link>
-                        <div className="trending-price">
-                          <h4>
-                            <span>Node Js</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-content-column">
-                        <div className="trending-two-rating align-items-center">
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              Wordpress for Beginners - Master Wordpress Quickly
-                            </Link>
-                          </h3>
-                          <div className="time-hours-two">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <p>6hr 30min</p>
-                          </div>
-                        </div>
-
-                        <div className="d-flex align-items-center">
-                          <div className="rating-price-two d-flex align-items-center">
-                            <p>Cristofer Nolen</p>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price-two">
-                              <h3>$300</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className="col-xl-6 col-lg-12 col-md-12"
-                  data-aos="fade-down"
-                >
-                  <div className="trending-courses-group">
-                    <div className="trending-courses-two">
-                      <div className="product-img course-column-img">
-                        <Link to="/instructor-profile">
-                          <img className="img-fluid" alt="" src={Skill02} />
-                        </Link>
-                        <div className="trending-price">
-                          <h4>
-                            <span>C#</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-content-column">
-                        <div className="trending-two-rating align-items-center">
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              C# Developers Double Your Coding Speed with Visual
-                              Studio
-                            </Link>
-                          </h3>
-                          <div className="time-hours-two">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <p>6hr 30min</p>
-                          </div>
-                        </div>
-
-                        <div className="d-flex align-items-center">
-                          <div className="rating-price-two d-flex align-items-center">
-                            <p>Cristofer Nolen</p>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price-two">
-                              <h3>$300</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className="col-xl-6 col-lg-12 col-md-12"
-                  data-aos="fade-down"
-                >
-                  <div className="trending-courses-group">
-                    <div className="trending-courses-two">
-                      <div className="product-img course-column-img">
-                        <Link to="/instructor-profile">
-                          <img className="img-fluid" alt="" src={Skill03} />
-                        </Link>
-                        <div className="trending-price">
-                          <h4>
-                            <span>Angular</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-content-column">
-                        <div className="trending-two-rating align-items-center">
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              Learn Angular Fundamentals From beginning to
-                              advance lavel
-                            </Link>
-                          </h3>
-                          <div className="time-hours-two">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <p>6hr 30min</p>
-                          </div>
-                        </div>
-
-                        <div className="d-flex align-items-center">
-                          <div className="rating-price-two d-flex align-items-center">
-                            <p>Cristofer Nolen</p>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price-two">
-                              <h3>$300</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className="col-xl-6 col-lg-12 col-md-12"
-                  data-aos="fade-down"
-                >
-                  <div className="trending-courses-group">
-                    <div className="trending-courses-two">
-                      <div className="product-img course-column-img">
-                        <Link to="/instructor-profile">
-                          <img className="img-fluid" alt="" src={Skill04} />
-                        </Link>
-                        <div className="trending-price">
-                          <h4>
-                            <span>HTML5</span>
-                          </h4>
-                        </div>
-                      </div>
-                      <div className="course-content-column">
-                        <div className="trending-two-rating align-items-center">
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <i className="fas fa-star filled me-1"></i>
-                          <span className="ms-2">243 reviews</span>
-                        </div>
-
-                        <div className="name-text featured-info-two">
-                          <h3 className="title instructor-text">
-                            <Link to="/course-details">
-                              Build Responsive Real World Websites with HTML5
-                              and CSS3
-                            </Link>
-                          </h3>
-                          <div className="time-hours-two">
-                            <span>
-                              <i className="fa-regular fa-clock me-2"></i>
-                            </span>
-                            <p>6hr 30min</p>
-                          </div>
-                        </div>
-
-                        <div className="d-flex align-items-center">
-                          <div className="rating-price-two d-flex align-items-center">
-                            <p>Cristofer Nolen</p>
-                          </div>
-                          <div className="course-view d-inline-flex align-items-center">
-                            <div className="course-price-two">
-                              <h3>$300</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             {/* Trending Course Group */}
@@ -1446,7 +824,7 @@ export const Home2 = () => {
               <div className="col-lg-6 col-sm-12" data-aos="fade-up">
                 <div className="joing-group">
                   <div className="section-title">
-                    <h2>Want to share your knowledge? Join us a Mentor</h2>
+                    <h2>Preparation Essentials</h2>
                     <div className="joing-section-text">
                       <p className="mb-0">
                         High-definition video is video of higher resolution and

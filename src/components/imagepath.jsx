@@ -34,6 +34,7 @@ export { default as CategoryIcon2 } from "../assets/img/categories-icon-02.png";
 export { default as CategoryIcon3 } from "../assets/img/categories-icon-03.png";
 export { default as CategoryIcon4 } from "../assets/img/categories-icon-04.png";
 export { default as CategoryIcon5 } from "../assets/img/categories-icon-05.png";
+export {default as Faang} from "../assets/img/faang.png"
 
 export { default as HomeMain } from "../assets/img/bg/home-main.png";
 
