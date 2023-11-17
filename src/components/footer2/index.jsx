@@ -102,15 +102,15 @@ export const Footer2 = () => {
                     <h6>Location</h6>
                     <p>
                       {" "}
-                      3556 Beech Street, San Francisco,
+                     Lorem, ipsum dolor dolor.
                       <br /> California, CA 94108{" "}
                     </p>
                   </div>
 
                   <h6>Email Address</h6>
                   <p>
-                    <Link to="mailto:dreamslms@example.com">
-                      dreamslms@example.com
+                    <Link to="mailto:codeassassin@company.co">
+                      codeassassin@company.co
                     </Link>
                   </p>
 
@@ -131,7 +131,7 @@ export const Footer2 = () => {
               <div className="col-md-6 col-sm-12">
                 <div className="copyright-text">
                   <p className="mb-0">
-                    &copy; 2023 DreamsLMS. All rights reserved.
+                    &copy; 2023 Code Assassin. All rights reserved.
                   </p>
                 </div>
               </div>
