@@ -17,6 +17,17 @@ export { default as Lead4 } from "../assets/img/lead-04.png";
 export { default as Lead5 } from "../assets/img/lead-05.png";
 export { default as Lead6 } from "../assets/img/lead-06.png";
 
+// Placements
+export { default as google } from "../assets/img/placements/google-9542.png";
+export { default as microsoft } from "../assets/img/placements/microsoft-9541.png";
+export { default as amazon } from "../assets/img/placements/amazon-9538.png";
+export { default as adobe } from "../assets/img/placements/adobe-9540.png";
+export { default as walmart } from "../assets/img/placements/walmart-9539.png";
+export { default as city } from "../assets/img/placements/city-bank.png";
+export { default as flipkart } from "../assets/img/placements/flipkart-9536.png";
+export { default as amdocs } from "../assets/img/placements/amdocs.png";
+export { default as samsung } from "../assets/img/placements/samsung-9534.png";
+
 // Testimonials
 
 export { default as Qute } from "../assets/img/qute.png";
@@ -82,7 +93,8 @@ export { default as Avatar7 } from "../assets/img/profiles/avatar-07.jpg";
 export { default as Avatar8 } from "../assets/img/profiles/avatar-08.jpg";
 export { default as Avatar9 } from "../assets/img/profiles/avatar-09.jpg";
 export { default as Avatar10 } from "../assets/img/profiles/avatar-10.jpg";
-
+export {default as Curriculum} from "../assets/img/curriculum.svg";
+export {default as CurriculumTransparent} from "../assets/img/curriculum-transparent.png";
 export { default as HomeRightBottom } from "../assets/img/bg/home-right-bottom.png";
 
 export { default as Skill1 } from "../assets/img/skil-01.png";

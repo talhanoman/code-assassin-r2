@@ -59,7 +59,18 @@ import {
   SkillsIcon01,
   SkillsIcon02,
   SkillsIcon03,
-  Faang
+  Faang,
+  google,
+  microsoft,
+  amazon,
+  adobe,
+  walmart,
+  city,
+  flipkart,
+  amdocs,
+  samsung,
+  Curriculum,
+  CurriculumTransparent
 } from "../imagepath";
 import { LeadingCompanies } from "./slider/leadingCompanies";
 import AOS from "aos";
@@ -223,7 +234,7 @@ export const Home2 = () => {
                   </h2>
                 </div>
                 <div className="header-two-title">
-                  <ul class="px-0">
+                  <ul className="px-0">
                     <li><i className="fas fa-check-circle orange-checkmark"></i>Dominate EVERY interview with ease</li>
                     <li><i className="fas fa-check-circle orange-checkmark"></i>Know the HIDDEN secrets and shortcuts</li>
                     <li><i className="fas fa-check-circle orange-checkmark"></i>Step-by-Step plan for a GUARANTEED win !</li>
@@ -548,7 +559,7 @@ export const Home2 = () => {
                     <p>You’ll be completely equipped with all the information you need to<br /> get that dream job.</p>
                     <p className="mb-0">
                       Tier 3 college? No Coding background? Afraid of coding?
-                     <br/>– Doesn’t matter.
+                      <br />– Doesn’t matter.
                     </p>
                     <hr />
                     <div className="d-flex justify-content-between">
@@ -558,7 +569,7 @@ export const Home2 = () => {
                         <li><i className="fas fa-check-circle orange-checkmark"></i>Career Guidance</li>
                         <li><i className="fas fa-check-circle orange-checkmark"></i>Interview Skills</li>
                         <li><i className="fas fa-check-circle orange-checkmark"></i>AI Essentials</li>
-                        
+
                       </ul>
                       <ul className="px-0 orange-checkbox-list">
                         <li><i className="fas fa-check-circle orange-checkmark"></i>Student Community</li>
@@ -566,7 +577,7 @@ export const Home2 = () => {
                         <li><i className="fas fa-check-circle orange-checkmark"></i>Weekly accountability check</li>
                         <li><i className="fas fa-check-circle orange-checkmark"></i>Resume/CV building</li>
                         <li><i className="fas fa-check-circle orange-checkmark"></i>4 Projects in CV</li>
-                        
+
                       </ul>
                     </div>
                   </div>
@@ -579,10 +590,9 @@ export const Home2 = () => {
 
         {/* Master Skills */}
         <section className="master-skills-sec">
-          <div className="container">
+          <div className="container-fluid">
             <div className="header-two-title text-center" data-aos="fade-up">
-              <p className="tagline">What’s New</p>
-              <h2>Master the skills to drive your career</h2>
+              <h2>CURRICULUM <span className="text-orange">IN DETAIL</span></h2>
               <div className="header-two-text" data-aos="fade-up">
                 <p className="mb-0">
                   Get certified, master modern tech skills, and level up your
@@ -592,134 +602,60 @@ export const Home2 = () => {
                 </p>
               </div>
             </div>
-            {/* Course Info */}
-            <div className="course-info-two">
-              <div className="row align-items-center">
-                {/* Master Skills Content */}
-                <div
-                  className="col-lg-6 col-md-12 order-lg-0 order-md-0 order-0"
-                  data-aos="fade-up"
-                >
-                  <div className="join-title-one">
-                    <h2>Award Winning Course Management</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Quam dolor fermentum massa viverra congue proin. A
-                      volutpat eget ultrices velit nunc orci. Commodo quis
-                      integer a felis ac vel mauris a morbi. Scelerisque nunc
-                      accumsan elementum aenean nisl lacinia. Congue enim
-                      aliquet ac vitae turpis. Neque, bibendum imperdiet sed
-                      ullamcorper morbi amet. Facilisi odio amet, nunc quam ut
-                      nulla purus adipiscing pharetra.
-                    </p>
-                  </div>
+            <div className="row bg-gray">
+              <div className="col-md-6">
+                <div className="p-3">
+                  <img src={CurriculumTransparent} className="mw-100 w-full bg-contain" alt="" srcset="" />
                 </div>
-                {/* Master Skills Content */}
-
-                {/* Master Skills Image */}
-                <div
-                  className="col-lg-6 col-md-12 order-lg-1 order-md-1 order-1"
-                  data-aos="fade-up"
-                >
-                  <div className="join-mentor-img">
-                    <div className="winning-two-one">
-                      <img src={Skills01} alt="" className="img-fluid" />
+              </div>
+              <div className="col-md-6">
+                <div className="p-3">
+                  <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          Step 0 - Fundamentals of coding and Progress Tracking (4 weeks)
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                      </div>
                     </div>
-                    <div className="joing-icon-award">
-                      <img
-                        src={SkillsIcon01}
-                        alt=""
-                        className="joing-icon-one img-fluid"
-                      />
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                          Step 1 - DSA : Data Structures and Algorithms (16 weeks)
+                        </button>
+                      </h2>
+                      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                {/* Master Skills Image */}
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                          Step 2 - Development/Projects (4 weeks)
+                        </button>
+                      </h2>
+                      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                      </div>
+                    </div>
 
-                {/* Master Skills Content */}
-                <div
-                  className="col-xl-6 col-lg-7 col-md-12 order-lg-2 order-md-3 order-3 joinPos"
-                  data-aos="fade-up"
-                >
-                  <div className="join-mentor-img">
-                    <div className="winning-two-two">
-                      <img src={Skills02} alt="" className="img-fluid" />
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                          Step 3 - Getting placed (4 weeks)
+                        </button>
+                      </h2>
+                      <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                      </div>
                     </div>
                   </div>
-                  <div className="joing-icon-award">
-                    <img
-                      src={SkillsIcon02}
-                      alt=""
-                      className="joing-icon-two img-fluid"
-                    />
-                  </div>
                 </div>
-                {/* Master Skills Content */}
-
-                {/* Master Skills Image */}
-                <div
-                  className="col-xl-6 col-lg-5 col-md-12 order-lg-3 order-md-2 order-2"
-                  data-aos="fade-up"
-                >
-                  <div className="join-title-middle">
-                    <h2>Award Winning Course Management</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Quam dolor fermentum massa viverra congue proin. A
-                      volutpat eget ultrices velit nunc orci. Commodo quis
-                      integer a felis ac vel mauris a morbi. Scelerisque nunc
-                      accumsan elementum aenean nisl lacinia. Congue enim
-                      aliquet ac vitae turpis. Neque, bibendum imperdiet sed
-                      ullamcorper morbi amet. Facilisi odio amet, nunc quam ut
-                      nulla purus adipiscing pharetra.
-                    </p>
-                  </div>
-                </div>
-                {/* Master Skills Image */}
-
-                {/* Master Skills Content */}
-                <div
-                  className="col-xl-6 col-lg-7 col-md-12 order-lg-4 order-md-4 order-4"
-                  data-aos="fade-up"
-                >
-                  <div className="join-title-one">
-                    <h2>Certification for solid development of your Carrer</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Quam dolor fermentum massa viverra congue proin. A
-                      volutpat eget ultrices velit nunc orci. Commodo quis
-                      integer a felis ac vel mauris a morbi. Scelerisque nunc
-                      accumsan elementum aenean nisl lacinia. Congue enim
-                      aliquet ac vitae turpis. Neque, bibendum imperdiet sed
-                      ullamcorper morbi amet. Facilisi odio amet, nunc quam ut
-                      nulla purus adipiscing pharetra.
-                    </p>
-                  </div>
-                </div>
-                {/* Master Skills Content */}
-
-                {/* Master Skills Image */}
-                <div
-                  className="col-xl-6 col-lg-5 col-md-12 order-lg-5 order-md-5 order-5 joinPos"
-                  data-aos="fade-up"
-                >
-                  <div className="join-mentor-img mb-0">
-                    <div className="winning-two-three">
-                      <img src={Skills03} alt="" className="img-fluid" />
-                    </div>
-                  </div>
-                  <div className="joing-icon-award">
-                    <img
-                      src={SkillsIcon03}
-                      alt=""
-                      className="joing-icon-three img-fluid"
-                    />
-                  </div>
-                </div>
-                {/* Master Skills Image */}
               </div>
             </div>
-            {/* Course Info */}
           </div>
         </section>
         {/* Master Skills */}
@@ -727,9 +663,6 @@ export const Home2 = () => {
         {/* Testimonials */}
         <section className="testimonial-sec">
           <div className="container">
-            <div className="testimonial-two-img">
-              <img src={MapUser} alt="" className="img-fluid" />
-            </div>
             <div className="testimonial-subhead-two">
               <div
                 className="col-xl-8 col-lg-10 col-md-10 mx-auto"
@@ -738,78 +671,56 @@ export const Home2 = () => {
                 <div className="testimonial-inner">
                   <div className="header-two-title testimonial-head-two text-center">
                     <h2 data-aos="fade-down">
-                      Join over <span>5 Million</span> Students
+                      Our ACADEMICS ARE <span>PLACED</span> AT
                     </h2>
-                    <div className="header-two-text text-center">
-                      <p>
-                        Get certified, master modern tech skills, and level up
-                        your career — whether you’re starting out or a seasoned
-                        pro. 95% of eLearning learners report our hands-on
-                        content directly helped their careers.
-                      </p>
-                    </div>
                   </div>
-                  <div className="row text-center">
-                    <div className="col-md-4 col-sm-12" data-aos="fade-up">
-                      <div className="course-count-two course-count">
-                        <h4>
-                          <span className="counterUp text-orange"><CountUp start={0} end={253085} delay={0} /></span>
-                        </h4>
-                        <h5>Students Enrolled</h5>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-12" data-aos="fade-up">
-                      <div className="course-count-two  course-count">
-                        <h4>
-                          <span className="counterUp text-green"> <CountUp start={0} end={1205} delay={0.2} duration={2} /></span>
-                        </h4>
-                        <h5>Total Courses</h5>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-12" data-aos="fade-up">
-                      <div className="course-count-two  course-count">
-                        <h4>
-                          <span className="counterUp text-blue"><CountUp start={0} end={253085} delay={0} /></span>
-                        </h4>
-                        <h5>Students Worldwide</h5>
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>
+            <div className="testimonial-two-img">
+              {/* 1st Row */}
+              <div className="row align-items-center justify-items-center text-center">
+                <div className="col">
+                  <img src={google} height={'37.91px'} width={'101.63px'} alt="" />
+                </div>
+                <div className="col">
+                  <img src={microsoft} height={'28.58px'} width={'110.88px'} alt="" className="w-full" srcset="" />
+                </div>
+                <div className="col">
+                  <img src={amazon} alt="" className="w-full" height={'36.95px'} width={'101.63px'} srcset="" />
+
+                </div>
+                <div className="col">
+                  <img src={adobe} alt="" className="w-full" height={'28.27px'} width={'110.88px'} srcset="" />
+
+                </div>
+                <div className="col">
+                  <img src={walmart} alt="" className="w-full" height={'39.5px'} width={'92.39px'} srcset="" />
+
+                </div>
+              </div>
+              {/* Second Row Row */}
+              <div className="row align-items-center justify-items-center text-center mt-5">
+                <div className="col">
+                  <img src={city} alt="" className="w-full" height={'55.89px'} width={'68.44px'} srcset="" />
+                </div>
+                <div className="col">
+                  <img src={flipkart} alt="" className="w-full" height={'52px'} width={'118px'} srcset="" />
+                </div>
+                <div className="col">
+                  <img src={amdocs} alt="" className="w-full" height={'68.44px'} width={'55.89px'} srcset="" />
+                </div>
+                <div className="col">
+                  <img src={samsung} alt="" className="w-full" height={'23px'} width={'141.49px'} srcset="" />
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
         {/* Testimonials */}
 
-        {/* Trending Course */}
-        <section className="trending-course-sec">
-          <div className="container">
-            <div className="header-two-title text-center" data-aos="fade-up">
-              <p className="tagline">New Courses</p>
-              <h2>Trending Courses</h2>
-              <div className="header-two-text m-auto text-center d-block">
-                <p className="mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget
-                  aenean accumsan bibendum gravida maecenas augue elementum et
-                  neque. Suspendisse imperdiet.
-                </p>
-              </div>
-            </div>
-            {/* Trending Course Group */}
-
-            {/* View all  Courses */}
-            <div className="col-lg-12" data-aos="fade-up">
-              <div className="more-details text-center">
-                <Link to="/course-details" className="discover-btn">
-                  View all Courses <i className="fas fa-arrow-right ms-2"></i>
-                </Link>
-              </div>
-            </div>
-            {/* View all  Courses */}
-          </div>
-        </section>
-        {/* Trending Course */}
 
         {/* Share Knowledge */}
         <div className="knowledge-sec">
@@ -1286,128 +1197,6 @@ export const Home2 = () => {
         </section> */}
         <LeadingCompanies />
         {/* Leading Companies */}
-
-        {/* Latest Blog */}
-        <section className="latest-blog-sec">
-          <div className="container">
-            <div className="header-two-title text-center" data-aos="fade-up">
-              <p className="tagline">News & Events</p>
-              <h2>Our Latest Updates</h2>
-              <div
-                className="header-two-text text-center aos"
-                data-aos="fade-up"
-              >
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget
-                  aenean accumsan bibendum gravida maecenas augue elementum et
-                  neque. Suspendisse imperdiet.
-                </p>
-              </div>
-            </div>
-            <div className="award-winning-two">
-              <div className="row justify-content-center">
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6"
-                  data-aos="fade-down"
-                >
-                  <div className="event-blog-main">
-                    <div className="latest-blog-img">
-                      <Link to="/blog-list">
-                        <img className="img-fluid" alt="" src={Blog1} />
-                      </Link>
-                    </div>
-                    <div className="latest-blog-content">
-                      <div className="event-content-title">
-                        <div className="event-span">
-                          <span className="span-name">Marketing</span>
-                        </div>
-                        <h5>
-                          <Link to="/blog-list">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit.
-                          </Link>
-                        </h5>
-                        <div className="blog-student-count">
-                          <i className="fa-solid fa-calendar-days"></i>
-                          <span>Jun 15, 2022</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6"
-                  data-aos="fade-down"
-                >
-                  <div className="event-blog-main">
-                    <div className="latest-blog-img">
-                      <Link to="/blog-list">
-                        <img className="img-fluid" alt="" src={Blog2} />
-                      </Link>
-                    </div>
-                    <div className="latest-blog-content">
-                      <div className="event-content-title">
-                        <div className="event-span">
-                          <span className="span-name">Sales</span>
-                        </div>
-                        <h5>
-                          <Link to="/blog-list">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit.
-                          </Link>
-                        </h5>
-                        <div className="blog-student-count">
-                          <i className="fa-solid fa-calendar-days"></i>
-                          <span>Jun 15, 2022</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-xl-4 col-lg-6 col-md-6"
-                  data-aos="fade-down"
-                >
-                  <div className="event-blog-main">
-                    <div className="latest-blog-img">
-                      <Link to="/blog-list">
-                        <img className="img-fluid" alt="" src={Blog3} />
-                      </Link>
-                    </div>
-                    <div className="latest-blog-content">
-                      <div className="event-content-title">
-                        <div className="event-span">
-                          <span className="span-name">Marketing</span>
-                        </div>
-                        <h5>
-                          <Link to="/blog-list">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit.
-                          </Link>
-                        </h5>
-                        <div className="blog-student-count">
-                          <i className="fa-solid fa-calendar-days"></i>
-                          <span>Jun 15, 2022</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* /View all  Events */}
-            <div className="col-lg-12">
-              <div className="more-details text-center" data-aos="fade-down">
-                <Link to="/blog-grid" className="discover-btn">
-                  View all Events<i className="fas fa-arrow-right ms-2"></i>
-                </Link>
-              </div>
-            </div>
-            {/* /View all  Events */}
-          </div>
-        </section>
-        {/* Latest Blog */}
-
         {/* Footer */}
         <Footer2 />
         {/* Footer */}

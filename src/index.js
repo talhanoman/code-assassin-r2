@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./assets/css/bootstrap.min.css";
 //CSS & Bootstrap
 import "./assets/css/style.css";
-// import "./assets/js/bootstrap.min.js";
+import "./assets/js/bootstrap.bundle.min.js";
 import 'bootstrap/dist/css/bootstrap.min.css';    
 // import "./assets/css/select2.min.css";
 //Font Awesome
