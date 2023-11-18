@@ -611,45 +611,164 @@ export const Home2 = () => {
               <div className="col-md-6">
                 <div className="p-3">
                   <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
+                    <div class="accordion-item curriculum-item">
                       <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <button class="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                           Step 0 - Fundamentals of coding and Progress Tracking (4 weeks)
                         </button>
                       </h2>
                       <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                        <div class="accordion-body text-secondary">
+                          <p>You start your journey by creating a progress tracking sheet.<br />Every week on Monday there will be an accountability check for the goals set for the week.</p>
+                          <p>Based on your current knowledge of a programming language, you either:</p>
+                          <p>a&rang; Continue with Step 0 & Build command over programming fundamentals and then move to Step 1<br />or<br />b&rang; Directly start with Step 1, if you are already good with writing code in any one programming language.</p>
+                          <p><span className="text-dark">Topics that will be covered:</span>
+                            <ul>
+                              <li>Basics of coding</li>
+                              <li>If Else Conditions</li>
+                              <li>Loops in detail</li>
+                              <li>Crazy Pattern Problems</li>
+                              <li>Functions in detail</li>
+                              <li>All variety of Fundamental problems</li>
+                              <li>Time Complexity and Space Complexity</li>
+                              <li>1D Arrays/Vectors</li>
+                              <li>2D Array/Vectors</li>
+                              <li>All variety of Array/Vector problems</li>
+                            </ul>
+                          </p>
+                          <p className="text-dark">Result: After first 4 weeks, you will be confidently coding in any one programming language.</p>
+                        </div>
                       </div>
                     </div>
-                    <div class="accordion-item">
+                    <div class="accordion-item curriculum-item">
                       <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <button class="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                           Step 1 - DSA : Data Structures and Algorithms (16 weeks)
                         </button>
                       </h2>
                       <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                        <div class="accordion-body text-secondary">
+                          <p>Problem solving in DS & Algo is one of the most important topics to master for a software engineer fresher. That is why we spend the first 4 months of our program ensuring you have solid problem-solving skills in DS & Algo. High Quality live classes with Regular assignment problems, Doubt support, Mock interviews & Competitive contests make sure you develop strong problem solving muscles.</p>
+                          <p>
+                            <span className="text-dark">Topics that will be covered:</span>
+                            <ul>
+                              <li>Time and Space Complexity </li>
+                              <li>Arrays(DS) + 2 Pointer technique(Algo)</li>
+                              <li>Sliding window (Algo)</li>
+                              <li>Binary Search (Algo)</li>
+                              <li>Recursion (Algo+Technique)</li>
+                              <li>Strings (DS)</li>
+                              <li>Linked Lists (DS)</li>
+                              <li>Stacks and Queues (DS)</li>
+                              <li>Hashing Maps (DS)</li>
+                              <li>Trees (DS)</li>
+                              <li>Priority Queues (DS)</li>
+                              <li>Dynamic Programming (DS + Algos)</li>
+                              <li>Graphs (DS + Algos)</li>
+                              <li>Sorting (Algo)</li>
+                              <li>Classes Concept (DS)</li>
+                              <li>STL – Standard template library (Shortcuts)</li>
+                            </ul>
+                          </p>
+                          <p className="text-dark">Result: After these 4 months, you will be able to solve medium to hard-level problems of every topic of DS & Algo, with confidence.</p>
+                        </div>
                       </div>
                     </div>
-                    <div class="accordion-item">
+                    <div class="accordion-item curriculum-item">
                       <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        <button class="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                           Step 2 - Development/Projects (4 weeks)
                         </button>
                       </h2>
                       <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                        <div class="accordion-body text-secondary">
+                          <p>As a fresher, companies focus on your development skills and check what type of development experience you have.<br />Do you have what it takes to work in a team, collaborate using Git, understand new technology, and use it?</p>
+                          <p>In our curriculum, we do:<br />Full Stack Development = Frontend + Backend</p>
+                          <p><span className="text-dark">Topics that will be covered:</span>
+                            <ul>
+                              <li>Basics of internet</li>
+                              <li>HTML</li>
+                              <li>CSS</li>
+                              <li>JavaScript basics</li>
+                              <li>Functions and callbacks</li>
+                              <li>The world of DOM events</li>
+                              <li>Async Javascript</li>
+                              <li>Mastering Terminal</li>
+                              <li>React</li>
+                              <li>Building a server</li>
+                              <li>MVC</li>
+                              <li>Web Architecture</li>
+                              <li>Node.js</li>
+                              <li>Backend Architecture</li>
+                              <li>Building API</li>
+                              <li>Learning Express</li>
+                              <li>RESTful routing</li>
+                              <li>No-SQL Database</li>
+                              <li>SQL vs No-SQL</li>
+                              <li>Mongo DB design</li>
+                              <li>Database Queries</li>
+                              <li>Integrating everything together</li>
+                            </ul>
+                          </p>
+                          <p><span className="text-dark">Projects:</span>
+                            <ul>
+                              <li>Snake Game(front-end)</li>
+                              <li>Stone paper scissor Game(front-end)</li>
+                              <li>Live weather updates app (back-end)</li>
+                              <li>Full Stack Blog website with features of comments, sharing and post blog (complete CRUD)</li>
+                            </ul>
+                          </p>
+                          <p><span className="text-dark">Bonus Content:</span>
+                            <ul>
+                              <li>Introduction to Version Contuol with <span className="text-dark">Git and GitHub</span> </li>
+                              <li>Collaborative Development Practices using Git</li>
+                              <li>How to put your project on CV and host it on the internet 🌐.</li>
+                            </ul>
+                          </p>
+                        </div>
                       </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item curriculum-item">
                       <h2 class="accordion-header" id="flush-headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        <button class="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                           Step 3 - Getting placed (4 weeks)
                         </button>
                       </h2>
                       <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                        <div class="accordion-body text-secondary">
+                          <p>Once you become the super candidate, it is crucial we focus on getting you interview opportunities.
+                            <br />
+                            How to minimize chances of rejection once the interview is scheduled.</p>
+                          <p><span className="text-dark">Placement Support Includes:</span>
+                            <ul>
+                              <li>Resume Creation</li>
+                              <li>CV Reviews</li>
+                              <li>Mock Interviews</li>
+                              <li>Pre interview checklist + sessions (Dos and Don'ts)</li>
+                            </ul>
+                          </p>
+                          <p><span className="text-dark">Technical Interview Guidelines:</span>
+                            <ul>
+                              <li>How to prepare an impactful introduction</li>
+                              <li>Correct way to explain projects in a structured manner</li>
+                              <li>Mock Interviews</li>
+                              <li>Correct way to explain DSA problems step-by-step</li>
+                            </ul>
+                          </p>
+                          <p><span className="text-dark">How to handle HR round questions related to:</span>
+                            <ul>
+                              <li>Background</li>
+                              <li>Career Goals</li>
+                              <li>Teamwork and Leadership</li>
+                              <li>Situation-Based</li>
+                              <li>Strengths and Weaknesses</li>
+                              <li>Salary and Benefits</li>
+                              <li>Questions for the Interviewer</li>
+                            </ul>
+                          </p>
+                          <p className="text-dark">Result: You getting placed at one of the top tech product-based companies like Google, Microsoft, Amazon, Samsung etc.</p>
+                        </div>
                       </div>
                     </div>
                   </div>

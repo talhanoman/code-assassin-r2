@@ -6,12 +6,48 @@
     margin: 10px 0;
     font-weight: 400;
 }
-.orange-checkbox-list li > i
-{
+
+.orange-checkbox-list li>i {
     margin-right: 4px;
 }
 
 i.orange-checkmark {
     color: #FF602E;
     padding-left: 2px;
+}
+
+button.curriculum-collapse.collapsed {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.accordion-button.curriculum-collapse:not(.collapsed) {
+    color: #FF602E !important;
+    /* background-color: #ff5f2e1e; */
+    background-color: #FFFFFF;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+}
+
+.accordion-button.curriculum-collapse:not(.collapsed)::after {
+    background-image: url("https://img.icons8.com/ios-filled/50/000000/expand-arrow--v1.png");
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+.accordion-item.curriculum-item .accordion-collapse.collapse.collapsing > .accordion-body
+{
+    font-size: 0.85rem;
+}
+.accordion-item.curriculum-item .accordion-collapse.collapsing > .accordion-body
+{
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.accordion-item.curriculum-item .accordion-collapse.collapse > .accordion-body
+{
+    font-size: 0.85rem;
+    font-weight: 600;
 }
