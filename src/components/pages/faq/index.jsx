@@ -25,7 +25,7 @@ const Faq = () => {
   return (
     <>
       <div className="main-wrapper">
-        <div className="help-sec">
+        <div className="knowledge-sec pt-5">
           <div className="container">
             <div className="header-two-title text-center">
               <h2><span className="text-orange">BEST DECISON</span> OF MY CAREER?</h2>

@@ -96,6 +96,7 @@ export { default as Avatar10 } from "../assets/img/profiles/avatar-10.jpg";
 export {default as Curriculum} from "../assets/img/curriculum.svg";
 export {default as CurriculumTransparent} from "../assets/img/curriculum-transparent.png";
 export { default as HomeRightBottom } from "../assets/img/bg/home-right-bottom.png";
+export {default as PreparationIllustration} from "../assets/img/preparation-illustration.png"
 
 export { default as Skill1 } from "../assets/img/skil-01.png";
 

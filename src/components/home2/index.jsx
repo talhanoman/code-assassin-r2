@@ -4,15 +4,6 @@ import Select from "react-select";
 import { Footer2 } from "../footer2";
 import Header2 from "../header2/index-two";
 import {
-  Avatar1,
-  Avatar2,
-  Avatar3,
-  Avatar4,
-  Avatar5,
-  Avatar6,
-  Blog1,
-  Blog2,
-  Blog3,
   Category1,
   Category2,
   Category3,
@@ -25,40 +16,15 @@ import {
   CountOne,
   CountThree,
   CountTwo,
-  Courses1,
-  Courses2,
-  Courses3,
-  Courses4,
-  Courses5,
-  Courses6,
   HomeMain,
   HomeRightBottom,
-  Instructor01,
-  Instructor02,
-  Instructor03,
-  Instructor04,
   Joing01,
-  Joing02,
   Joing03,
   Joing04,
-  Joingus,
-  MapUser,
   Pattern1,
-  shape1,
   shape2,
   shape3,
   shape4,
-  Skill01,
-  Skill02,
-  Skill03,
-  Skill04,
-  Skill1,
-  Skills01,
-  Skills02,
-  Skills03,
-  SkillsIcon01,
-  SkillsIcon02,
-  SkillsIcon03,
   Faang,
   google,
   microsoft,
@@ -69,8 +35,8 @@ import {
   flipkart,
   amdocs,
   samsung,
-  Curriculum,
-  CurriculumTransparent
+  CurriculumTransparent,
+  PreparationIllustration
 } from "../imagepath";
 import { LeadingCompanies } from "./slider/leadingCompanies";
 import AOS from "aos";
@@ -846,11 +812,8 @@ export const Home2 = () => {
         <div className="knowledge-sec">
           <div className="container-fluid">
             <div className="row align-items-center">
-              <div className="col-lg-6 col-sm-12 ps-0">
-                <div
-                  className="featured-img-1"
-                  style={{ backgroundImage: "url(" + Joingus + ")" }}
-                ></div>
+              <div className="col-lg-6 col-sm-12 ps-0 text-center">
+                <img src={PreparationIllustration} alt="Illustration Preparation" />
               </div>
               <div className="col-lg-6 col-sm-12" data-aos="fade-up">
                 <div className="joing-group">
@@ -858,10 +821,7 @@ export const Home2 = () => {
                     <h2>Preparation Essentials</h2>
                     <div className="joing-section-text">
                       <p className="mb-0">
-                        High-definition video is video of higher resolution and
-                        quality than standard-definition. While there is no
-                        standardized meaning for high-definition, generally any
-                        video.
+                        Elevate your interview readiness with our comprehensive suite of resources. From an accountability check to ensure you stay on track, handpicked questions tailored to your field, to simulated mock interviews – we've got you covered for a confident and successful interview experience.
                       </p>
                     </div>
                   </div>
@@ -874,39 +834,13 @@ export const Home2 = () => {
                           </span>
                           <div className="joing-content">
                             <h5 className="joing-title">
-                              Stay motivated with engaging instructors
+                              Handpicked Questions
                             </h5>
                             <div className="joing-para">
                               <p>
-                                High-definition video is video of higher
-                                resolution and quality than standard-definition.
+                                We have the best-handpicked questions you need to practice.
                               </p>
-                              <p>
-                                While there is no standardized meaning for
-                                high-definition, generally any video.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li data-aos="fade-bottom">
-                        <div className="joing-header">
-                          <span className="joing-icon bg-yellow">
-                            <img src={Joing02} alt="" className="img-fluid" />
-                          </span>
-                          <div className="joing-content">
-                            <h5 className="joing-title">
-                              Keep up with in the latest in cloud
-                            </h5>
-                            <div className="joing-para">
-                              <p>
-                                High-definition video is video of higher
-                                resolution and quality than standard-definition.
-                              </p>
-                              <p>
-                                While there is no standardized meaning for
-                                high-definition, generally any video.
-                              </p>
+
                             </div>
                           </div>
                         </div>
@@ -918,16 +852,11 @@ export const Home2 = () => {
                           </span>
                           <div className="joing-content aos">
                             <h5 className="joing-title">
-                              Build skills your way, from labs to courses
+                              Accountability Check
                             </h5>
                             <div className="joing-para">
                               <p>
-                                High-definition video is video of higher
-                                resolution and quality than standard-definition.
-                              </p>
-                              <p>
-                                While there is no standardized meaning for
-                                high-definition, generally any video.
+                                We will analyze your progress each week.
                               </p>
                             </div>
                           </div>
@@ -940,17 +869,13 @@ export const Home2 = () => {
                           </span>
                           <div className="joing-content aos">
                             <h5 className="joing-title">
-                              Get certified with 100+ certification courses
+                              Mock Interviews
                             </h5>
                             <div className="joing-para">
                               <p>
-                                High-definition video is video of higher
-                                resolution and quality than standard-definition.
+                                Monthly mock interviews scheduled for practice.
                               </p>
-                              <p>
-                                While there is no standardized meaning for
-                                high-definition, generally any video.
-                              </p>
+
                             </div>
                           </div>
                         </div>
@@ -962,7 +887,7 @@ export const Home2 = () => {
             </div>
           </div>
         </div>
-        <Faq/>
+        <Faq />
         {/* Share Knowledge */}
 
         <LeadingCompanies />
