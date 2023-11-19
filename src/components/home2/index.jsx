@@ -76,6 +76,7 @@ import { LeadingCompanies } from "./slider/leadingCompanies";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import CountUp from "react-countup";
+import Faq from "../pages/faq";
 
 const options = [
   { label: "Select Category", value: "Category" },
@@ -961,6 +962,7 @@ export const Home2 = () => {
             </div>
           </div>
         </div>
+        <Faq/>
         {/* Share Knowledge */}
 
         <LeadingCompanies />
