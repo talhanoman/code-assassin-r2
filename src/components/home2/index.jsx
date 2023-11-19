@@ -205,7 +205,7 @@ export const Home2 = () => {
             </div>
             {/* Shapes  */}
             <div className="shapes">
-              <img className="shapes-one" src={shape1} alt="" />
+              {/* <img className="shapes-one" src={shape1} alt="" /> */}
               <img className="shapes-two" src={shape2} alt="" />
               <img className="shapes-middle" src={shape3} alt="" />
               <img
@@ -610,15 +610,15 @@ export const Home2 = () => {
               </div>
               <div className="col-md-6">
                 <div className="p-3">
-                  <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item curriculum-item">
-                      <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <div className="accordion accordion-flush" id="accordionFlushExample">
+                    <div className="accordion-item curriculum-item">
+                      <h2 className="accordion-header" id="flush-headingOne">
+                        <button className="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                           Step 0 - Fundamentals of coding and Progress Tracking (4 weeks)
                         </button>
                       </h2>
-                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body text-secondary">
+                      <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div className="accordion-body text-secondary">
                           <p>You start your journey by creating a progress tracking sheet.<br />Every week on Monday there will be an accountability check for the goals set for the week.</p>
                           <p>Based on your current knowledge of a programming language, you either:</p>
                           <p>a&rang; Continue with Step 0 & Build command over programming fundamentals and then move to Step 1<br />or<br />b&rang; Directly start with Step 1, if you are already good with writing code in any one programming language.</p>
@@ -640,14 +640,14 @@ export const Home2 = () => {
                         </div>
                       </div>
                     </div>
-                    <div class="accordion-item curriculum-item">
-                      <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <div className="accordion-item curriculum-item">
+                      <h2 className="accordion-header" id="flush-headingTwo">
+                        <button className="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                           Step 1 - DSA : Data Structures and Algorithms (16 weeks)
                         </button>
                       </h2>
-                      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body text-secondary">
+                      <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div className="accordion-body text-secondary">
                           <p>Problem solving in DS & Algo is one of the most important topics to master for a software engineer fresher. That is why we spend the first 4 months of our program ensuring you have solid problem-solving skills in DS & Algo. High Quality live classes with Regular assignment problems, Doubt support, Mock interviews & Competitive contests make sure you develop strong problem solving muscles.</p>
                           <p>
                             <span className="text-dark">Topics that will be covered:</span>
@@ -674,14 +674,14 @@ export const Home2 = () => {
                         </div>
                       </div>
                     </div>
-                    <div class="accordion-item curriculum-item">
-                      <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    <div className="accordion-item curriculum-item">
+                      <h2 className="accordion-header" id="flush-headingThree">
+                        <button className="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                           Step 2 - Development/Projects (4 weeks)
                         </button>
                       </h2>
-                      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body text-secondary">
+                      <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div className="accordion-body text-secondary">
                           <p>As a fresher, companies focus on your development skills and check what type of development experience you have.<br />Do you have what it takes to work in a team, collaborate using Git, understand new technology, and use it?</p>
                           <p>In our curriculum, we do:<br />Full Stack Development = Frontend + Backend</p>
                           <p><span className="text-dark">Topics that will be covered:</span>
@@ -729,14 +729,14 @@ export const Home2 = () => {
                       </div>
                     </div>
 
-                    <div class="accordion-item curriculum-item">
-                      <h2 class="accordion-header" id="flush-headingFour">
-                        <button class="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                    <div className="accordion-item curriculum-item">
+                      <h2 className="accordion-header" id="flush-headingFour">
+                        <button className="accordion-button collapsed curriculum-collapse text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                           Step 3 - Getting placed (4 weeks)
                         </button>
                       </h2>
-                      <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body text-secondary">
+                      <div id="flush-collapseFour" className="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                        <div className="accordion-body text-secondary">
                           <p>Once you become the super candidate, it is crucial we focus on getting you interview opportunities.
                             <br />
                             How to minimize chances of rejection once the interview is scheduled.</p>
@@ -963,357 +963,6 @@ export const Home2 = () => {
         </div>
         {/* Share Knowledge */}
 
-        {/* Feature Instructors */}
-        <div className="feature-instructors-sec">
-          <div className="container">
-            <div className="header-two-title text-center" data-aos="fade-up">
-              <p className="tagline">New Courses</p>
-              <h2>Featured Instructor</h2>
-              <div className="header-two-text aos" data-aos="fade-up">
-                <p className="mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget
-                  aenean accumsan bibendum gravida maecenas augue elementum et
-                  neque. Suspendisse imperdiet.
-                </p>
-              </div>
-            </div>
-            {/* Featured Instructor */}
-            <div className="featured-instructor-two">
-              <div className="row">
-                <div
-                  className="col-xl-3 col-lg-6 col-md-6 col-sm-12"
-                  data-aos="fade-up"
-                >
-                  <div className="instructors-widget">
-                    <div className="instructors-img">
-                      <Link to="/instructor-list">
-                        <img className="img-fluid" alt="" src={Instructor01} />
-                      </Link>
-                      <div className="featured-border">
-                        <div className="featured-img ">
-                          <img src={Category1} alt="" className="img-fluid" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="course-details-two">
-                      <div className="instructors-content text-center">
-                        <h5>
-                          <Link to="/instructor-profile">
-                            Julian Adrose
-                          </Link>
-                        </h5>
-                        <p>Angular Expert</p>
-                      </div>
-                      <div className="course-info"></div>
-                      <div className="student-count d-flex justify-content-center">
-                        <i className="fa-solid fa-user-group"></i>
-                        <span>50 Students</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-xl-3 col-lg-6 col-md-6 col-sm-12"
-                  data-aos="fade-up"
-                >
-                  <div className="instructors-widget">
-                    <div className="instructors-img">
-                      <Link to="/instructor-list">
-                        <img className="img-fluid" alt="" src={Instructor02} />
-                      </Link>
-                      <div className="featured-border">
-                        <div className="featured-img ">
-                          <img src={Category2} alt="" className="img-fluid" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="course-details-two">
-                      <div className="instructors-content text-center">
-                        <h5>
-                          <Link to="/instructor-profile">Gallegos</Link>
-                        </h5>
-                        <p>Docker</p>
-                      </div>
-                      <div className="course-info"></div>
-                      <div className="student-count d-flex justify-content-center">
-                        <i className="fa-solid fa-user-group"></i>
-                        <span>70 Students</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-xl-3 col-lg-6 col-md-6 col-sm-12"
-                  data-aos="fade-up"
-                >
-                  <div className="instructors-widget">
-                    <div className="instructors-img">
-                      <Link to="/instructor-list">
-                        <img className="img-fluid" alt="" src={Instructor03} />
-                      </Link>
-                      <div className="featured-border">
-                        <div className="featured-img ">
-                          <img src={Category3} alt="" className="img-fluid" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="course-details-two">
-                      <div className="instructors-content text-center">
-                        <h5>
-                          <Link to="/instructor-profile">Kristi</Link>
-                        </h5>
-                        <p>Node Js</p>
-                      </div>
-                      <div className="course-info"></div>
-                      <div className="student-count d-flex justify-content-center">
-                        <i className="fa-solid fa-user-group"></i>
-                        <span>60 Students</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-xl-3 col-lg-6 col-md-6 col-sm-12"
-                  data-aos="fade-up"
-                >
-                  <div className="instructors-widget">
-                    <div className="instructors-img">
-                      <Link to="/instructor-list">
-                        <img className="img-fluid" alt="" src={Instructor04} />
-                      </Link>
-                      <div className="featured-border">
-                        <div className="featured-img ">
-                          <img src={Category4} alt="" className="img-fluid" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="course-details-two">
-                      <div className="instructors-content text-center">
-                        <h5>
-                          <Link to="/instructor-profile">Pinero</Link>
-                        </h5>
-                        <p>Python</p>
-                      </div>
-                      <div className="course-info"></div>
-                      <div className="student-count d-flex justify-content-center">
-                        <i className="fa-solid fa-user-group"></i>
-                        <span>80 Students</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Featured Instructor */}
-
-            {/* /View all Category */}
-            <div className="col-lg-12">
-              <div className="more-details text-center" data-aos="fade-up">
-                <Link
-                  to="/instructor-list"
-                  className="discover-btn discover-btn"
-                >
-                  View all Instructors{" "}
-                  <i className="fas fa-arrow-right ms-2"></i>
-                </Link>
-              </div>
-            </div>
-            {/* /View all Category */}
-          </div>
-        </div>
-        {/* Feature Instructors */}
-
-        {/* Leading Companies */}
-        {/* <section className="real-reviews-sec">
-          <div className="container">
-            <div className="header-two-title text-center" data-aos="fade-up">
-              <p className="tagline">Check out these real reviews</p>
-              <h2>Users-love-us Don't take it from us</h2>
-              <div className="header-two-text text-center m-auto">
-                <p className="mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget
-                  aenean accumsan bibendum gravida maecenas augue elementum et
-                  neque. Suspendisse imperdiet.
-                </p>
-              </div>
-            </div>
-            <div className="real-reviews-group">
-              <div className="row align-items-center">
-                <div
-                  className="col-lg-6 col-md-12 col-sm-12"
-                  data-aos="fade-up"
-                >
-                  <div className="reviews-img">
-                    <img src={ReviewsImgTwo} alt="" className="img-fluid" />
-                  </div>
-                </div>
-                <div
-                  className="col-lg-6 col-md-12 col-md-12"
-                  data-aos="fade-up"
-                >
-                  <div className="owl-carousel real-reviews owl-theme">
-                    <div className="item">
-                      <div className="real-reviews-grid">
-                        <div className="review-content">
-                          <h3>Helps us to improve our productivity</h3>
-                          <p>
-                            High-definition video is video of higher resolution
-                            and quality than standard-definition. While there is
-                            no standardized meaning for high-definition,
-                            generally any video.High-definition video is video
-                            of higher resolution and quality than
-                            standard-definition. While there is no standardized
-                            meaning for high-definition, generally any
-                            video.High-definition video is video of higher
-                            resolution and quality than standard-definition.
-                            While there is no standardized meaning for
-                            high-definition, generally any video.High-definition
-                            video is video of higher resolution and quality than
-                            standard-definition. While there is no standardized
-                            meaning for high-definition, generally any video.
-                          </p>
-                        </div>
-                        <div className="review-top">
-                          <div className="review-info">
-                            <h3 data-aos="fade-up">William George</h3>
-                            <h5 data-aos="fade-up">CEO & Chairman</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="item">
-                      <div className="real-reviews-grid">
-                        <div className="review-content">
-                          <h3>Helps us to improve our productivity</h3>
-                          <p>
-                            High-definition video is video of higher resolution
-                            and quality than standard-definition. While there is
-                            no standardized meaning for high-definition,
-                            generally any video.High-definition video is video
-                            of higher resolution and quality than
-                            standard-definition. While there is no standardized
-                            meaning for high-definition, generally any
-                            video.High-definition video is video of higher
-                            resolution and quality than standard-definition.
-                            While there is no standardized meaning for
-                            high-definition, generally any video.High-definition
-                            video is video of higher resolution and quality than
-                            standard-definition. While there is no standardized
-                            meaning for high-definition, generally any video.
-                          </p>
-                        </div>
-                        <div className="review-top">
-                          <div className="review-info">
-                            <h3 data-aos="fade-up">Julian Adrose</h3>
-                            <h5 data-aos="fade-up">Manager</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="item">
-                      <div className="real-reviews-grid">
-                        <div className="review-content">
-                          <h3>Helps us to improve our productivity</h3>
-                          <p>
-                            High-definition video is video of higher resolution
-                            and quality than standard-definition. While there is
-                            no standardized meaning for high-definition,
-                            generally any video.High-definition video is video
-                            of higher resolution and quality than
-                            standard-definition. While there is no standardized
-                            meaning for high-definition, generally any
-                            video.High-definition video is video of higher
-                            resolution and quality than standard-definition.
-                            While there is no standardized meaning for
-                            high-definition, generally any video.High-definition
-                            video is video of higher resolution and quality than
-                            standard-definition. While there is no standardized
-                            meaning for high-definition, generally any video.
-                          </p>
-                        </div>
-                        <div className="review-top">
-                          <div className="review-info">
-                            <h3>Gallegos</h3>
-                            <h5>CEO & MD</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="item">
-                      <div className="real-reviews-grid">
-                        <div className="review-content">
-                          <h3>Helps us to improve our productivity</h3>
-                          <p>
-                            High-definition video is video of higher resolution
-                            and quality than standard-definition. While there is
-                            no standardized meaning for high-definition,
-                            generally any video.High-definition video is video
-                            of higher resolution and quality than
-                            standard-definition. While there is no standardized
-                            meaning for high-definition, generally any
-                            video.High-definition video is video of higher
-                            resolution and quality than standard-definition.
-                            While there is no standardized meaning for
-                            high-definition, generally any video.High-definition
-                            video is video of higher resolution and quality than
-                            standard-definition. While there is no standardized
-                            meaning for high-definition, generally any video.
-                          </p>
-                        </div>
-                        <div className="review-top">
-                          <div className="review-info">
-                            <h3>William George</h3>
-                            <h5>CEO & Chairman</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-12 d-flex justify-content-between align-items-center">
-                      <div className="owl-nav slide-nav-8 nav-control"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="client-two-carousel">
-              <div className="lead-group-slider owl-carousel owl-theme">
-                <div className="item">
-                  <div className="lead-img">
-                    <img className="img-fluid" alt="" src={Lead1} />
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="lead-img">
-                    <img className="img-fluid" alt="" src={Lead2} />
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="lead-img">
-                    <img className="img-fluid" alt="" src={Lead3} />
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="lead-img">
-                    <img className="img-fluid" alt="" src={Lead4} />
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="lead-img">
-                    <img className="img-fluid" alt="" src={Lead5} />
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="lead-img">
-                    <img className="img-fluid" alt="" src={Lead6} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
         <LeadingCompanies />
         {/* Leading Companies */}
         {/* Footer */}

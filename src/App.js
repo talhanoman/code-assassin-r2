@@ -92,6 +92,7 @@ import PurchaseHistory from "./components/student/purchaseHistory";
 import ViewInvoice from "./components/student/invoice/viewInvoice";
 import NewPassword from "./components/pages/newPassword";
 import AppGithub from "./sample";
+import Home from "./components/home";
 
  const App = () => {
   return (
