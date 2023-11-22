@@ -30,6 +30,7 @@
     "react-tag-input-component": "^2.0.2",
     "slick-carousel": "^1.8.1",
     "swiper": "^9.1.1",
+    "universal-cookie": "^6.1.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.2"
   },

@@ -7,6 +7,7 @@ import { LoginImg, logo } from "../../imagepath";
 import { useState } from "react";
 import { HandleRegistration } from "../../../api/post";
 // import "../../../assets/js/jquery-3.6.0.min.js"
+import { useNavigate } from "react-router-dom";
 
 const hasNumber = (value) => {
   return new RegExp(/[0-9]/).test(value);
@@ -39,6 +40,8 @@ const Register = () => {
   const [validationError, setValidationError] = useState('');
   const [strength, setStrength] = useState("");
   // const [pwdError, setPwdError] = useState("Use 8 or more characters with a mix of letters, numbers & symbols.")
+
+  const navigate = useNavigate()
 
   const onEyeClick = () => {
     seteye(!eye)
@@ -147,21 +150,31 @@ const Register = () => {
   }, [password])
 
 
-  const handleRegistration = (e)=>{
+  const handleRegistration = async (e)=>{
     e.preventDefault();
     
     if(password === confirmPassword)
     {
-      HandleRegistration({
-        firstName,
-        lastName,
-        username,
-        email,
-        password,
-        confirmPassword
+      let response = await HandleRegistration({
+        FirstName: firstName,
+        LastName: lastName,
+        Username: username,
+        Email: email,
+        Password: password
       })
+
+      if (response.status === 200)
+      {
+        alert(response.message)
+        navigate('/login')
+      }
+      else
+      {
+        alert(response.message)
+      }
     }
   }
+
   return (
     <>
       <div className="main-wrapper log-wrap">

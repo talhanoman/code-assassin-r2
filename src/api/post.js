@@ -1,45 +1,41 @@
-const HOST = 'https://api.example.com/endpoint'
+const localhost = true
+const HOST = localhost ? 'http://localhost:5000/post' : 'https://api.example.com/endpoint'
+const STUDENT_AUTH = localhost ? 'http://localhost:5000/authenticate/student' : 'https://api.example.com/endpoint'
 
 // PASCAL CASING FOR API FUNCTIONS
 
-export const HandleRegistration = async (data) => {
+export const HandleLogin = async (data) => {
     try {
-        const response = await fetch(HOST, {
+        const response = await fetch(STUDENT_AUTH, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // Add any additional headers if needed
             },
             body: JSON.stringify(data),
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
         const responseData = await response.json();
-        console.log('Response Data:', responseData);
+        return responseData
+
     } catch (error) {
         console.error('Error during POST request:', error.message);
     }
 };
 
 
-export const HandleLogin = async (data) => {
+export const HandleRegistration = async (data) => {
     try {
-        const response = await fetch(HOST, {
+        const response = await fetch(HOST + '/student/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // Add any additional headers if needed
             },
             body: JSON.stringify(data),
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
         const responseData = await response.json();
-        console.log('Response Data:', responseData);
+        return responseData
+        
     } catch (error) {
         console.error('Error during POST request:', error.message);
     }

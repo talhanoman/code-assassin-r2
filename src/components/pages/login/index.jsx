@@ -7,12 +7,18 @@ import FeatherIcon from "feather-icons-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { HandleLogin } from "../../../api/post";
+import { useNavigate } from "react-router-dom";
+import Cookies  from 'universal-cookie'
 
 const Login = () => {
+
+  const cookie = new Cookies()
 
   const [passwordType, setPasswordType] = useState("password");
   const [username, setUsername] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
+
+  const navigate = useNavigate()
 
   
   const handlePasswordChange =(evnt)=>{
@@ -55,14 +61,26 @@ const Login = () => {
     };
 
 
-    const handleLogin = (e)=>{
+    const handleLogin = async (e)=>{
       e.preventDefault();
       let userData={
-        username : username,
-        password : passwordInput
+        Email : username,
+        Password : passwordInput
       }
-      HandleLogin(userData)
+
+      let response = await HandleLogin(userData)
+
+      if (response.status === 200)
+      {
+        cookie.set('token', response.data)
+        navigate('/deposit-student-dashboard')
+      }
+      else
+      {
+        alert(response.message)
+      }
     }
+
   return (
     <>
       <div className="main-wrapper log-wrap">
@@ -188,14 +206,13 @@ const Login = () => {
                       </label>
                     </div>
                     <div className="d-grid">
-                      <Link
-
-                        to="/deposit-student-dashboard"
+                      <button
+                        // to="/deposit-student-dashboard"
                         className="btn btn-start"
                         type="submit"
                       >
                         Sign In
-                      </Link>
+                      </button>
                     </div>
                   </form>
                 </div>
