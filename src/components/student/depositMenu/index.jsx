@@ -15,24 +15,33 @@ export default function DepositMenu({ activeMenu }) {
           </Link>
         </li>
         <li>
-          <Link to="/course-student">Courses</Link>
-        </li>
-        <li>
-          <Link to="/course-wishlist">Wishlists</Link>
-        </li>
-        <li>
-          <Link to="/course-message">Messages</Link>
-        </li>
-        <li>
-          <Link to="/purchase-history">Purchase history</Link>
+          <Link
+            className={activeMenu === "Courses" ? "active" : ""}
+            to="/course-student"
+          >Enrolled Courses</Link>
         </li>
         <li>
           <Link
-            className={activeMenu === "Deposit" ? "active" : ""}
-            to="/deposit-student"
+            className={activeMenu === "Wishlists" ? "active" : ""}
+            to="/course-wishlist"
           >
-            Deposit
-          </Link>
+            Wishlists</Link>
+        </li>
+        <li>
+          <Link
+            className={activeMenu === "Reviews" ? "active" : ""}
+            to="/student-reviews"
+          >
+            Reviews</Link>
+        </li>
+        <li>
+          <Link to="#,">My Quiz Attempts</Link>
+        </li>
+        <li>
+          <Link
+            className={activeMenu === "Purchase History" ? "active" : ""}
+            to="/purchase-history"
+          >Purchase history</Link>
         </li>
         <li className="mb-0">
           <Link

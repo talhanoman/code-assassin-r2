@@ -13,7 +13,8 @@ import {
   User3,
 } from "../../imagepath";
 import { Link } from "react-router-dom";
-import CourseMenu from "../courseMenu";
+// import CourseMenu from "../courseMenu";
+import DepositMenu from "../depositMenu";
 
 export default function PurchaseHistory() {
   return (
@@ -45,7 +46,7 @@ export default function PurchaseHistory() {
               </div>
             </div>
           </div>
-          <CourseMenu activeMenu={"Purchase"} />
+          <DepositMenu activeMenu={"Purchase History"} />
         </div>
       </div>
 

@@ -14,6 +14,7 @@ import CourseMenu from "../courseMenu";
 import StudentHeader from "../header";
 import Select from "react-select";
 import { Search } from "react-feather";
+import DepositMenu from "../depositMenu";
 
 export default function CourseWishlist() {
   const [setValue] = useState(null);
@@ -93,7 +94,8 @@ export default function CourseWishlist() {
               </div>
             </div>
           </div>
-          <CourseMenu activeMenu={"Wishlists"} />
+          {/* <CourseMenu activeMenu={"Wishlists"} /> */}
+          <DepositMenu activeMenu={"Wishlists"} />
         </div>
       </div>
 

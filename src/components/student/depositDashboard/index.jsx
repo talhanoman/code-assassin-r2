@@ -29,8 +29,8 @@ export default function StudentDepositDashboard() {
                 </div>
               </div>
               <div className="course-share ">
-                <Link to="#;" className="btn btn-primary">
-                  Account Settings
+                <Link to="/setting-edit-profile" className="btn btn-primary">
+                  My Profile
                 </Link>
               </div>
             </div>

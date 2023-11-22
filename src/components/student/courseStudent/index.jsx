@@ -16,6 +16,7 @@ import StudentHeader from "../header";
 import CourseMenu from "../courseMenu";
 import { Search } from "react-feather";
 import Select from "react-select";
+import DepositMenu from "../depositMenu";
 
 export default function CourseStudent() {
   const [setValue] = useState(null);
@@ -95,7 +96,7 @@ export default function CourseStudent() {
               </div>
             </div>
           </div>
-          <CourseMenu activeMenu={"Courses"} />
+          <DepositMenu activeMenu={'Courses'} />          
         </div>
       </div>
 

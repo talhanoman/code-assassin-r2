@@ -93,6 +93,7 @@ import ViewInvoice from "./components/student/invoice/viewInvoice";
 import NewPassword from "./components/pages/newPassword";
 import AppGithub from "./sample";
 import Home from "./components/home";
+import StudentReviews from "./components/student/reviews";
 
  const App = () => {
   return (
@@ -208,6 +209,8 @@ import Home from "./components/home";
 
       {/*Student Routes  */}
       <Route path="/setting-edit-profile" element={<StudentEditProfile />} />
+      <Route path="/student-reviews" element={<StudentReviews />} />
+
       <Route
         path="/github"
         element={<AppGithub />}
