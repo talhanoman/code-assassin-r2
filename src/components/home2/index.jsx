@@ -120,42 +120,7 @@ export const Home2 = () => {
                   <div className="home-slide-text ">
                     {/* <h5>The Leader in Online Learning</h5> */}
                     <h1>BE A SUPER CODER!</h1>
-                  </div>
-                  <div className="banner-content">
-                    <form
-                      className="form"
-                      name="store"
-                      id="store"
-                      method="post"
-                      action="course-list"
-                    >
-                      <div className="form-inner">
-                        <div className="input-group">
-                          <span className="drop-detail">
-                            <Select
-                              options={options}
-                              value={options.value}
-                              defaultValue={options[0]}
-                              placeholder="Select Category"
-                              onChange={setValue}
-                              styles={style}
-                            ></Select>
-                          </span>
-                          <input
-                            type="email"
-                            className="form-control"
-                            placeholder="Search School, Online eductional centers, etc"
-                          />
-                          <button
-                            className="btn sub-btn"
-                            type="submit"
-                          >
-                            Search
-                          </button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                  </div>                  
                   <div className="trust-user-two">
                     <p>Trusted by over 15K Users worldwide since 2022</p>
                     <div className="rating-two">

@@ -22,23 +22,6 @@ export default function DepositMenu({ activeMenu }) {
         </li>
         <li>
           <Link
-            className={activeMenu === "Wishlists" ? "active" : ""}
-            to="/course-wishlist"
-          >
-            Wishlists</Link>
-        </li>
-        <li>
-          <Link
-            className={activeMenu === "Reviews" ? "active" : ""}
-            to="/student-reviews"
-          >
-            Reviews</Link>
-        </li>
-        <li>
-          <Link to="#,">My Quiz Attempts</Link>
-        </li>
-        <li>
-          <Link
             className={activeMenu === "Purchase History" ? "active" : ""}
             to="/purchase-history"
           >Purchase history</Link>
@@ -49,6 +32,14 @@ export default function DepositMenu({ activeMenu }) {
             to="/transactions-student"
           >
             Transactions
+          </Link>
+        </li>
+        <li className="mb-0">
+          <Link
+            className={activeMenu === "Transactions" ? "active" : ""}
+            to="/transactions-student"
+          >
+            Queston & Answer
           </Link>
         </li>
       </ul>
