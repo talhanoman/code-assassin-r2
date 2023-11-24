@@ -34,14 +34,6 @@ export default function DepositMenu({ activeMenu }) {
             Transactions
           </Link>
         </li>
-        <li className="mb-0">
-          <Link
-            className={activeMenu === "Transactions" ? "active" : ""}
-            to="/transactions-student"
-          >
-            Queston & Answer
-          </Link>
-        </li>
       </ul>
     </div>
   );

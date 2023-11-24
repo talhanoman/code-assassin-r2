@@ -15967,8 +15967,8 @@ input[type=password]::-ms-clear
     background-color: #159f46 !important;
 }
 .start-leason .btn-primary {
-	background: #392C7D;
-	border: 1px solid #C4C4C4;
+	background: #FF602E;
+	border: 1px solid #FF602E;
 	border-radius: 5px;
 	width: 100%;
 	font-size: 14px;
@@ -15986,8 +15986,8 @@ input[type=password]::-ms-clear
 	margin: 20px 0px;
 }
 .start-leason .btn-primary:hover {
-    background: #3b2999;
-    border: 1px solid #3b2999;
+    background: #FF602E;
+    border: 1px solid #FF602E;
 }
 .student-widget {
 	border: 1px solid #e9ecef;
