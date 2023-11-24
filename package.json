@@ -5,10 +5,13 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^36.0.1",
     "@ckeditor/ckeditor5-react": "^5.1.0",
+    "@codemirror/lang-cpp": "github:codemirror/lang-cpp",
+    "@codemirror/lang-javascript": "github:codemirror/lang-javascript",
     "@popperjs/core": "^2.11.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@uiw/react-codemirror": "^4.21.20",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.0",
     "dayjs": "^1.11.10",
