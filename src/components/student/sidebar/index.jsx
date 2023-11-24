@@ -80,58 +80,7 @@ export default function StudentSideBar({ activeMenu }) {
                 <i><RefreshCw size={20} /></i> Social Profiles
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-notification"
-                className={
-                  activeMenu === "Notification" ? "nav-item active" : "nav-item"
-                }
-              >
-                <i><Bell size={20} /></i> Notifications
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-privacy"
-                className={
-                  activeMenu === "Privacy" ? "nav-item active" : "nav-item"
-                }
-              >
-               <i><Lock size={20} /></i> Profile Privacy
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-delete-profile"
-                className={
-                  activeMenu === "DeleteProfile"
-                    ? "nav-item active"
-                    : "nav-item"
-                }
-              >
-               <i> <Trash2 size={20} /></i> Delete Profile
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-accounts"
-                className={
-                  activeMenu === "Accounts" ? "nav-item active" : "nav-item"
-                }
-              >
-                <i><User size={20} /></i> Linked Accounts
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-referral"
-                className={
-                  activeMenu === "Referral" ? "nav-item active" : "nav-item"
-                }
-              >
-                <i><UserPlus size={20} /></i> Referrals
-              </Link>
-            </li>
+       
             <li className="nav-item">
               <Link to="/login" className="nav-link">
               <i><Power size={20} /></i> Sign Out
@@ -144,50 +93,7 @@ export default function StudentSideBar({ activeMenu }) {
                 </Link>
               </li>
             ) : null}
-          </ul>
-          <h3>SUBSCRIPTION</h3>
-          <ul>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-subscription"
-                className={
-                  activeMenu === "Subscription" ? "nav-item active" : "nav-item"
-                }
-              >
-                <i><Calendar size={20} /></i> My Subscriptions
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-billing"
-                className={
-                  activeMenu === "Billing" ? "nav-item active" : "nav-item"
-                }
-              >
-                <i><CreditCard size={20} /></i> Billing Info
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-payment"
-                className={
-                  activeMenu === "Payment" ? "nav-item active" : "nav-item"
-                }
-              >
-                <i><CreditCard size={20} /></i> Payment
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/setting-student-invoice"
-                className={
-                  activeMenu === "Invoice" ? "nav-item active" : "nav-item"
-                }
-              >
-                <i><Clipboard size={20} /></i> Invoice
-              </Link>
-            </li>
-          </ul>
+          </ul>               
         </div>
       </div>
     </div>

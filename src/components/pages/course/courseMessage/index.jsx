@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../../footer";
 import { Send, User1, User11, User2, User3, User4, User5, User6, User7 } from "../../../imagepath";
 import CourseHeader from "../header";
-
+import DepositMenu from "../../../student/depositMenu";
 const CourseMessage = () => {
   return (
     <>
@@ -29,30 +29,13 @@ const CourseMessage = () => {
                 </div>
               </div>
               <div className="course-share ">
-                <Link to="#" className="btn btn-primary">
-                  Account Settings
+                <Link to="/setting-edit-profile" className="btn btn-primary">
+                  My Profile
                 </Link>
               </div>
             </div>
           </div>
-          <div className="my-student-list">
-            <ul>
-              <li>
-                <Link to="/course-student">Courses</Link>
-              </li>
-              <li>
-                <Link to="/course-wishlist">Wishlists</Link>
-              </li>
-              <li>
-                <Link className="active" to="/course-message">
-                  Messages
-                </Link>
-              </li>
-              <li className="mb-0">
-                <Link to="/purchase-history">Purchase history</Link>
-              </li>
-            </ul>
-          </div>
+          <DepositMenu activeMenu={"Courses"} />
         </div>
       </div>
 
