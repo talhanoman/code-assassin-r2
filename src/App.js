@@ -92,6 +92,7 @@ import PurchaseHistory from "./components/student/purchaseHistory";
 import ViewInvoice from "./components/student/invoice/viewInvoice";
 import NewPassword from "./components/pages/newPassword";
 import AppGithub from "./sample";
+import CodeEditor from "./codeeditor";
 import Home from "./components/home";
 import StudentReviews from "./components/student/reviews";
 
@@ -214,6 +215,11 @@ import StudentReviews from "./components/student/reviews";
       <Route
         path="/github"
         element={<AppGithub />}
+      />
+
+      <Route
+        path="/code-editor"
+        element={<CodeEditor />}
       />
       <Route path="/setting-student-accounts" element={<StudentAccounts />} />
       <Route path="/setting-student-billing" element={<StudentBilling />} />
