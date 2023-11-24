@@ -36,7 +36,7 @@ const StreakCalendar = () => {
                     <select
                         value={selectedMonth}
                         onChange={handleMonthChange}
-                        className="form-select month-select"
+                        className="form-select month-select fw-bolder"
                         aria-label="Select Month"
                     >
                         <option disabled>Select a month</option>
