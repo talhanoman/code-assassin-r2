@@ -1,13 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StudentHeader from "../header";
 import Footer from "../../footer";
 import { User11 } from "../../imagepath";
 import { Link } from "react-router-dom";
 import StudentSideBar from "../sidebar";
 import Select from "react-select";
+import Cookies  from 'universal-cookie'
+import { useNavigate } from "react-router-dom";
+import { ViewProfileData } from "../../../api/get";
+import { UpdateProfileData } from "../../../api/put";
 
 export default function StudentEditProfile() {
   const [setCountry] = useState(null);
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [username, setUsername] = useState('')
+  const [skill, setSkill] = useState('')
+  const [bio, setBio] = useState('')
+
+  const cookie = new Cookies()
+  const token = cookie.get('token')
+
+  useEffect(() => {
+    GetProfile()
+  }, [])
+
+  const navigate = useNavigate()
+
+  const GetProfile = async () => {
+
+    let response = await ViewProfileData(token)
+
+    if (response?.status === 200)
+    {
+      setFirstName(response?.data[0].first_name)
+      setLastName(response?.data[0].last_name)
+      setEmail(response?.data[0].email)
+      setPhone(response?.data[0].phone)
+      setUsername(response?.data[0].username)
+      setSkill(response?.data[0].skill)
+      setBio(response?.data[0].biography)
+    }
+    else if (response?.status === 400)
+    {
+      alert(response?.message)
+    }
+    else
+    {
+      navigate('/login')
+    }
+  }
+
+  const UpdateProfile = async () => {
+
+    const studentData = {
+      FirstName: firstName,
+      LastName: lastName,
+      Email: email,
+      Phone: phone,
+      Username: username,
+      Skill: skill,
+      Bio: bio
+    }
+
+    let response = await UpdateProfileData(token, studentData)
+
+      if (response?.status === 200)
+      {
+        alert('Profile Updated!')
+      }
+      else if (response?.status === 400)
+      {
+        alert(response?.message)
+      }
+      else
+      {
+        navigate('/login')
+      }
+  } 
+  
   const options = [
     { label: "Select Country", value: "Country" },
     { label: "India", value: "India" },
@@ -114,6 +187,8 @@ export default function StudentEditProfile() {
                               type="text"
                               className="form-control"
                               placeholder="Enter your first Name"
+                              value={firstName}
+                              onChange={(e) => {setFirstName(e.target.value)}}
                             />
                           </div>
                         </div>
@@ -126,6 +201,8 @@ export default function StudentEditProfile() {
                               type="text"
                               className="form-control"
                               placeholder="Enter your last Name"
+                              value={lastName}
+                              onChange={(e) => {setLastName(e.target.value)}}
                             />
                           </div>
                         </div>
@@ -136,6 +213,8 @@ export default function StudentEditProfile() {
                               type="text"
                               className="form-control"
                               placeholder="Enter your Phone"
+                              value={phone}
+                              onChange={(e) => {setPhone(e.target.value)}}
                             />
                           </div>
                         </div>
@@ -146,84 +225,59 @@ export default function StudentEditProfile() {
                               type="text"
                               className="form-control"
                               placeholder="Enter your Email"
+                              disabled
+                              value={email}
+                              onChange={(e) => {setEmail(e.target.value)}}
                             />
                           </div>
                         </div>
                         <div className="col-lg-6">
                           <div className="form-group">
                             <label className="form-control-label">
-                              Birthday
+                              Username
                             </label>
                             <input
                               type="text"
                               className="form-control"
-                              placeholder="Birth of Date"
+                              placeholder="Enter your username"
+                              value={username}
+                              onChange={(e) => {setUsername(e.target.value)}}
+                            />
+                          </div>
+                        </div>
+          
+                        <div className="col-lg-6">
+                          <div className="form-group">
+                            <label className="form-control-label">
+                              Skill/Occupation
+                            </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="Enter your skills"
+                              value={skill}
+                              onChange={(e) => {setSkill(e.target.value)}}
                             />
                           </div>
                         </div>
                         <div className="col-lg-6">
                           <div className="form-group">
-                            <label className="form-label">Country</label>
+                            <label className="form-control-label">
+                              Biography
+                            </label>
+                            <textarea
+                              rows={8}
+                              type="text"
+                              className="form-control"
+                              placeholder="Enter your biography"
+                              value={bio}
+                              onChange={(e) => {setBio(e.target.value)}}
+                            />
+                          </div>
+                        </div>
 
-                            <Select
-                              className=" select country-select"
-                              name="sellist1"
-                              options={options}
-                              defaultValue={options[0]}
-                              placeholder="Select Country"
-                              onChange={setCountry}
-                              styles={style}
-                            ></Select>
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          <div className="form-group">
-                            <label className="form-control-label">
-                              Address Line 1
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Address"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          <div className="form-group">
-                            <label className="form-control-label">
-                              Address Line 2 (Optional)
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Address"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          <div className="form-group">
-                            <label className="form-control-label">City</label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Enter your City"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          <div className="form-group">
-                            <label className="form-control-label">
-                              ZipCode
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="Enter your Zipcode"
-                            />
-                          </div>
-                        </div>
                         <div className="update-profile">
-                          <button type="button" className="btn btn-primary">
+                          <button onClick={() => {UpdateProfile()}} type="button" className="btn btn-primary">
                             Update Profile
                           </button>
                         </div>
