@@ -19,3 +19,22 @@ export const UpdateProfileData = async (token, data) => {
         console.error('Error during POST request:', error.message);
     }
 };
+
+export const UpdateStudentPassword = async (token, data) => {
+    try {
+        const response = await fetch(HOST + '/password/update', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(data),
+        });
+
+        const responseData = await response.json();
+        return responseData
+        
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
