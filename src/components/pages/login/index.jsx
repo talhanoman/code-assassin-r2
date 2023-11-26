@@ -6,7 +6,7 @@ import { LoginImg, logo, NetIcon1, NetIcon2 } from "../../imagepath";
 import FeatherIcon from "feather-icons-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { HandleLogin } from "../../../api/post";
+import { HandleLogin, AddLoginStreak } from "../../../api/post";
 import { useNavigate } from "react-router-dom";
 import Cookies  from 'universal-cookie'
 
@@ -73,7 +73,16 @@ const Login = () => {
       if (response.status === 200)
       {
         cookie.set('token', response.data)
-        navigate('/deposit-student-dashboard')
+        const sampleData = {}
+        let streakResponse = await AddLoginStreak(response.data, sampleData)
+        if (streakResponse.status === 200)
+        {
+          navigate('/deposit-student-dashboard')
+        }
+        else
+        {
+          alert(streakResponse.message)
+        }
       }
       else
       {

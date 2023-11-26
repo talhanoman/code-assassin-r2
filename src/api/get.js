@@ -21,3 +21,21 @@ export const ViewProfileData = async (token) => {
         console.error('Error during POST request:', error.message);
     }
 };
+
+export const ViewCalendarStreak = async (token, month) => {
+    try {
+        const response = await fetch(HOST + '/login/streak/view/' + month, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization' : 'Bearer ' + token
+            },
+        });
+
+        const responseData = await response.json();
+        return responseData
+
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};

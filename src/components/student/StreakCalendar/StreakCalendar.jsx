@@ -1,10 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { ViewCalendarStreak } from '../../../api/get';
+import Cookies from 'universal-cookie'
+import { useNavigate } from 'react-router-dom';
 
 const StreakCalendar = () => {
     const months = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
+
+    const navigate = useNavigate()
+
+    const cookie = new Cookies()
+    const token = cookie.get('token')
+
+    useEffect(() => {
+        ViewStreaks(new Date().getMonth() + 1)
+    }, [])
+
+    const ViewStreaks = async (month) => {        
+        let response = await ViewCalendarStreak(token, month)
+        if (response.status === 200)
+        {
+            handleStreakMarks(response.data)
+        }
+        else if (response.status === 400)
+        {
+            alert(response.message)
+        }
+        else
+        {
+            navigate('/login')
+        }
+    }
 
     const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
     const [streaks, setStreaks] = useState(Array(31).fill(false)); // Placeholder for streak data
@@ -17,13 +45,24 @@ const StreakCalendar = () => {
     const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
     const handleMonthChange = (e) => {
+        resetStreaks()
         setSelectedMonth(e.target.value);
+        ViewStreaks(parseInt(e.target.value) + 1)
     };
 
-    const handleDayClick = (day) => {
-        // Placeholder logic for updating streak data
+    const resetStreaks = () => {
+        for (let i = 0; i < streaks.length; i++)
+        {
+            streaks[i] = false
+        }
+    }
+
+    const handleStreakMarks = (data) => {
         const updatedStreaks = [...streaks];
-        updatedStreaks[day - 1] = !updatedStreaks[day - 1];
+        data?.map((obj) => {
+            let day = parseInt(obj?.date_created.split('T')[0].split('-')[2])
+            updatedStreaks[day - 1] = true;
+        })
         setStreaks(updatedStreaks);
     };
 
@@ -52,7 +91,6 @@ const StreakCalendar = () => {
                         <div
                             key={day}
                             className={streaks[day - 1] ? 'day streak' : 'day no-streak'}
-                            onClick={() => handleDayClick(day)}
                         >
                             {day}
                         </div>
