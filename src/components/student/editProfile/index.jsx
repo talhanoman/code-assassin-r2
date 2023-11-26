@@ -9,6 +9,8 @@ import Cookies  from 'universal-cookie'
 import { useNavigate } from "react-router-dom";
 import { ViewProfileData } from "../../../api/get";
 import { UpdateProfileData } from "../../../api/put";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function StudentEditProfile() {
   const [setCountry] = useState(null);
@@ -45,7 +47,7 @@ export default function StudentEditProfile() {
     }
     else if (response?.status === 400)
     {
-      alert(response?.message)
+      toast(response?.message)
     }
     else
     {
@@ -69,11 +71,11 @@ export default function StudentEditProfile() {
 
       if (response?.status === 200)
       {
-        alert('Profile Updated!')
+        toast('Profile Updated!')
       }
       else if (response?.status === 400)
       {
-        alert(response?.message)
+        toast(response?.message)
       }
       else
       {
@@ -290,6 +292,7 @@ export default function StudentEditProfile() {
             {/* Profile Details */}
           </div>
         </div>
+        <ToastContainer />
       </div>
       {/* Student Dashboard */}
       <Footer />

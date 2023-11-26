@@ -9,6 +9,8 @@ import { useState } from "react";
 import { HandleLogin, AddLoginStreak } from "../../../api/post";
 import { useNavigate } from "react-router-dom";
 import Cookies  from 'universal-cookie'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -81,12 +83,12 @@ const Login = () => {
         }
         else
         {
-          alert(streakResponse.message)
+          toast(streakResponse.message)
         }
       }
       else
       {
-        alert(response.message)
+        toast(response.message)
       }
     }
 
@@ -235,6 +237,7 @@ const Login = () => {
             {/* /Login */}
           </div>
         </div>
+        <ToastContainer />
       </div>
     </>
   );

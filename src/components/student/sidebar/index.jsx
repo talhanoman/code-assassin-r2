@@ -14,9 +14,16 @@ import {
 } from "react-feather";
 import { Link } from "react-router-dom";
 import { ProfileBg, User11 } from "../../imagepath";
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export default function StudentSideBar({ activeMenu }) {
+
+  const cookie = new Cookies()
+
+  const navigate = useNavigate()
+
   return (
     <div className="col-xl-3 col-md-4 theiaStickySidebar">
       <div className="settings-widget dash-profile mb-3">
@@ -82,9 +89,12 @@ export default function StudentSideBar({ activeMenu }) {
             </li>
        
             <li className="nav-item">
-              <Link to="/login" className="nav-link">
+              <button onClick={() => {
+                cookie.set('token', '')
+                navigate('/login')
+              }} className="nav-link">
               <i><Power size={20} /></i> Sign Out
-              </Link>
+              </button>
             </li>
             {activeMenu === "Ticket" ? (
               <li className="nav-item active">

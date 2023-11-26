@@ -8,6 +8,8 @@ import { useState } from "react";
 import { HandleRegistration } from "../../../api/post";
 // import "../../../assets/js/jquery-3.6.0.min.js"
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const hasNumber = (value) => {
   return new RegExp(/[0-9]/).test(value);
@@ -165,12 +167,12 @@ const Register = () => {
 
       if (response.status === 200)
       {
-        alert(response.message)
+        toast(response.message)
         navigate('/login')
       }
       else
       {
-        alert(response.message)
+        toast(response.message)
       }
     }
   }
@@ -344,6 +346,7 @@ const Register = () => {
             {/* /Login */}
           </div>
         </div>
+        <ToastContainer />
       </div>
     </>
   );

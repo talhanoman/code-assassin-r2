@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ViewCalendarStreak } from '../../../api/get';
 import Cookies from 'universal-cookie'
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const StreakCalendar = () => {
     const months = [
@@ -26,7 +28,7 @@ const StreakCalendar = () => {
         }
         else if (response.status === 400)
         {
-            alert(response.message)
+            toast(response.message)
         }
         else
         {
@@ -97,6 +99,7 @@ const StreakCalendar = () => {
                     ))}
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

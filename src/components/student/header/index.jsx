@@ -16,10 +16,16 @@ import {
   User3,
   Wish,
 } from "../../imagepath";
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export default function StudentHeader({ activeMenu }) {
   const [navbar, setNavbar] = useState(false);
+
+  const cookie = new Cookies()
+
+  const navigate = useNavigate()
 
   const [showCart, setShowCart] = useState(false);
   const [showWish, setShowWish] = useState(false);
@@ -1008,14 +1014,18 @@ export default function StudentHeader({ activeMenu }) {
                       />
                     </div>
                   </div>
-                  <Link className="dropdown-item text" to="/">
+                  <button onClick={() => {
+                    cookie.set('token', '')
+                    navigate('/login')
+                  }} 
+                  className="dropdown-item text">
                     <LogOut
                       size={14}
                       color={"#FF875A"}
                       className="headerIcon"
                     />{" "}
                     Logout
-                  </Link>
+                  </button>
                 </div>
               </li>
             </ul>
