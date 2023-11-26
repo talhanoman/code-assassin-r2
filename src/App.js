@@ -95,6 +95,7 @@ import AppGithub from "./sample";
 import CodeEditor from "./codeeditor";
 import Home from "./components/home";
 import StudentReviews from "./components/student/reviews";
+import DoubtSubmission from "./components/student/doubtSubmission";
 
  const App = () => {
   return (
@@ -211,7 +212,10 @@ import StudentReviews from "./components/student/reviews";
       {/*Student Routes  */}
       <Route path="/setting-edit-profile" element={<StudentEditProfile />} />
       <Route path="/student-reviews" element={<StudentReviews />} />
-
+      <Route
+        path="/doubt-submission"
+        element={<DoubtSubmission />}
+      />
       <Route
         path="/github"
         element={<AppGithub />}

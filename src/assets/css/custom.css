@@ -37,17 +37,17 @@ button.curriculum-collapse.collapsed {
 .accordion-button:focus {
     box-shadow: none;
 }
-.accordion-item.curriculum-item .accordion-collapse.collapse.collapsing > .accordion-body
-{
+
+.accordion-item.curriculum-item .accordion-collapse.collapse.collapsing>.accordion-body {
     font-size: 0.85rem;
 }
-.accordion-item.curriculum-item .accordion-collapse.collapsing > .accordion-body
-{
+
+.accordion-item.curriculum-item .accordion-collapse.collapsing>.accordion-body {
     font-size: 0.85rem;
     font-weight: 600;
 }
-.accordion-item.curriculum-item .accordion-collapse.collapse > .accordion-body
-{
+
+.accordion-item.curriculum-item .accordion-collapse.collapse>.accordion-body {
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -57,21 +57,26 @@ button.curriculum-collapse.collapsed {
     position: relative;
     margin-top: 30px;
 }
+
 .gtco-testimonials h2 {
     font-size: 30px;
     text-align: center;
     color: #333;
     margin-bottom: 50px;
 }
+
 .gtco-testimonials .owl-stage-outer {
     padding: 30px 0;
 }
+
 .gtco-testimonials .owl-nav {
     display: none;
 }
+
 .gtco-testimonials .owl-dots {
     text-align: center;
 }
+
 .gtco-testimonials .owl-dots span {
     position: relative;
     height: 10px;
@@ -82,9 +87,11 @@ button.curriculum-collapse.collapsed {
     border: 2px solid #FF602E;
     margin: 0 5px;
 }
+
 .gtco-testimonials .owl-dots .active {
     box-shadow: none;
 }
+
 .gtco-testimonials .owl-dots .active span {
     background: #FF602E;
     box-shadow: none;
@@ -92,6 +99,7 @@ button.curriculum-collapse.collapsed {
     width: 12px;
     margin-bottom: -1px;
 }
+
 .gtco-testimonials .card {
     background: #fff;
     box-shadow: 0 8px 30px -7px #c9dff0;
@@ -100,6 +108,7 @@ button.curriculum-collapse.collapsed {
     border-radius: 20px;
     border: 0;
 }
+
 .gtco-testimonials .card .card-img-top {
     max-width: 100px;
     border-radius: 50%;
@@ -108,76 +117,89 @@ button.curriculum-collapse.collapsed {
     width: 100px;
     height: 100px;
 }
+
 .gtco-testimonials .card h5 {
     color: #01b0f8;
     font-size: 21px;
     line-height: 1.3;
 }
+
 .gtco-testimonials .card h5 span {
     font-size: 18px;
     color: #666;
 }
+
 .gtco-testimonials .card p {
     font-size: 14px;
     color: #555;
     padding-bottom: 15px;
 }
+
 .gtco-testimonials .active {
     opacity: 0.5;
     transition: all 0.3s;
 }
+
 .gtco-testimonials .center {
     opacity: 1;
 }
+
 .gtco-testimonials .center h5 {
     font-size: 24px;
 }
+
 .gtco-testimonials .center h5 span {
     font-size: 16px;
     font-weight: 600;
 }
+
 .gtco-testimonials .center .card-img-top {
     max-width: 100%;
     height: 120px;
     width: 120px;
 }
+
 @media (max-width: 767px) {
     .gtco-testimonials {
         margin-top: 20px;
-   }
+    }
 }
-.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
     outline: 0;
 }
+
 .owl-carousel button.owl-dot {
     outline: 0;
 }
 
-.gtco-testimonials .owl-carousel .owl-nav button.owl-next,button.owl-prev
-{
+.gtco-testimonials .owl-carousel .owl-nav button.owl-next,
+button.owl-prev {
     display: none !important;
-}nt-famil
+}
 
+nt-famil
 /* Streak Calendar */
 
 .streak-calendar {
-    text-align: center;    
-  }
-  
-  .month-select {    
+    text-align: center;
+}
+
+.month-select {
     width: 25%;
-  }
-  
-  .calendar {
+}
+
+.calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
-    margin-top: 20px;            
+    margin-top: 20px;
     padding: 15px;
-  }
-  
-  .day {
-   height: 50px;
+}
+
+.day {
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -186,23 +208,66 @@ button.curriculum-collapse.collapsed {
     transition: background-color 0.3s ease;
     border-radius: 6px;
     font-size: 0.85rem;
-  }
-  
-  .streak {
-    background-color: #FF602E; /* Green for streak days */
+}
+
+.streak {
+    background-color: #FF602E;
+    /* Green for streak days */
     color: #fff;
-  }
-  
-  .no-streak {
-    background-color: #e0e0e0; /* Grey for non-streak days */
-  }
-  
-  /* Style for the selected month */
-  label {
+}
+
+.no-streak {
+    background-color: #e0e0e0;
+    /* Grey for non-streak days */
+}
+
+/* Style for the selected month */
+label {
     font-size: 1.2rem;
     margin-bottom: 10px;
-  }
-  
-  /* Add additional styles as needed */
-  
-  /* End */
+}
+
+/* Add additional styles as needed */
+
+/* End */
+
+
+
+/* File Uploader */
+.upload_dropZone {
+    color: #0f3c4b;    
+    outline: 2px dashed #FF4100;
+    outline-offset: -6px;
+    transition:
+        outline-offset 0.2s ease-out,
+        outline-color 0.3s ease-in-out,
+        background-color 0.2s ease-out;
+}
+
+.upload_dropZone.highlight {
+    outline-offset: -4px;
+    outline-color: var(--colorPrimaryNormal, #0576bd);
+    background-color: var(--colorPrimaryEighth, #c8dadf);
+}
+
+.upload_svg {
+    fill: var(--colorPrimaryNormal, #0576bd);
+}
+
+.btn-upload {
+    color: #fff;
+    background-color: var(--colorPrimaryNormal);
+}
+
+.btn-upload:hover,
+.btn-upload:focus {
+    color: #fff;
+    background-color: var(--colorPrimaryGlare);
+}
+
+.upload_img {
+    width: calc(33.333% - (2rem / 3));
+    object-fit: contain;
+}
+
+/* File Uploader */

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { LogOut, Moon, Star, User } from "react-feather";
+import { LogOut, Moon, Star, User, Bell, Heart, ShoppingCart } from "react-feather";
 import { Link } from "react-router-dom";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
 import {
@@ -562,36 +562,11 @@ export default function StudentHeader({ activeMenu }) {
                       <Link to="/forgot-password">Forgot Password</Link>
                     </li>
                   </ul>
-                </li>
-                <li className="has-submenu">
-                  <Link to="#">
-                    Blog{" "}
-                    <i
-                      className="fas fa-chevron-down"
-                      onClick={openMobileSubMenu5}
-                    ></i>
-                  </Link>
-                  <ul
-                    className={
-                      mobileSubMenu5 ? "submenu submenuShow" : "submenu"
-                    }
-                  >
-                    <li>
-                      <Link to="/blog-list">Blog List</Link>
-                    </li>
-                    <li>
-                      <Link to="/blog-grid">Blog Grid</Link>
-                    </li>
-                    <li>
-                      <Link to="/blog-masonry">Blog Masonry</Link>
-                    </li>
-                    <li>
-                      <Link to="/blog-modern">Blog Modern</Link>
-                    </li>
-                    <li>
-                      <Link to="/blog-details">Blog Details</Link>
-                    </li>
-                  </ul>
+                </li>                
+                <li className={activeMenu === "Code Editor" ? "active" : ""}>
+                  <Link to="/code-editor">
+                    Code Editor{" "}                    
+                  </Link>              
                 </li>
                 <li className="login-link">
                   <Link to="/login">Login / Signup</Link>
@@ -599,11 +574,11 @@ export default function StudentHeader({ activeMenu }) {
               </ul>
             </div>
             <ul className="nav header-navbar-rht">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link to="/course-message">
                   <img src={Messages} alt="img" />
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item cart-nav">
                 <Link
                   to="#"
@@ -612,18 +587,15 @@ export default function StudentHeader({ activeMenu }) {
                   }
                   data-bs-toggle="dropdown"
                 >
-                  <img onClick={cartClick} src={Cart} alt="img" />
-                </Link>
-                {/* Cart Content shows on Click */}
-
+                  <ShoppingCart onClick={cartClick} />                  
+                </Link>               
                 <div
                   ref={cart}
                   className={
                     showCart
                       ? "wishes-list dropdown-menu dropdown-menu-right show modalPosition"
                       : "wishes-list dropdown-menu dropdown-menu-right"
-                  }
-                  // data-bs-popper={cart && "none"}
+                  }                  
                 >
                   <div className="wish-header">
                     <Link to="#">View Cart</Link>
@@ -720,8 +692,7 @@ export default function StudentHeader({ activeMenu }) {
                       <h5>Total : $ 600</h5>
                     </div>
                   </div>
-                </div>
-                {/* Wish Content shows on Click */}
+                </div>               
               </li>
               <li className="nav-item wish-nav">
                 <Link
@@ -731,7 +702,7 @@ export default function StudentHeader({ activeMenu }) {
                   }
                   data-bs-toggle="dropdown"
                 >
-                  <img onClick={wishClick} src={Wish} alt="img" />
+                  <Heart onClick={wishClick}/>                
                 </Link>
 
                 <div
@@ -839,11 +810,7 @@ export default function StudentHeader({ activeMenu }) {
                   }
                   data-bs-toggle="dropdown"
                 >
-                  <img
-                    onClick={notificationClick}
-                    src={Notification}
-                    alt="img"
-                  />
+                 <Bell />
                 </Link>
                 <div
                   ref={notification}

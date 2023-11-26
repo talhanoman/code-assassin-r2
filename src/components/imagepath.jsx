@@ -45,7 +45,7 @@ export { default as CategoryIcon2 } from "../assets/img/categories-icon-02.png";
 export { default as CategoryIcon3 } from "../assets/img/categories-icon-03.png";
 export { default as CategoryIcon4 } from "../assets/img/categories-icon-04.png";
 export { default as CategoryIcon5 } from "../assets/img/categories-icon-05.png";
-export {default as Faang} from "../assets/img/faang.png"
+export { default as Faang } from "../assets/img/faang.png"
 
 export { default as HomeMain } from "../assets/img/bg/home-main.png";
 
@@ -93,10 +93,10 @@ export { default as Avatar7 } from "../assets/img/profiles/avatar-07.jpg";
 export { default as Avatar8 } from "../assets/img/profiles/avatar-08.jpg";
 export { default as Avatar9 } from "../assets/img/profiles/avatar-09.jpg";
 export { default as Avatar10 } from "../assets/img/profiles/avatar-10.jpg";
-export {default as Curriculum} from "../assets/img/curriculum.svg";
-export {default as CurriculumTransparent} from "../assets/img/curriculum-transparent.png";
+export { default as Curriculum } from "../assets/img/curriculum.svg";
+export { default as CurriculumTransparent } from "../assets/img/curriculum-transparent.png";
 export { default as HomeRightBottom } from "../assets/img/bg/home-right-bottom.png";
-export {default as PreparationIllustration} from "../assets/img/preparation-illustration.png"
+export { default as PreparationIllustration } from "../assets/img/preparation-illustration.png"
 
 export { default as Skill1 } from "../assets/img/skil-01.png";
 
@@ -348,6 +348,7 @@ export { default as InstructorVectorRight } from "../assets/img/bg/instructor-ve
 
 export { default as ReviewsImgTwo } from "../assets/img/reviews-img-two.png";
 
+export { default as ManInDoubt } from "../assets/img/man-in-doubts.jpg"
 // User
 export { default as User } from "../assets/img/user/user.jpg";
 export { default as User1 } from "../assets/img/user/user1.jpg";

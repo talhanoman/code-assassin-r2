@@ -62,7 +62,7 @@ export default function StudentSideBar({ activeMenu }) {
               }
             >
               <Link to="/setting-edit-profile" className="nav-link">
-               <i><Settings size={20} /> </i> Edit Profile
+                <i><Settings size={20} /> </i> Edit Profile
               </Link>
             </li>
             <li className="nav-item">
@@ -87,7 +87,18 @@ export default function StudentSideBar({ activeMenu }) {
                 <i><RefreshCw size={20} /></i> Social Profiles
               </Link>
             </li>
-       
+            <li className="nav-item">
+              <Link
+                to="/setting-student-referral"
+                className={
+                  activeMenu === "Referral"
+                    ? "nav-item active"
+                    : "nav-item"
+                }
+              >
+                <i><UserPlus size={20} /></i> Referrals
+              </Link>
+            </li>
             <li className="nav-item">
               <button onClick={() => {
                 cookie.set('token', '')
@@ -99,11 +110,11 @@ export default function StudentSideBar({ activeMenu }) {
             {activeMenu === "Ticket" ? (
               <li className="nav-item active">
                 <Link to="/login" className="nav-link">
-                <i><Clipboard size={20} /></i> Support Tickets
+                  <i><Clipboard size={20} /></i> Support Tickets
                 </Link>
               </li>
             ) : null}
-          </ul>               
+          </ul>
         </div>
       </div>
     </div>

@@ -1,27 +1,19 @@
 import React from "react";
-import StudentHeader from "../../student/header";
-import Footer from "../../footer";
-import {
-  Course10,
-  Course11,
-  Course12,
-  Icon1,
-  Icon2,
-  User1,
-  User11,
-  User2,
-  User3,
-} from "../../imagepath";
 import { Link } from "react-router-dom";
-// import CourseMenu from "../courseMenu";
+import Footer from "../../footer";
+// import { User11 } from "../../imagepath";
+import { ManInDoubt, User11 } from "../../imagepath";
+// import StudentHeader from "../../student/header";
+import StudentHeader from "../header";
+// import DepositMenu from "../depositMenu";
 import DepositMenu from "../depositMenu";
-import PurchasedCourseCard from "./PurchasedCourseCard";
+import DoubtSubmissionForm from "./DoubtSubmissionForm";
 
-export default function PurchaseHistory() {
+export default function DoubtSubmission() {
   return (
     <div className="main-wrapper">
       <StudentHeader />
-
+      {/* Enrolled Courses Header */}
       <div className="course-student-header">
         <div className="container">
           <div className="student-group">
@@ -47,27 +39,27 @@ export default function PurchaseHistory() {
               </div>
             </div>
           </div>
-          <DepositMenu activeMenu={"Purchase History"} />
+          <DepositMenu activeMenu={"Doubt Submission"} />
         </div>
       </div>
+      {/* Enrolled Courses Header */}
 
-      <section className="course-content purchase-widget">
+      {/* Dashboard Student */}
+      <div className="page-content">
         <div className="container">
-          <div className="student-widget">
-            <div className="student-widget-group">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="row">
-                    <PurchasedCourseCard />
-                    <PurchasedCourseCard />
-                    <PurchasedCourseCard />
-                  </div>
-                </div>
-              </div>
+          <div className="row mb-3 align-items-stretch bg-white">
+            <div className="col-xl-6 col-md-12 rounded">
+              {/* <StreakCalendar /> */}
+             <img src={ManInDoubt} alt="" className="mh-100 mw-100" />
+            </div>
+            <div className="col-xl-6 col-md-12 rounded align-self-center">
+              {/* <StreakCalendar /> */}
+              <DoubtSubmissionForm />
             </div>
           </div>
         </div>
-      </section>
+      </div>
+      {/* Dashboard Student */}
       <Footer />
     </div>
   );

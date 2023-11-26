@@ -89,7 +89,7 @@ export default function StudentReferral() {
             <div className="col-xl-9 col-md-8">
               <div className="settings-top-widget">
                 <div className="row">
-                  <div className="col-xl-3 col-lg-6">
+                  <div className="col-xl-4 col-lg-6">
                     <div className="card stat-info net-earn">
                       <div className="card-body">
                         <span>Net Earnings</span>
@@ -98,7 +98,7 @@ export default function StudentReferral() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-xl-3 col-lg-6">
+                  <div className="col-xl-4 col-lg-6">
                     <div className="card stat-info bal">
                       <div className="card-body">
                         <span>Balance</span>
@@ -107,16 +107,7 @@ export default function StudentReferral() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-xl-3 col-lg-6">
-                    <div className="card stat-info avg">
-                      <div className="card-body">
-                        <span>Avg Deal Size</span>
-                        <h3>$ 2,600</h3>
-                        <p>Earning this month</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-6">
+                  <div className="col-xl-4 col-lg-6">
                     <div className="card stat-info refer">
                       <div className="card-body">
                         <span>Referral Signups</span>
@@ -139,7 +130,7 @@ export default function StudentReferral() {
                           <input
                             type="text"
                             className="form-control"
-                            defaultValue="https://dreamslmscourse.com/reffer/?refid=345re667877k9"
+                            defaultValue="https://codeassasin.com/reffer/?refid=345re667877k9"
                           />
                         </div>
                         <Link to="#;">Copy link</Link>
@@ -232,7 +223,7 @@ export default function StudentReferral() {
                             <td>09341</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -260,7 +251,7 @@ export default function StudentReferral() {
                             <td>09342</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -288,7 +279,7 @@ export default function StudentReferral() {
                             <td>09343</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -316,7 +307,7 @@ export default function StudentReferral() {
                             <td>09344</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -344,7 +335,7 @@ export default function StudentReferral() {
                             <td>09345</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -372,7 +363,7 @@ export default function StudentReferral() {
                             <td>09346</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -400,7 +391,7 @@ export default function StudentReferral() {
                             <td>09347</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -428,7 +419,7 @@ export default function StudentReferral() {
                             <td>09348</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -456,7 +447,7 @@ export default function StudentReferral() {
                             <td>09349</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>
@@ -484,7 +475,7 @@ export default function StudentReferral() {
                             <td>09350</td>
                             <td>
                               <span className="text-wrap">
-                                https://dreamslmscourse.com/reffer/?refid=345re667877k9
+                                https://codeassasin.com/reffer/?refid=345re667877k9
                               </span>
                             </td>
                             <td>

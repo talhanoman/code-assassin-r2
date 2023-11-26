@@ -22,17 +22,15 @@ export default function DepositMenu({ activeMenu }) {
         </li>
         <li>
           <Link
+            className={activeMenu === "Doubt Submission" ? "active" : ""}
+            to="/doubt-submission"
+          >Doubt Submission</Link>
+        </li>
+        <li>
+          <Link
             className={activeMenu === "Purchase History" ? "active" : ""}
             to="/purchase-history"
           >Purchase history</Link>
-        </li>
-        <li className="mb-0">
-          <Link
-            className={activeMenu === "Transactions" ? "active" : ""}
-            to="/transactions-student"
-          >
-            Transactions
-          </Link>
         </li>
       </ul>
     </div>
