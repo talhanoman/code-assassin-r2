@@ -100,12 +100,16 @@ export default function StudentSideBar({ activeMenu }) {
               </Link>
             </li>
             <li className="nav-item">
-              <button onClick={() => {
+              <Link role="href" onClick={(e) => {
+                e.preventDefault()
                 cookie.set('token', '')
                 navigate('/login')
-              }} className="nav-link">
-              <i><Power size={20} /></i> Sign Out
-              </button>
+              }} className={
+
+                "nav-item"
+              }>
+                <i><Power size={20} /></i> Sign Out
+              </Link>
             </li>
             {activeMenu === "Ticket" ? (
               <li className="nav-item active">

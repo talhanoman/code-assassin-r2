@@ -183,390 +183,32 @@ export default function StudentHeader({ activeMenu }) {
                 <li className="has-submenu">
                   <Link to="/" className={mobileSubMenu ? "submenu" : ""}>
                     Home{" "}
-                    <i
-                      className="fas fa-chevron-down"
-                      onClick={openMobileSubMenu}
-                    ></i>
-                  </Link>
-                  <ul
-                    className={
-                      mobileSubMenu ? "submenu submenuShow" : "submenu"
-                    }
-                  >
-                    <li>
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link to="/home2">Home Two</Link>
-                    </li>
-                    <li>
-                      <Link to="/home3">Home Three</Link>
-                    </li>
-                    <li>
-                      <Link to="/home4">Home Four</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-submenu">
-                  <Link to="/instructor-dashboard">
-                    Instructor{" "}
-                    <i
-                      className="fas fa-chevron-down "
-                      onClick={openMobileSubMenu2}
-                    ></i>
-                  </Link>
-                  <ul
-                    className={
-                      mobileSubMenu2 ? "submenu submenuShow" : "submenu"
-                    }
-                  >
-                    <li className="active">
-                      <Link to="/instructor-dashboard">Dashboard</Link>
-                    </li>
-                    <li className="has-submenu">
-                      <Link to="/instructor-list">
-                        Instructor
-                        <i
-                          className="fas fa-chevron-right listMob"
-                          onClick={openMobileSubMenu22}
-                        ></i>
-                      </Link>
-                      <ul
-                        className={
-                          mobileSubMenu22 ? "submenu submenuShow" : "submenu"
-                        }
-                      >
-                        <li>
-                          <Link to="/instructor-list">List</Link>
-                        </li>
-                        <li>
-                          <Link to="/instructor-grid">Grid</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className={activeMenu === "Courses" ? "active" : ""}>
-                      <Link to="/instructor-course">My Course</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-reviews">Reviews</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-earnings">Earnings</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-orders">Orders</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-payouts">Payouts</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-tickets">Support Ticket</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-profile">Instructor Profile</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-security">Security</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-social-profile">
-                        Social Profiles
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-notifications">Notifications</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-profile-privacy">
-                        Profile Privacy
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/">Delete Profile</Link>
-                    </li>
-                    <li>
-                      <Link to="/instructor-linked-account">
-                        Linked Accounts
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-submenu active">
-                  <Link to="/students-list">
-                    Student{" "}
-                    <i
-                      className="fas fa-chevron-down"
-                      onClick={openMobileSubMenu3}
-                    ></i>
-                  </Link>
-                  <ul
-                    className={
-                      mobileSubMenu3
-                        ? "submenu first-submenu submenuShow"
-                        : "submenu first-submenu"
-                    }
-                  >
-                    <li
-                      className={
-                        activeMenu === "List" || activeMenu === "Grid1"
-                          ? "has-submenu active"
-                          : "has-submenu"
-                      }
-                    >
-                      <Link to="/students-list">
-                        Student
-                        <i
-                          className="fas fa-chevron-right listMob"
-                          onClick={openMobileSubMenu32}
-                        ></i>
-                      </Link>
-                      <ul
-                        className={
-                          mobileSubMenu32 ? "submenu submenuShow" : "submenu"
-                        }
-                      >
-                        <li className={activeMenu === "List" ? "active" : ""}>
-                          <Link to="/students-list" onClick={hideMobileMenu}>
-                            List
-                          </Link>
-                        </li>
-                        <li className={activeMenu === "Grid1" ? "active" : ""}>
-                          <Link to="/students-grid" onClick={hideMobileMenu}>
-                            Grid
-                          </Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className={activeMenu === "Profile" ? "active" : ""}>
-                      <Link to="/setting-edit-profile" onClick={hideMobileMenu}>
-                        Student Profile
-                      </Link>
-                    </li>
-                    <li className={activeMenu === "Security" ? "active" : ""}>
-                      <Link
-                        to="/setting-student-security"
-                        onClick={hideMobileMenu}
-                      >
-                        Security
-                      </Link>
-                    </li>
-                    <li
-                      className={activeMenu === "SocialProfile" ? "active" : ""}
-                    >
-                      <Link
-                        to="/setting-student-social-profile"
-                        onClick={hideMobileMenu}
-                      >
-                        Social profile
-                      </Link>
-                    </li>
-                    <li
-                      className={activeMenu === "Notification" ? "active" : ""}
-                    >
-                      <Link
-                        to="/setting-student-notification"
-                        onClick={hideMobileMenu}
-                      >
-                        Notification
-                      </Link>
-                    </li>
-                    <li className={activeMenu === "Privacy" ? "active" : ""}>
-                      <Link
-                        to="/setting-student-privacy"
-                        onClick={hideMobileMenu}
-                      >
-                        Profile Privacy
-                      </Link>
-                    </li>
 
-                    <li className={activeMenu === "Accounts" ? "active" : ""}>
-                      <Link
-                        to="/setting-student-accounts"
-                        onClick={hideMobileMenu}
-                      >
-                        Link Accounts
-                      </Link>
-                    </li>
-                    <li className={activeMenu === "Referral" ? "active" : ""}>
-                      <Link
-                        to="/setting-student-referral"
-                        onClick={hideMobileMenu}
-                      >
-                        Referal
-                      </Link>
-                    </li>
-                    <li
-                      className={activeMenu === "Subscription" ? "active" : ""}
-                    >
-                      <Link
-                        to="/setting-student-subscription"
-                        onClick={hideMobileMenu}
-                      >
-                        Subscription
-                      </Link>
-                    </li>
-                    <li className={activeMenu === "Billing" ? "active" : ""}>
-                      <Link
-                        to="/setting-student-billing"
-                        onClick={hideMobileMenu}
-                      >
-                        Billing
-                      </Link>
-                    </li>
-                    <li className={activeMenu === "Payment" ? "active" : ""}>
-                      <Link
-                        to="/setting-student-payment"
-                        onClick={hideMobileMenu}
-                      >
-                        Payment
-                      </Link>
-                    </li>
-                    <li className={activeMenu === "Invoice" ? "active" : ""}>
-                      <Link
-                        to="/setting-student-invoice"
-                        onClick={hideMobileMenu}
-                      >
-                        Invoice
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/setting-support-tickets"
-                        onClick={hideMobileMenu}
-                      >
-                        Support Tickets
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-submenu">
-                  <Link to="">
-                    Pages
-                    <i
-                      className="fas fa-chevron-down"
-                      onClick={openMobileSubMenu4}
-                    ></i>
                   </Link>
-                  <ul
-                    className={
-                      mobileSubMenu4 ? "submenu submenuShow" : "submenu"
-                    }
-                  >
-                    <li>
-                      <Link to="/page-notification">Notification</Link>
-                    </li>
-                    <li>
-                      <Link to="/pricing-plan">Pricing Plan</Link>
-                    </li>
-                    <li>
-                      <Link to="/wishlist">Wishlist</Link>
-                    </li>
-                    <li className="has-submenu">
-                      <Link to="/course-list">
-                        Course
-                        <i
-                          className="fas fa-chevron-right listMob"
-                          onClick={openMobileSubMenu42}
-                        ></i>
-                      </Link>
-                      <ul
-                        className={
-                          mobileSubMenu42 ? "submenu submenuShow" : "submenu"
-                        }
-                      >
-                        <li className={activeMenu === "AddCourse" ? "active" : ""}>
-                          <Link to="/add-course" onClick={hideMobileMenu}>
-                            Add Course
-                          </Link>
-                        </li>
-                        <li className={activeMenu === "CourseList" ? "active" : ""}>
-                          <Link to="/course-list" onClick={hideMobileMenu}>
-                            Course List
-                          </Link>
-                        </li>
-                        <li className={activeMenu === "CourseGrid" ? "active" : ""}>
-                          <Link to="/course-grid" onClick={hideMobileMenu}>
-                            Course Grid
-                          </Link>
-                        </li>
-                        <li className={activeMenu === "CourseDetails" ? "active" : ""}>
-                          <Link
-                            to="/course-details"
-                            onClick={hideMobileMenu}
-                          >
-                            Course Details
-                          </Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="has-submenu">
-                      <Link to="/come-soon">
-                        Error
-                        <i
-                          className="fas fa-chevron-right listMob"
-                          onClick={openMobileSubMenu43}
-                        ></i>
-                      </Link>
-                      <ul
-                        className={
-                          mobileSubMenu43 ? "submenu submenuShow" : "submenu"
-                        }
-                      >
-                        <li>
-                          <Link to="/come-soon" onClick={hideMobileMenu}>
-                            Coming soon
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/error-404" onClick={hideMobileMenu}>
-                            404
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/error-500" onClick={hideMobileMenu}>
-                            500
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/under-construction"
-                            onClick={hideMobileMenu}
-                          >
-                            Under Construction
-                          </Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <Link to="/faq">FAQ</Link>
-                    </li>
-                    <li>
-                      <Link to="/support">Support</Link>
-                    </li>
-                    <li>
-                      <Link to="/job-category">Category</Link>
-                    </li>
-                    <li>
-                      <Link to="/cart">Cart</Link>
-                    </li>
-                    <li>
-                      <Link to="/checkout">Checkout</Link>
-                    </li>
-                    <li>
-                      <Link to="/login">Login</Link>
-                    </li>
-                    <li>
-                      <Link to="/register">Register</Link>
-                    </li>
-                    <li>
-                      <Link to="/forgot-password">Forgot Password</Link>
-                    </li>
-                  </ul>
-                </li>                
+
+                </li>
+
+
+                <li className="has-submenu menu-effect">
+                  <Link to="/">
+                    Enroll{" "}
+                  </Link>
+                </li>
+                <li className="has-submenu menu-effect">
+                  <Link to="/">
+                    About Us{" "}
+                  </Link>
+                </li>
+                <li className="has-submenu menu-effect">
+                  <Link to="/">
+                    Contact Us{" "}
+                  </Link>
+                </li>
+
                 <li className={activeMenu === "Code Editor" ? "active" : ""}>
                   <Link to="/code-editor">
-                    Code Editor{" "}                    
-                  </Link>              
+                    Code Editor{" "}
+                  </Link>
                 </li>
                 <li className="login-link">
                   <Link to="/login">Login / Signup</Link>
@@ -587,15 +229,15 @@ export default function StudentHeader({ activeMenu }) {
                   }
                   data-bs-toggle="dropdown"
                 >
-                  <ShoppingCart onClick={cartClick} />                  
-                </Link>               
+                  <ShoppingCart onClick={cartClick} />
+                </Link>
                 <div
                   ref={cart}
                   className={
                     showCart
                       ? "wishes-list dropdown-menu dropdown-menu-right show modalPosition"
                       : "wishes-list dropdown-menu dropdown-menu-right"
-                  }                  
+                  }
                 >
                   <div className="wish-header">
                     <Link to="#">View Cart</Link>
@@ -692,7 +334,7 @@ export default function StudentHeader({ activeMenu }) {
                       <h5>Total : $ 600</h5>
                     </div>
                   </div>
-                </div>               
+                </div>
               </li>
               <li className="nav-item wish-nav">
                 <Link
@@ -702,7 +344,7 @@ export default function StudentHeader({ activeMenu }) {
                   }
                   data-bs-toggle="dropdown"
                 >
-                  <Heart onClick={wishClick}/>                
+                  <Heart onClick={wishClick} />
                 </Link>
 
                 <div
@@ -810,7 +452,7 @@ export default function StudentHeader({ activeMenu }) {
                   }
                   data-bs-toggle="dropdown"
                 >
-                 <Bell />
+                  <Bell />
                 </Link>
                 <div
                   ref={notification}
@@ -984,8 +626,8 @@ export default function StudentHeader({ activeMenu }) {
                   <button onClick={() => {
                     cookie.set('token', '')
                     navigate('/login')
-                  }} 
-                  className="dropdown-item text">
+                  }}
+                    className="dropdown-item text">
                     <LogOut
                       size={14}
                       color={"#FF875A"}

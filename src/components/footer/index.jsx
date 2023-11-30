@@ -28,8 +28,8 @@ const Footer = () => {
             <div className="col-lg-2 col-md-6">
               {/* Footer Widget */}
               <div className="footer-widget footer-menu">
-                <h2 className="footer-title">For Instructor</h2>
-                <ul>
+                <h2 className="footer-title d-none">For Instructor</h2>
+                <ul className="d-none">
                   <li>
                     <Link to="/instructor-profile">Profile</Link>
                   </li>
@@ -98,7 +98,7 @@ const Footer = () => {
                   </div>
                   <p>
                     <img src={Icon19} alt="" className="img-fluid" />
-                    dreamslms@example.com
+                    codeassassin@example.com
                   </p>
                   <p className="mb-0">
                     <img src={Icon21} alt="" className="img-fluid" />
@@ -132,7 +132,7 @@ const Footer = () => {
               </div>
               <div className="col-md-6">
                 <div className="copyright-text">
-                  <p className="mb-0">© 2023 DreamsLMS. All rights reserved.</p>
+                  <p className="mb-0">© 2023 CodeAssassin. All rights reserved.</p>
                 </div>
               </div>
             </div>

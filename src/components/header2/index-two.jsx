@@ -120,6 +120,21 @@ const Header2 = () => {
                   </Link>
                 </li>
                 <li className="has-submenu menu-effect">
+                  <Link to="/">
+                    Enroll{" "}
+                  </Link>
+                </li>
+                <li className="has-submenu menu-effect">
+                  <Link to="/">
+                    About Us{" "}
+                  </Link>
+                </li>
+                <li className="has-submenu menu-effect">
+                  <Link to="/">
+                    Contact Us{" "}
+                  </Link>
+                </li>
+                {/* <li className="has-submenu menu-effect">
                   <Link to="">
                     Instructor{" "}
                     <i
@@ -418,7 +433,7 @@ const Header2 = () => {
                       <Link to="/blog-details">Blog Details</Link>
                     </li>
                   </ul>
-                </li>
+                </li> */}
                 <li className="login-link">
                   <Link to="/login">Login / Signup</Link>
                 </li>

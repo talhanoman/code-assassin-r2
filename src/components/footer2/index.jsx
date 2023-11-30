@@ -49,7 +49,7 @@ export const Footer2 = () => {
             </div>
 
             <div className="col-lg-2 col-md-6 col-sm-6 col-12">
-              <div className="footer-widget footer-menu footer-menu-two">
+              <div className="footer-widget footer-menu footer-menu-two d-none">
                 <h2 className="footer-title">For Instructor</h2>
                 <ul>
                   <li>
