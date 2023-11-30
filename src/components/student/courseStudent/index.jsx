@@ -2,18 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../footer";
 import {
-  Course10,
-  Course11,
-  Course12,
-  Course13,
-  Course14,
-  Course15,
-  Course16,
-  Course17,
   User11,
 } from "../../imagepath";
 import StudentHeader from "../header";
-import CourseMenu from "../courseMenu";
 import { Search } from "react-feather";
 import Select from "react-select";
 import DepositMenu from "../depositMenu";

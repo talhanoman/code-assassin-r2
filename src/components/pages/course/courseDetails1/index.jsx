@@ -4,6 +4,7 @@ import {
   Chapter,
   Chart,
   Cloud,
+  Course11,
   Icon1,
   Import,
   Key,
@@ -14,22 +15,20 @@ import {
   Timer,
   Timer2,
   User1,
-  Users,
-  Video,
+  Users,  
   Video2,
 } from "../../../imagepath";
-import CourseHeader from "../header";
 import OverView from "./overView";
 import FeatherIcon from "feather-icons-react";
 import Footer from "../../../footer";
+import StudentHeader from "../../../student/header";
 
 const CourseDetails1 = () => {
   return (
     <>
       <div className="main-wrapper">
-        <CourseHeader />
-
-        <div className="breadcrumb-bar">
+        <StudentHeader />
+        {/* <div className="breadcrumb-bar">
           <div className="container">
             <div className="row">
               <div className="col-md-12 col-12">
@@ -57,7 +56,7 @@ const CourseDetails1 = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <section className="course-content course-sec">
           <div className="container">
@@ -67,7 +66,7 @@ const CourseDetails1 = () => {
                   <div className="card-body">
                     <div className="com-info">
                       <div>
-                        <h2>The Complete Web Developer Course 2.0</h2>
+                        <h2>The Complete Web Developer Course 3.0</h2>
                         <p>
                           Learn Web Development by building 25 websites and
                           mobile apps using HTML, CSS, Javascript, PHP, Python,
@@ -130,7 +129,7 @@ const CourseDetails1 = () => {
                         <div className="play-icon">
                           <i className="fa-solid fa-play" />
                         </div>
-                        <img className="img-fluid" src={Video} alt="" />
+                        <img className="img-fluid" src={Course11} alt="" />
                       </Link>
                     </div>
                   </div>
