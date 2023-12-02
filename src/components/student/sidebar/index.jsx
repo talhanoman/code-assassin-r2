@@ -84,7 +84,7 @@ export default function StudentSideBar({ activeMenu }) {
                     : "nav-item"
                 }
               >
-                <i><RefreshCw size={20} /></i> Social Profiles
+                <i><RefreshCw size={20} /></i> Job Profiles
               </Link>
             </li>
             <li className="nav-item">

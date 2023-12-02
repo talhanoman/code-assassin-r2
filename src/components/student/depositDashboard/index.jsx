@@ -50,7 +50,7 @@ export default function StudentDepositDashboard() {
               <StreakCalendar />
             </div>
           </div>
-          <div className="p-5 bg-white">
+          {/* <div className="p-5 bg-white">
             <h4 className="mb-4">Enrolled <span className="text-orange">Courses</span></h4>
             <div className="row">
               <CourseCard />
@@ -58,7 +58,7 @@ export default function StudentDepositDashboard() {
               <CourseCard />
               <CourseCard />
             </div>
-          </div>
+          </div> */}
 
         </div>
       </div>

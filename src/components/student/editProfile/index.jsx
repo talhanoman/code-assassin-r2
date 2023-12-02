@@ -21,7 +21,9 @@ export default function StudentEditProfile() {
   const [username, setUsername] = useState('')
   const [skill, setSkill] = useState('')
   const [bio, setBio] = useState('')
-
+  const [college, setCollege] = useState('');
+  const [branch, setBranch] = useState('');
+  const [address, setAddress] = useState('');
   const cookie = new Cookies()
   const token = cookie.get('token')
 
@@ -251,14 +253,44 @@ export default function StudentEditProfile() {
                         <div className="col-lg-6">
                           <div className="form-group">
                             <label className="form-control-label">
-                              Skill/Occupation
+                              College Name
                             </label>
                             <input
                               type="text"
                               className="form-control"
-                              placeholder="Enter your skills"
-                              value={skill}
-                              onChange={(e) => {setSkill(e.target.value)}}
+                              placeholder="Enter college name"
+                              value={college}
+                              onChange={(e) => {setCollege(e.target.value)}}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="col-lg-6">
+                          <div className="form-group">
+                            <label className="form-control-label">
+                              Address
+                            </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="Enter Your Address"
+                              value={address}
+                              onChange={(e) => {setAddress(e.target.value)}}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="col-lg-6">
+                          <div className="form-group">
+                            <label className="form-control-label">
+                              Branch / Stream
+                            </label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder="Enter Your Branch"
+                              value={branch}
+                              onChange={(e) => {setBranch(e.target.value)}}
                             />
                           </div>
                         </div>

@@ -19,9 +19,9 @@ export default function StudentSocialProfile() {
               <div className="settings-widget profile-details">
                 <div className="settings-menu p-0">
                   <div className="profile-heading">
-                    <h3>Social Profiles</h3>
+                    <h3>Job Profiles</h3>
                     <p>
-                      Add your social profile links in below social accounts.
+                      Add your job profile links in below social accounts.
                     </p>
                   </div>
                   <div className="checkout-form personal-address">
@@ -30,66 +30,54 @@ export default function StudentSocialProfile() {
                         <div className="col-lg-12">
                           <div className="form-group">
                             <label className="form-control-label">
-                              Twitter
+                              Leetcode
                             </label>
                             <input
                               type="text"
                               className="form-control"
-                              placeholder="Twitter Profile Name"
+                              placeholder="Leetcode Profile Name"
                             />
                           </div>
                         </div>
                         <div className="col-lg-12">
                           <div className="form-group">
                             <label className="form-control-label">
-                              Facebook
+                              Codeforces
                             </label>
                             <input
                               type="text"
                               className="form-control"
-                              placeholder="Facebook Profile Name"
+                              placeholder="Codeforces Profile Name"
                             />
                           </div>
                         </div>
                         <div className="col-lg-12">
                           <div className="form-group">
                             <label className="form-control-label">
-                              Instagram
+                              Linkedin
                             </label>
                             <input
                               type="text"
                               className="form-control"
-                              placeholder="Instagram Profile Name"
+                              placeholder="Linkedin Profile Name"
                             />
                           </div>
                         </div>
                         <div className="col-lg-12">
                           <div className="form-group">
                             <label className="form-control-label">
-                              LinkedIn Profile URL
+                              Naukri
                             </label>
                             <input
                               type="text"
                               className="form-control"
-                              placeholder="LinkedIn Profile URL"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-lg-12">
-                          <div className="form-group">
-                            <label className="form-control-label">
-                              YouTube
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              placeholder="YouTube"
+                              placeholder="Naukri Profile URL"
                             />
                           </div>
                         </div>
                         <div className="update-profile save-social">
                           <button type="button" className="btn btn-primary">
-                            Save Social Profile
+                            Save Job Profile
                           </button>
                         </div>
                       </div>

@@ -12,7 +12,7 @@ import DoubtSubmissionForm from "./DoubtSubmissionForm";
 export default function DoubtSubmission() {
   return (
     <div className="main-wrapper">
-      <StudentHeader />
+      <StudentHeader activeMenu={'Doubt Submission'} />
       {/* Enrolled Courses Header */}
       <div className="course-student-header">
         <div className="container">

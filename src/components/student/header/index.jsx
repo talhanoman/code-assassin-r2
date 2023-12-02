@@ -210,6 +210,12 @@ export default function StudentHeader({ activeMenu }) {
                     Code Editor{" "}
                   </Link>
                 </li>
+
+                <li className={activeMenu === "Doubt Submission" ? "active" : ""}>
+                  <Link to="/doubt-submission">
+                    Doubt Submission{" "}
+                  </Link>
+                </li>
                 <li className="login-link">
                   <Link to="/login">Login / Signup</Link>
                 </li>

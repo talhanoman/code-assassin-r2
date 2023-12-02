@@ -120,18 +120,18 @@ const Header2 = () => {
                   </Link>
                 </li>
                 <li className="has-submenu menu-effect">
-                  <Link to="/">
+                  <Link to="/course-grid">
+                    All Courses{" "}
+                  </Link>
+                </li>
+                <li className="has-submenu menu-effect">
+                  <Link to="#">
                     Enroll{" "}
                   </Link>
                 </li>
                 <li className="has-submenu menu-effect">
                   <Link to="/">
                     About Us{" "}
-                  </Link>
-                </li>
-                <li className="has-submenu menu-effect">
-                  <Link to="/">
-                    Contact Us{" "}
                   </Link>
                 </li>
                 {/* <li className="has-submenu menu-effect">
