@@ -79,7 +79,7 @@ const OverView = () => {
         </div>
         {/* /Course Content */}
         {/* Instructor */}
-        <div className="card instructor-sec">
+        {/* <div className="card instructor-sec">
           <div className="card-body">
             <h5 className="subs-title">About the instructor</h5>
             <div className="instructor-wrap">
@@ -149,7 +149,7 @@ const OverView = () => {
               <li>5. Worldwide</li>
             </ul>
           </div>
-        </div>
+        </div> */}
         {/* /Instructor */}
         {/* Reviews */}
         <div className="card review-sec">
@@ -198,56 +198,7 @@ const OverView = () => {
             </Link>
           </div>
         </div>
-        {/* /Reviews */}
-        {/* Comment */}
-        <div className="card comment-sec">
-          <div className="card-body">
-            <h5 className="subs-title">Post A comment</h5>
-            <form>
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Full Name"
-                    />
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Email"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="form-group">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Subject"
-                />
-              </div>
-              <div className="form-group">
-                <textarea
-                  rows={4}
-                  className="form-control"
-                  placeholder="Your Comments"
-                  defaultValue={""}
-                />
-              </div>
-              <div className="submit-section">
-                <button className="submit-btn" type="submit">
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        {/* /Comment */}
+        {/* /Reviews */}    
       </div>
     </>
   );

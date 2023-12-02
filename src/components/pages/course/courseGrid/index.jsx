@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import CourseHeader from "../header";
-import GridInnerPage from "./gridInnerPage";
 import FeatherIcon from "feather-icons-react";
 import { Blog1, Blog2, Blog3 } from "../../../imagepath";
 import Select from "react-select";
 import { Link } from "react-router-dom";
 import Footer from "../../../footer";
+import StudentHeader from "../../../student/header";
+import EnrollCourseCard from "./EnrollCourseCard";
 
 const CourseGrid = () => {
   const customStyles = {
@@ -34,34 +34,9 @@ const CourseGrid = () => {
   return (
     <>
       <div className="main-wrapper">
-        <CourseHeader activeMenu={"CourseGrid"} />
+        <StudentHeader activeMenu={"Enroll"} />
 
-        <div className="breadcrumb-bar">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 col-12">
-                <div className="breadcrumb-list">
-                  <nav aria-label="breadcrumb" className="page-breadcrumb">
-                    <ol className="breadcrumb">
-                      <li className="breadcrumb-item">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li className="breadcrumb-item" aria-current="page">
-                        Courses
-                      </li>
-                      <li
-                        className="breadcrumb-item active"
-                        aria-current="page"
-                      >
-                        All Courses
-                      </li>
-                    </ol>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         <section className="course-content">
           <div className="container">
@@ -122,51 +97,12 @@ const CourseGrid = () => {
                 </div>
                 {/* /Filter */}
 
-                <GridInnerPage />
-
-                {/* /pagination */}
-                <div className="row">
-                  <div className="col-md-12">
-                    <ul className="pagination lms-page">
-                      <li className="page-item prev">
-                        <Link className="page-link" to="#">
-                          <i className="fas fa-angle-left" />
-                        </Link>
-                      </li>
-                      <li className="page-item first-page active">
-                        <Link className="page-link" to="#">
-                          1
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link className="page-link" to="#">
-                          2
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link className="page-link" to="#">
-                          3
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link className="page-link" to="#">
-                          4
-                        </Link>
-                      </li>
-                      <li className="page-item">
-                        <Link className="page-link" to="#">
-                          5
-                        </Link>
-                      </li>
-                      <li className="page-item next">
-                        <Link className="page-link" to="#">
-                          <i className="fas fa-angle-right" />
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
+                {/* Row */}
+                <div className="d-flex">
+                  <EnrollCourseCard />
+                  <EnrollCourseCard />
+                  <EnrollCourseCard />
                 </div>
-                {/* /pagination */}
               </div>
               <div className="col-lg-3 theiaStickySidebar">
                 <div className="stickysidebar">

@@ -188,8 +188,8 @@ export default function StudentHeader({ activeMenu }) {
 
                 </li>
 
-
-                <li className="has-submenu menu-effect">
+                
+                <li className={activeMenu === "Enroll" ? "active" : ""}>
                   <Link to="/">
                     Enroll{" "}
                   </Link>
