@@ -190,13 +190,8 @@ export default function StudentHeader({ activeMenu }) {
 
                 
                 <li className={activeMenu === "Enroll" ? "active" : ""}>
-                  <Link to="/">
+                  <Link to="/course-grid">
                     Enroll{" "}
-                  </Link>
-                </li>
-                <li className="has-submenu menu-effect">
-                  <Link to="/">
-                    About Us{" "}
                   </Link>
                 </li>
                 <li className="has-submenu menu-effect">

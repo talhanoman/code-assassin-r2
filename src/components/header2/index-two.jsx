@@ -125,7 +125,7 @@ const Header2 = () => {
                   </Link>
                 </li>
                 <li className="has-submenu menu-effect">
-                  <Link to="#">
+                  <Link to="/course-grid">
                     Enroll{" "}
                   </Link>
                 </li>

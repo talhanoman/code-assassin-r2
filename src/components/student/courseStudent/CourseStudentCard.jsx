@@ -49,7 +49,7 @@ export default function CourseStudentCard() {
                         </div>
                         <div className="start-leason hoverBlue d-flex align-items-center">
                             <Link
-                                to="/course-details1"
+                                to="/course-enrolled"
                                 className="btn btn-primary"
                             >
                                 View Course

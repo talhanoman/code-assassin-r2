@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {  Course11, Icon1, Icon2, User2 } from "../../../imagepath";
 export default function EnrollCourseCard() {
     return (
-        <div className="col-lg-4 col-md-6 d-flex mx-1">
+        <div className="col-lg-4 col-md-6 d-flex">
             <div className="course-box course-design d-flex ">
                 <div className="product">
                     <div className="product-img">

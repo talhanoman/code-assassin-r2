@@ -96,6 +96,7 @@ import CodeEditor from "./codeeditor";
 import Home from "./components/home";
 import StudentReviews from "./components/student/reviews";
 import DoubtSubmission from "./components/student/doubtSubmission";
+import CourseEnrolled from "./components/pages/course/enrolled";
 
  const App = () => {
   return (
@@ -128,6 +129,7 @@ import DoubtSubmission from "./components/student/doubtSubmission";
        <Route path="/course-grid" element={<CourseGrid />} />
        <Route path="/course-details" element={<CourseDetails />} />
        <Route path="/course-details1" element={<CourseDetails1 />} />
+       <Route path="/course-enrolled" element={<CourseEnrolled />} />
        <Route path="/course-details2" element={<CourseDetails2 />} />
        <Route path="/course-lesson" element={<CourseLesson />} />
        <Route path="/come-soon" element={<ComingSoon/>} />

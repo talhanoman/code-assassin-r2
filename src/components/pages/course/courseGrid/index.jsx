@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../../footer";
 import StudentHeader from "../../../student/header";
 import EnrollCourseCard from "./EnrollCourseCard";
+import EnrollCourseListCard from "./EnrollCourseListCard";
 
 const CourseGrid = () => {
   const customStyles = {
@@ -31,6 +32,8 @@ const CourseGrid = () => {
 
   const [input, setInput] = useState(null);
 
+  const [view, setView] = useState('Grid');
+
   return (
     <>
       <div className="main-wrapper">
@@ -48,11 +51,11 @@ const CourseGrid = () => {
                     <div className="col-lg-6">
                       <div className="d-flex align-items-center">
                         <div className="view-icons">
-                          <Link to="/course-grid" className="grid-view active">
+                          <Link to="#" onClick={()=> setView("Grid")} className={`grid-view ${view === 'Grid' && 'active'} `}>
                             {/* <i className="feather-grid" /> */}
                             <FeatherIcon icon="grid" />
                           </Link>
-                          <Link to="/course-list" className="list-view">
+                          <Link to="#" onClick={()=> setView("List")} className={`list-view ${view === 'List' && 'active'} `}>
                             {/* <i className="feather-list" /> */}
                             <FeatherIcon icon="list" />
                           </Link>
@@ -96,13 +99,22 @@ const CourseGrid = () => {
                   </div>
                 </div>
                 {/* /Filter */}
-
+                {
+                  view === 'Grid' ?
+                    <div className="row">
+                      <EnrollCourseCard />
+                      <EnrollCourseCard />
+                      <EnrollCourseCard />
+                    </div>
+                    :
+                    <div className="row">
+                      <EnrollCourseListCard />
+                      <EnrollCourseListCard />
+                      <EnrollCourseListCard />
+                    </div>
+                }
                 {/* Row */}
-                <div className="d-flex">
-                  <EnrollCourseCard />
-                  <EnrollCourseCard />
-                  <EnrollCourseCard />
-                </div>
+
               </div>
               <div className="col-lg-3 theiaStickySidebar">
                 <div className="stickysidebar">
