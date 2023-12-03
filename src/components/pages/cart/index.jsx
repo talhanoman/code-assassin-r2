@@ -4,37 +4,15 @@ import Footer from "../../footer";
 import { Course10, Course11, Course12, EmptyCartIllustration, Icon1, Icon2 } from "../../imagepath";
 import PageHeader from "../header";
 import useCartStore from "../../../store/cartStore";
+import StudentHeader from "../../student/header";
 const Cart = () => {
   const { cartItems, removeFromCart } = useCartStore();
   const cartTotal = useCartStore((state) => state.cartTotal)
   return (
     <>
       <div className="main-wrapper">
-        <PageHeader activeMenu="Cart" />
+        <StudentHeader activeMenu="Cart" />
 
-        <div className="breadcrumb-bar">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 col-12">
-                <div className="breadcrumb-list">
-                  <nav aria-label="breadcrumb" className="page-breadcrumb">
-                    <ol className="breadcrumb">
-                      <li className="breadcrumb-item">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li className="breadcrumb-item" aria-current="page">
-                        Pages
-                      </li>
-                      <li className="breadcrumb-item" aria-current="page">
-                        Cart
-                      </li>
-                    </ol>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <section className="course-content cart-widget">
           <div className="container">
