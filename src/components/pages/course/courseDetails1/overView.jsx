@@ -4,7 +4,7 @@ import { Icon1, Icon2, People, Play, User1 } from "../../../imagepath";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import CourseContentCard from "./CourseContentCard";
 
-const OverView = () => {
+const OverView = ({ courseDetails }) => {
 
   return (
     <>
@@ -15,49 +15,9 @@ const OverView = () => {
             <h5 className="subs-title">Overview</h5>
             <h6>Course Description</h6>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
+                {courseDetails ? courseDetails[0]?.course_description : ' '}
             </p>
-            <p>
-              It was popularised in the 1960s with the release of Letraset
-              sheets containing Lorem Ipsum passages, and more recently with
-              desktop publishing software like Aldus PageMaker including
-              versions of Lorem Ipsum.
-            </p>
-            <h6>What you&apos;ll learn</h6>
-            <div className="row">
-              <div className="col-md-6">
-                <ul>
-                  <li>Become a UX designer.</li>
-                  <li>You will be able to add UX designer to your CV</li>
-                  <li>Become a UI designer.</li>
-                  <li>Build &amp; test a full website design.</li>
-                  <li>Build &amp; test a full mobile app.</li>
-                </ul>
-              </div>
-              <div className="col-md-6">
-                <ul>
-                  <li>Learn to design websites &amp; mobile phone apps.</li>
-                  <li>You&apos;ll learn how to choose colors.</li>
-                  <li>Prototype your designs with interactions.</li>
-                  <li>Export production ready assets.</li>
-                  <li>All the techniques used by UX professionals</li>
-                </ul>
-              </div>
-            </div>
-            <h6>Requirements</h6>
-            <ul className="mb-0">
-              <li>
-                You will need a copy of Adobe XD 2019 or above. A free trial can
-                be downloaded from Adobe.
-              </li>
-              <li>No previous design experience is needed.</li>
-              <li className="mb-0">No previous Adobe XD skills are needed.</li>
-            </ul>
+
           </div>
         </div>
         {/* /Overview */}
@@ -69,12 +29,16 @@ const OverView = () => {
                 <h5 className="subs-title">Course Content</h5>
               </div>
               <div className="col-sm-6 text-sm-end">
-                <h6>92 Lectures 10:56:11</h6>
+                <h6>All Lectures</h6>
               </div>
             </div>
-            <CourseContentCard />
-            <CourseContentCard />
-            <CourseContentCard />
+            {courseDetails? 
+              courseDetails[0]?.sections?.map((obj) => (
+                <CourseContentCard title={obj.section_title} lectures={obj.lectures}/>
+              )) 
+              :
+              ' '
+            }
           </div>
         </div>
         {/* /Course Content */}
@@ -152,7 +116,7 @@ const OverView = () => {
         </div> */}
         {/* /Instructor */}
         {/* Reviews */}
-        <div className="card review-sec">
+        {/* <div className="card review-sec">
           <div className="card-body">
             <h5 className="subs-title">Reviews</h5>
             <div className="instructor-wrap">
@@ -190,14 +154,14 @@ const OverView = () => {
               most out of this course, its best to to take the Beginner to
               Advanced course first. The sound and video quality is of a good
               standard. Thank you Cristian. “
-            </p>
-            <Link to="#" className="btn-reply">
+            </p> */}
+            {/* <Link to="#" className="btn-reply"> */}
               {/* <i className="feather-corner-up-left" />  */}
-              <FeatherIcon icon="corner-up-left" />
+              {/* <FeatherIcon icon="corner-up-left" />
               Reply
             </Link>
           </div>
-        </div>
+        </div> */}
         {/* /Reviews */}    
       </div>
     </>

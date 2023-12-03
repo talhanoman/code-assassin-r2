@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import {
   Chapter,
@@ -22,8 +22,41 @@ import OverView from "./overView";
 import FeatherIcon from "feather-icons-react";
 import Footer from "../../../footer";
 import StudentHeader from "../../../student/header";
+import { useLocation } from "react-router-dom";
+import Cookies from "universal-cookie";
+import { ViewSectionsAndLecturesOfCourses } from "../../../../api/get";
+import { useNavigate } from "react-router-dom";
 
 const CourseDetails1 = () => {
+
+  const cookie = new Cookies()
+  const token = cookie.get('token')
+
+  const location = useLocation()
+  const course_guid = location.state.course_guid
+
+  const navigate = useNavigate()
+
+  const [courseDetails, setCourseDetails] = useState([])
+
+  useEffect(() => {
+    viewLecturesAnsSections()
+  }, [])
+
+  const viewLecturesAnsSections = async () => {
+    let response = await ViewSectionsAndLecturesOfCourses(token, course_guid)
+    if (response.status === 200)
+    {
+      console.log(response.data)
+      setCourseDetails(response.data)
+    }
+    else 
+    {
+      navigate('/login')      
+    }
+
+  }
+
   return (
     <>
       <div className="main-wrapper">
@@ -66,12 +99,7 @@ const CourseDetails1 = () => {
                   <div className="card-body">
                     <div className="com-info">
                       <div>
-                        <h2>The Complete Web Developer Course 3.0</h2>
-                        <p>
-                          Learn Web Development by building 25 websites and
-                          mobile apps using HTML, CSS, Javascript, PHP, Python,
-                          MySQL &amp; more!
-                        </p>
+                        <h2>{courseDetails ? courseDetails[0]?.course_title : ' '}</h2>
                         <div className="instructor-wrap border-bottom-0 m-0">
                           <div className="about-instructor align-items-center">
                             <div className="abt-instructor-img">
@@ -106,7 +134,7 @@ const CourseDetails1 = () => {
                             WEB DEVELPMENT
                           </span>
                         </div>
-                        <div className="course-info d-flex align-items-center border-bottom-0 p-0 m-0">
+                        {/* <div className="course-info d-flex align-items-center border-bottom-0 p-0 m-0">
                           <div className="cou-info">
                             <img src={Icon1} alt="" />
                             <p>12+ Lesson</p>
@@ -119,7 +147,7 @@ const CourseDetails1 = () => {
                             <img src={People} alt="" />
                             <p>32 students enrolled</p>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                       <Link
                         to="https://www.youtube.com/embed/1trvO6dqQUI"
@@ -136,7 +164,7 @@ const CourseDetails1 = () => {
                 </div>
               </div>
 
-              <OverView />
+              <OverView courseDetails={courseDetails}/>
 
               <div className="col-lg-4">
                 {/* Video */}
@@ -145,9 +173,9 @@ const CourseDetails1 = () => {
                     <div className="card-body">
                       <div className="video-details">
                         <div className="course-fee">
-                          <h2>$200</h2>
+                          <h2>${courseDetails ? courseDetails[0]?.course_price : ' '}</h2>
                           <p>
-                            <span>$99.00</span> 50% off
+                            <span>$999.00</span> 50% off
                           </p>
                         </div>
                         <div className="row gx-2">
@@ -189,39 +217,6 @@ const CourseDetails1 = () => {
                 {/* /Video */}
                 {/* Include */}
                 <div className="card include-sec">
-                  <div className="card-body">
-                    <div className="cat-title">
-                      <h4>Includes</h4>
-                      <span>
-                        <i className="fas fa-angle-down" />
-                      </span>
-                    </div>
-                    <ul>
-                      <li>
-                        <img src={Import} className="me-2" alt="" /> 11 hours
-                        on-demand video
-                      </li>
-                      <li>
-                        <img src={Play} className="me-2" alt="" /> 69
-                        downloadable resources
-                      </li>
-                      <li>
-                        <img src={Key} className="me-2" alt="" /> Full lifetime
-                        access
-                      </li>
-                      <li>
-                        <img src={Mobile} className="me-2" alt="" /> Access on
-                        mobile and TV
-                      </li>
-                      <li>
-                        <img src={Cloud} className="me-2" alt="" /> Assignments
-                      </li>
-                      <li>
-                        <img src={Teacher} className="me-2" alt="" />{" "}
-                        Certificate of Completion
-                      </li>
-                    </ul>
-                  </div>
                 </div>
                 {/* /Include */}
                 {/* Features */}
@@ -235,24 +230,20 @@ const CourseDetails1 = () => {
                     </div>
                     <ul>
                       <li>
-                        <img src={Users} className="me-2" alt="" /> Enrolled:{" "}
-                        <span>32 students</span>
+                        <img src={Users} className="me-2" alt="" /> Difficult level:{" "}
+                        <span>{courseDetails ? courseDetails[0]?.course_level : ' '}</span>
                       </li>
                       <li>
-                        <img src={Timer2} className="me-2" alt="" /> Duration:{" "}
-                        <span>20 hours</span>
+                        <img src={Timer2} className="me-2" alt="" /> Course category:{" "}
+                        <span>{courseDetails ? courseDetails[0]?.course_category : ' '}</span>
                       </li>
                       <li>
                         <img src={Chapter} className="me-2" alt="" /> Chapters:{" "}
                         <span>15</span>
                       </li>
                       <li>
-                        <img src={Video2} className="me-2" alt="" /> Video:
-                        <span> 12 hours</span>
-                      </li>
-                      <li>
-                        <img src={Chart} className="me-2" alt="" /> Level:{" "}
-                        <span>Beginner</span>
+                        <img src={Video2} className="me-2" alt="" /> Course type:
+                        <span> Web development</span>
                       </li>
                     </ul>
                   </div>

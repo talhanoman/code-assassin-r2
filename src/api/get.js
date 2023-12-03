@@ -39,3 +39,74 @@ export const ViewCalendarStreak = async (token, month) => {
         console.error('Error during POST request:', error.message);
     }
 };
+
+export const ViewAllCourses = async () => {
+    try {
+        const response = await fetch(HOST + '/course/view/all', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const responseData = await response.json();
+        return responseData
+
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
+export const ViewAllCoursesOfStudent = async (token) => {
+    try {
+        const response = await fetch(HOST + '/course/view', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        });
+
+        const responseData = await response.json();
+        return responseData
+
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
+export const ViewSectionsAndLecturesOfCoursesForStudent = async (token, courseGuid) => {
+    try {
+        const response = await fetch(HOST + '/course/view/lectures/' + courseGuid, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        });
+
+        const responseData = await response.json();
+        return responseData
+
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
+export const ViewSectionsAndLecturesOfCourses = async (token, courseGuid) => {
+    try {
+        const response = await fetch(HOST + '/course/view/all/lectures/' + courseGuid, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        });
+
+        const responseData = await response.json();
+        return responseData
+
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};

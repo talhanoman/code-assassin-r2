@@ -60,6 +60,44 @@ export const AddLoginStreak = async (token, data) => {
     }
 };
 
+export const AssignACourse = async (token, data) => {
+    try {
+        const response = await fetch(HOST + '/course/assign', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(data),
+        });
+
+        const responseData = await response.json();
+        return responseData
+        
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
+export const AssignALecture = async (token, data) => {
+    try {
+        const response = await fetch(HOST + '/video/assign', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(data),
+        });
+
+        const responseData = await response.json();
+        return responseData
+        
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
 export const HandleForgotPassword = async (data) => {
     try {
         const response = await fetch(HOST, {

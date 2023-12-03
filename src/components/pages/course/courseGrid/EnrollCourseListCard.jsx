@@ -1,7 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Course11, Icon1, Icon2, User2 } from "../../../imagepath";
-export default function EnrollCourseListCard() {
+import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
+
+export default function EnrollCourseListCard({ course_guid, title, level, price }) {
+
+    const cookie = new Cookies()
+    const token = cookie.get('token')
+    const navigate = useNavigate()
+
+    const GoToCheckout = () => {
+        if (token && token.length > 0)
+        {
+            navigate('/course-details1', {
+                state: {
+                    course_guid: course_guid
+                }
+            })
+        }
+        else
+        {
+            navigate('/login')
+        }
+    }
+
     return (
         <div className="row">
             <div className="col-lg-12 col-md-12 d-flex">
@@ -17,21 +40,21 @@ export default function EnrollCourseListCard() {
                             </Link>
                             <div className="price">
                                 <h3>
-                                    $300 <span>$99.00</span>
+                                    ${price} <span>$999.00</span>
                                 </h3>
                             </div>
                         </div>
                         <div className="product-content">
                             <div className="head-course-title">
                                 <h3 className="title">
-                                    <Link to="/course-details">
-                                        Sketch from A to Z (2022): Become an app designer
+                                    <Link>
+                                        {title}
                                     </Link>
                                 </h3>
                                 <div className="all-btn all-category d-flex align-items-center">
-                                    <Link to="/checkout" className="btn btn-primary">
+                                    <button onClick={() => {GoToCheckout()}} className="btn btn-primary">
                                         BUY NOW
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                             <div className="course-info border-bottom-0 pb-0 d-flex align-items-center">
@@ -56,7 +79,7 @@ export default function EnrollCourseListCard() {
                             </div>
                             <div className="course-group d-flex mb-0">
                                 <div className="course-group-img d-flex">
-                                    <Link to="/instructor-profile">
+                                    <Link>
                                         <img
                                             src={User2}
                                             alt=""
@@ -65,7 +88,7 @@ export default function EnrollCourseListCard() {
                                     </Link>
                                     <div className="course-name">
                                         <h4>
-                                            <Link to="/instructor-profile">Jesse Stevens</Link>
+                                            <Link>Jesse Stevens</Link>
                                         </h4>
                                         <p>Instructor</p>
                                     </div>

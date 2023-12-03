@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FeatherIcon from "feather-icons-react";
 import { Blog1, Blog2, Blog3 } from "../../../imagepath";
 import Select from "react-select";
@@ -7,6 +7,9 @@ import Footer from "../../../footer";
 import StudentHeader from "../../../student/header";
 import EnrollCourseCard from "./EnrollCourseCard";
 import EnrollCourseListCard from "./EnrollCourseListCard";
+import { ViewAllCourses } from "../../../../api/get";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CourseGrid = () => {
   const customStyles = {
@@ -23,6 +26,22 @@ const CourseGrid = () => {
     }),
   };
 
+  useEffect(() => {
+    viewAllCourses()
+  }, [])
+
+  const viewAllCourses = async () => {
+    let response = await ViewAllCourses()
+    if (response.status === 200)
+    {
+      setCourses(response.data)
+    }
+    else
+    {
+      toast(response.message)
+    }
+  }
+
   const option = [
     { label: "Newly published", value: "Newly published" },
     { label: "published 1", value: "published 1" },
@@ -33,6 +52,8 @@ const CourseGrid = () => {
   const [input, setInput] = useState(null);
 
   const [view, setView] = useState('Grid');
+
+  const [courses, setCourses] = useState([])
 
   return (
     <>
@@ -102,15 +123,19 @@ const CourseGrid = () => {
                 {
                   view === 'Grid' ?
                     <div className="row">
-                      <EnrollCourseCard />
-                      <EnrollCourseCard />
-                      <EnrollCourseCard />
+                      {
+                        courses?.map((obj) => (
+                          <EnrollCourseCard course_guid = {obj.course_guid} title={obj.course_title} level = {obj.course_level} price = {obj.course_price}/>
+                        ))
+                      }
                     </div>
                     :
                     <div className="row">
-                      <EnrollCourseListCard />
-                      <EnrollCourseListCard />
-                      <EnrollCourseListCard />
+                      {
+                        courses?.map((obj) => (
+                          <EnrollCourseListCard course_guid = {obj.course_guid} title={obj.course_title} level = {obj.course_level} price = {obj.course_price}/>
+                        ))
+                      }
                     </div>
                 }
                 {/* Row */}
@@ -363,6 +388,7 @@ const CourseGrid = () => {
                 </div>
               </div>
             </div>
+            <ToastContainer />
           </div>
         </section>
 

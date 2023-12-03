@@ -1,7 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import {  Course11, Icon1, Icon2, User2 } from "../../../imagepath";
-export default function EnrollCourseCard() {
+import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
+
+export default function EnrollCourseCard({ course_guid, title, level, price }) {
+
+    const cookie = new Cookies()
+    const token = cookie.get('token')
+    const navigate = useNavigate()
+
+    const GoToCheckout = () => {
+        if (token && token.length > 0)
+        {
+            navigate('/course-details1', {
+                state: {
+                    course_guid: course_guid
+                }
+            })
+        }
+        else
+        {
+            navigate('/login')
+        }
+    }
+
     return (
         <div className="col-lg-4 col-md-6 d-flex">
             <div className="course-box course-design d-flex ">
@@ -16,14 +39,14 @@ export default function EnrollCourseCard() {
                         </Link>
                         <div className="price">
                             <h3>
-                                $200 <span>$99.00</span>
+                                ${price} <span>$999.00</span>
                             </h3>
                         </div>
                     </div>
                     <div className="product-content">
                         <div className="course-group d-flex">
                             <div className="course-group-img d-flex">
-                                <Link to="/instructor-profile">
+                                <Link>
                                     <img
                                         src={User2}
                                         alt=""
@@ -32,7 +55,7 @@ export default function EnrollCourseCard() {
                                 </Link>
                                 <div className="course-name">
                                     <h4>
-                                        <Link to="/instructor-profile">Jenis R.</Link>
+                                        <Link>Jenis R.</Link>
                                     </h4>
                                     <p>Instructor</p>
                                 </div>
@@ -44,8 +67,8 @@ export default function EnrollCourseCard() {
                             </div>
                         </div>
                         <h3 className="title">
-                            <Link to="/course-details">
-                                Wordpress for Beginners - Master Wordpress Quickly
+                            <Link>
+                                {title}
                             </Link>
                         </h3>
                         <div className="course-info d-flex align-items-center">
@@ -69,9 +92,9 @@ export default function EnrollCourseCard() {
                             </span>
                         </div>
                         <div className="all-btn all-category d-flex align-items-center">
-                            <Link to="/course-details1" className="btn btn-primary">
+                            <button onClick={() => {GoToCheckout()}} className="btn btn-primary">
                                 BUY NOW
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>
