@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
     Chapter,
@@ -26,41 +26,48 @@ import StudentHeader from "../../../student/header";
 import Cookies from "universal-cookie";
 import { ViewSectionsAndLecturesOfCoursesForStudent } from "../../../../api/get";
 import { useLocation, useNavigate } from "react-router-dom";
+import VideoModal from "../../../VideoModal/VideoModal";
 
 const CourseEnrolled = () => {
-
+    const videoModalRef = useRef(null);
     const cookie = new Cookies()
     const token = cookie.get('token')
-  
+
     const location = useLocation()
     const course_guid = location.state.course_guid
     const course_title = location.state.course_title
     const course_description = location.state.course_description
     const course_level = location.state.course_level
     const course_category = location.state.course_category
-  
+
     const navigate = useNavigate()
-  
+
     const [courseDetails, setCourseDetails] = useState([])
-  
+
     useEffect(() => {
-      viewLecturesAnsSections()
+        viewLecturesAnsSections()
     }, [])
-  
+
     const viewLecturesAnsSections = async () => {
-      let response = await ViewSectionsAndLecturesOfCoursesForStudent(token, course_guid)
-      if (response.status === 200)
-      {
-        console.log(response.data)
-        setCourseDetails(response.data)
-      }
-      else 
-      {
-        navigate('/login')      
-      }
-  
+        let response = await ViewSectionsAndLecturesOfCoursesForStudent(token, course_guid)
+        if (response.status === 200) {
+            console.log(response.data)
+            setCourseDetails(response.data)
+        }
+        else {
+            navigate('/login')
+        }
+
     }
 
+    const [currentVideo, setCurrentVideo] = useState(null);
+    const handleVideoModal = (lecture_url, title)=>{
+        setCurrentVideo({
+            lecture_url,
+            title
+        })
+        videoModalRef.current.click();
+    }
     return (
         <>
             <div className="main-wrapper">
@@ -104,7 +111,7 @@ const CourseEnrolled = () => {
                                         <div className="com-info">
                                             <div>
                                                 <h2>{course_title}</h2>
-                                                
+
                                                 <div className="instructor-wrap border-bottom-0 m-0">
                                                     <div className="about-instructor align-items-center">
                                                         <div className="abt-instructor-img">
@@ -142,7 +149,7 @@ const CourseEnrolled = () => {
                                             </div>
                                             <Link
                                                 to="https://www.youtube.com/embed/1trvO6dqQUI"
-                                                className="video-thumbnail"
+                                                className="video-thumbnail ms-auto"
                                                 data-fancybox=""
                                             >
                                                 <div className="play-icon">
@@ -155,14 +162,14 @@ const CourseEnrolled = () => {
                                 </div>
                             </div>
 
-                            <OverViewEnrolled courseDetails={courseDetails} course_description={course_description}/>
+                            <OverViewEnrolled courseDetails={courseDetails} course_description={course_description} handleVideoModal={handleVideoModal} />
 
                             <div className="col-lg-4">
                                 {/* Video */}
                                 <div className="video-secs vid-bg no-video">
-                               
+
                                 </div>
-                     
+
                                 {/* /Include */}
                                 {/* Features */}
                                 <div className="card feature-sec">
@@ -174,52 +181,32 @@ const CourseEnrolled = () => {
                                             </span>
                                         </div>
                                         <ul>
-                                        <li>
-                                            <img src={Users} className="me-2" alt="" /> Difficult level:{" "}
-                                            <span>{course_level}</span>
-                                        </li>
-                                        <li>
-                                            <img src={Timer2} className="me-2" alt="" /> Course category:{" "}
-                                            <span>{course_category}</span>
-                                        </li>
-                                        <li>
-                                            <img src={Chapter} className="me-2" alt="" /> Chapters:{" "}
-                                            <span>15</span>
-                                        </li>
-                                        <li>
-                                            <img src={Video2} className="me-2" alt="" /> Course type:
-                                            <span> Web development</span>
-                                        </li>
+                                            <li>
+                                                <img src={Users} className="me-2" alt="" /> Difficult level:{" "}
+                                                <span>{course_level}</span>
+                                            </li>
+                                            <li>
+                                                <img src={Timer2} className="me-2" alt="" /> Course category:{" "}
+                                                <span>{course_category}</span>
+                                            </li>
+                                            <li>
+                                                <img src={Chapter} className="me-2" alt="" /> Chapters:{" "}
+                                                <span>15</span>
+                                            </li>
+                                            <li>
+                                                <img src={Video2} className="me-2" alt="" /> Course type:
+                                                <span> Web development</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                                 {/* /Features */}
                             </div>
                         </div>
-                        <div className="col-lg-12">
-                            {/* Introduction */}
-                            <div className="student-widget lesson-introduction">
-                            <div className="lesson-widget-group">
-                                <h4 className="tittle">Introduction</h4>
-                                <div className="introduct-video">
-                                <Link
-                                    to="https://www.youtube.com/embed/1trvO6dqQUI"
-                                    className="video-thumbnail"
-                                    data-fancybox=""
-                                >
-                                    <div className="play-icon">
-                                    <i className="fa-solid fa-play" />
-                                    </div>
-                                    <img
-                                    className=""
-                                    src={Video1}
-                                    alt=""
-                                    />
-                                </Link>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                        <button type="button" ref={videoModalRef} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Launch demo modal
+                        </button>
+                        <VideoModal currentVideo={currentVideo} />
                     </div>
                 </section>
                 <Footer />

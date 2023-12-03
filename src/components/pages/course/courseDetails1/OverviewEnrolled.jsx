@@ -4,7 +4,7 @@ import { Icon1, Icon2, People, Play, User1 } from "../../../imagepath";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import CourseContentCardEnrolled from "./CourseContentCardEnrolled";
 
-const OverViewEnrolled = ({ courseDetails, course_description }) => {
+const OverViewEnrolled = ({ courseDetails, course_description, handleVideoModal }) => {
 
   return (
     <>
@@ -34,9 +34,9 @@ const OverViewEnrolled = ({ courseDetails, course_description }) => {
             </div>
             {courseDetails?.map((obj, index) => (
                 index != courseDetails.length - 1 ?
-                <CourseContentCardEnrolled title={obj.section_title} lectures={obj.lectures} sample_problems = {false}/>
+                <CourseContentCardEnrolled title={obj.section_title} lectures={obj.lectures} sample_problems = {false} handleVideoModal={handleVideoModal}/>
                 :
-                <CourseContentCardEnrolled title={'Sample Problems'} lectures={obj.questions} sample_problems = {true}/>
+                <CourseContentCardEnrolled title={'Sample Problems'} lectures={obj.questions} sample_problems = {true} handleVideoModal={handleVideoModal}/>
               )) 
             }
           </div>

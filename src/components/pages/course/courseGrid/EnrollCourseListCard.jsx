@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Course11, Icon1, Icon2, User2 } from "../../../imagepath";
-import useCartStore from '../../../../store/cartStore';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 
