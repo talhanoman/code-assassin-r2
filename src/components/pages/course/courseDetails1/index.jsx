@@ -24,7 +24,7 @@ import Footer from "../../../footer";
 import StudentHeader from "../../../student/header";
 import { useLocation } from "react-router-dom";
 import Cookies from "universal-cookie";
-import { ViewSectionsAndLecturesOfCourses } from "../../../../api/get";
+import { ViewSectionsAndLecturesOfCourses, IsCoursePurchased } from "../../../../api/get";
 import { useNavigate } from "react-router-dom";
 
 const CourseDetails1 = () => {
@@ -38,10 +38,24 @@ const CourseDetails1 = () => {
   const navigate = useNavigate()
 
   const [courseDetails, setCourseDetails] = useState([])
+  const [purchaseStatus, setPurchaseStatus] = useState(false)
 
   useEffect(() => {
+    isCoursePurchased()
     viewLecturesAnsSections()
   }, [])
+
+  const isCoursePurchased = async () => {
+    let response = await IsCoursePurchased(token, course_guid)
+    if (response.status === 200)
+    {
+      setPurchaseStatus(response.data)
+    }
+    else
+    {
+      navigate("/login")
+    }
+  }
 
   const viewLecturesAnsSections = async () => {
     let response = await ViewSectionsAndLecturesOfCourses(token, course_guid)
@@ -181,12 +195,17 @@ const CourseDetails1 = () => {
                         <div className="row gx-2">
 
                           <div className="col-sm-12">
-                            <Link
-                              to="/checkout"
-                              className="btn btn-enroll w-100"
-                            >
-                              Buy Now
-                            </Link>
+                            {
+                              purchaseStatus ?
+                              ' Already purchased '
+                              :  
+                              <Link
+                                to="/checkout"
+                                className="btn btn-enroll w-100"
+                              >
+                                Buy Now
+                              </Link>
+                            }
                           </div>
                         </div>
                       </div>

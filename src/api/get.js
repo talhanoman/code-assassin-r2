@@ -110,3 +110,21 @@ export const ViewSectionsAndLecturesOfCourses = async (token, courseGuid) => {
         console.error('Error during POST request:', error.message);
     }
 };
+
+export const IsCoursePurchased = async (token, courseGuid) => {
+    try {
+        const response = await fetch(HOST + '/course/purchased/' + courseGuid, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        });
+
+        const responseData = await response.json();
+        return responseData
+
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};

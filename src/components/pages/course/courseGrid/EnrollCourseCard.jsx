@@ -13,7 +13,7 @@ export default function EnrollCourseCard({ course_guid, title, level, price }) {
     const GoToCheckout = () => {
         if (token && token.length > 0)
         {
-            navigate('/course-details1', {
+            navigate('/course-details', {
                 state: {
                     course_guid: course_guid
                 }
