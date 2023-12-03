@@ -2,7 +2,8 @@ import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../../footer";
-import { Chapter,Chart,Cloud,Icon1,Import,Key,Mobile,People,Play,Teacher,Timer,Timer2,User1,Users,Video2,VideoBg,
+import {
+  Chapter, Chart, Cloud, Icon1, Import, Key, Mobile, People, Play, Teacher, Timer, Timer2, User1, Users, Video2, VideoBg,
 } from "../../../imagepath";
 import CourseHeader from "../header";
 import Instructor from "./instructor";
@@ -13,7 +14,6 @@ const CourseDetails2 = () => {
     <>
       <div className="main-wrapper">
         <CourseHeader />
-
         <div className="breadcrumb-bar">
           <div className="container">
             <div className="row">
@@ -333,7 +333,7 @@ const CourseDetails2 = () => {
             </div>
           </div>
         </section>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );

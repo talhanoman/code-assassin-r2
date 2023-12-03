@@ -335,7 +335,7 @@ const Header = () => {
                       <Link to="/wishlist">Wishlist</Link>
                     </li>
                     <li className="has-submenu">
-                      <Link to="/course-list">Course<i
+                      <Link to="/course-grid">Course<i
                       className="fas fa-chevron-right listMob"
                       onClick={openMobileSubMenu42}
                     /></Link>
@@ -346,7 +346,7 @@ const Header = () => {
                           <Link to="/add-course">Add Course</Link>
                         </li>
                         <li>
-                          <Link to="/course-list">Course List</Link>
+                          <Link to="/course-grid">Course List</Link>
                         </li>
                         <li>
                           <Link to="/course-grid">Course Grid</Link>

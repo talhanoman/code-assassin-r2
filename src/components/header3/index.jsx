@@ -333,7 +333,7 @@ export const Header3 = () => {
                       <Link to="/wishlist">Wishlist</Link>
                     </li>
                     <li className="has-submenu">
-                      <Link to="/course-list">
+                      <Link to="/course-grid">
                         Course
                         <i
                           className="fas fa-chevron-right listMob"
@@ -349,7 +349,7 @@ export const Header3 = () => {
                           <Link to="/add-course">Add Course</Link>
                         </li>
                         <li>
-                          <Link to="/course-list">Course List</Link>
+                          <Link to="/course-grid">Course List</Link>
                         </li>
                         <li>
                           <Link to="/course-grid">Course Grid</Link>

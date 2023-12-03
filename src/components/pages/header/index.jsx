@@ -446,7 +446,7 @@ const PageHeader = ({ activeMenu }) => {
                       </Link>
                     </li>
                     <li className="has-submenu">
-                      <Link to="/course-list">
+                      <Link to="/course-grid">
                         Course
                         <i
                           className="fas fa-chevron-right listMob"
@@ -464,7 +464,7 @@ const PageHeader = ({ activeMenu }) => {
                           </Link>
                         </li>
                         <li className={activeMenu === "CourseList" ? "active" : ""}>
-                          <Link to="/course-list" onClick={hideMobileMenu}>
+                          <Link to="/course-grid" onClick={hideMobileMenu}>
                             Course List
                           </Link>
                         </li>

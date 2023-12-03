@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../footer";
-import { Course10, Course11, Course12, Icon1, Icon2 } from "../../imagepath";
+import { Course10, Course11, Course12, EmptyCartIllustration, Icon1, Icon2 } from "../../imagepath";
 import PageHeader from "../header";
 import useCartStore from "../../../store/cartStore";
 const Cart = () => {
   const { cartItems, removeFromCart } = useCartStore();
-  const cartTotal = useCartStore((state)=> state.cartTotal)  
+  const cartTotal = useCartStore((state) => state.cartTotal)
   return (
     <>
       <div className="main-wrapper">
@@ -47,6 +47,13 @@ const Cart = () => {
                     </div>
                     <div className="cart-group">
                       <div className="row">
+                        {
+                          cartItems.length === 0 &&
+                          <div className="text-center">
+                            <img src={EmptyCartIllustration} className="w-25 mx-auto h-auto" alt="" srcset="" />
+                            <h5 className="">Cart is empty</h5>
+                          </div>
+                        }
                         {
                           cartItems.map((course) => {
                             const { course_guid, course_title } = course;
@@ -105,7 +112,7 @@ const Cart = () => {
                                     </div>
                                     <div className="cart-remove">
                                       <a
-                                        onClick={()=> removeFromCart(course)}
+                                        onClick={() => removeFromCart(course)}
                                         className="btn btn-primary"
                                       >
                                         Remove
@@ -130,17 +137,22 @@ const Cart = () => {
                             </p>
                           </div>
                         </div>
-                        <div className="col-lg-6 col-md-6">
-                          <div className="check-outs">
-                            <Link to="/checkout" className="btn btn-primary">
-                              Checkout
-                            </Link>
+                        {
+                          cartItems.length > 0
+                          &&
+                          <div className="col-lg-6 col-md-6">
+                            <div className="check-outs">
+                              <Link to="/checkout" className="btn btn-primary">
+                                Checkout
+                              </Link>
+                            </div>
                           </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6">
+                        }
+
+                        <div className={`${cartItems.length > 0 ? "col-lg-6 col-md-6" : "col-lg-12 col-md-12"} `}>
                           <div className="condinue-shop">
                             <Link
-                              to="/course-list"
+                              to="/course-grid"
                               className="btn btn-primary"
                             >
                               Continue Shopping

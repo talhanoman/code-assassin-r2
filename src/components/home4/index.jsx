@@ -3906,7 +3906,7 @@ export const Home4 = () => {
                     helped their careers.
                   </p>
                 </div>
-                <Link to="/course-list" className="learn-more-five">
+                <Link to="/course-grid" className="learn-more-five">
                   Learn More
                 </Link>
               </div>
@@ -4248,7 +4248,7 @@ export const Home4 = () => {
                   </ul>
                 </div>
 
-                <Link to="/course-list" className="learn-more-five">
+                <Link to="/course-grid" className="learn-more-five">
                   Start Teaching Today
                 </Link>
               </div>

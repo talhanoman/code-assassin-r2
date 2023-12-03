@@ -514,7 +514,7 @@ export function InstructorHeader({ activeMenu }) {
                       </Link>
                     </li>
                     <li className="has-submenu">
-                      <Link to="/course-list">
+                      <Link to="/course-grid">
                         Course{" "}
                         <i
                           className="fas fa-chevron-right listMob"
@@ -532,7 +532,7 @@ export function InstructorHeader({ activeMenu }) {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/course-list" onClick={hideMobileMenu}>
+                          <Link to="/course-grid" onClick={hideMobileMenu}>
                             Course List
                           </Link>
                         </li>

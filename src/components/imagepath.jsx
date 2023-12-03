@@ -17,6 +17,9 @@ export { default as Lead4 } from "../assets/img/lead-04.png";
 export { default as Lead5 } from "../assets/img/lead-05.png";
 export { default as Lead6 } from "../assets/img/lead-06.png";
 
+//
+//emptycart-illustration
+export { default as EmptyCartIllustration } from "../assets/img/emptycart-illustration.png";
 // Placements
 export { default as google } from "../assets/img/placements/google-9542.png";
 export { default as microsoft } from "../assets/img/placements/microsoft-9541.png";

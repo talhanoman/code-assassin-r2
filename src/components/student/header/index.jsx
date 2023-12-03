@@ -238,7 +238,7 @@ export default function StudentHeader({ activeMenu }) {
                     {
                       cartItems?.length > 0 &&
                       <div className="position-absolute top-0 start-100 translate-middle">
-                        <span className="p-1 small rounded-circle bg-primary text-white">{cartItems.length} </span>
+                        <span className="px-2 py-1 small rounded-circle bg-primary text-white">{cartItems.length} </span>
                       </div>
                     }
                   </div>

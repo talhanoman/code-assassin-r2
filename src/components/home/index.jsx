@@ -136,7 +136,7 @@ export const Home = () => {
                     <p>Own your future learning new skills online</p>
                   </div>
                   <div className="banner-content">
-                    <form className="form" action="/course-list">
+                    <form className="form" action="/course-grid">
                       <div className="form-inner">
                         <div className="input-group homeSearch">
                           <i className="fa-solid fa-magnifying-glass search-icon" />
@@ -316,7 +316,7 @@ export const Home = () => {
                 <h2>Featured Courses</h2>
               </div>
               <div className="all-btn all-category d-flex align-items-center">
-                <Link to="/course-list" className="btn btn-primary">
+                <Link to="/course-grid" className="btn btn-primary">
                   All Courses
                 </Link>
               </div>

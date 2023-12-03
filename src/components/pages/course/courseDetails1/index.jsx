@@ -122,7 +122,7 @@ const CourseDetails1 = () => {
                       </div>
                       <Link
                         to="https://www.youtube.com/embed/1trvO6dqQUI"
-                        className="video-thumbnail"
+                        className="video-thumbnail ms-auto"
                         data-fancybox=""
                       >
                         <div className="play-icon">

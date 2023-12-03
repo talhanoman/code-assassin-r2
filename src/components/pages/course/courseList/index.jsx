@@ -80,7 +80,7 @@ const CourseList = () => {
                             <FeatherIcon icon="grid" />
                           </Link> 
                           <Link
-                            to="/course-list"
+                            to="/course-grid"
                             className="list-view active"
                           >
                             {/* <i className="feather-list" /> */}
