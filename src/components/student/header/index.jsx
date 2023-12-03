@@ -14,8 +14,7 @@ import {
   User1,
   User11,
   User2,
-  User3,
-  Wish,
+  User3  
 } from "../../imagepath";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
@@ -25,8 +24,8 @@ import useCartStore from "../../../store/cartStore";
 export default function StudentHeader({ activeMenu }) {
   const [navbar, setNavbar] = useState(false);
   const cartItems = useCartStore((state) => state.cartItems);
-  const removeFromCart = useCartStore((state)=> state.removeFromCart);
-
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const cartTotal = useCartStore((state) => state.cartTotal);
   const cookie = new Cookies()
 
   const navigate = useNavigate()
@@ -253,39 +252,39 @@ export default function StudentHeader({ activeMenu }) {
                   }
                 >
                   <div className="wish-header">
-                    <Link to="#">View Cart</Link>
-                    <Link to="#" className="float-end">
+                    <Link to="/cart">View Cart</Link>
+                    {/* <Link to="#" className="float-end">
                       Checkout
-                    </Link>
+                    </Link> */}
                   </div>
                   <div className="wish-content">
                     <ul>
                       {
-                        cartItems.map((course) => {
-                          const { courseGuid, courseName, coursePrice, instructorName } = course;
+                        cartItems?.map((course) => {
+                          const { course_guid, course_title, course_price, instructorName } = course;
                           return (
-                            <li key={courseGuid}>
+                            <li key={course_guid}>
                               <div className="media">
                                 <div className="d-flex media-wide">
                                   <div className="avatar">
                                     <Link to="/course-details">
-                                      <img alt="" src={Course11} />
+                                      <img alt="Course Details" src={Course11} />
                                     </Link>
                                   </div>
                                   <div className="media-body">
                                     <h6>
                                       <Link to="/course-details">
-                                        {courseName}
+                                        {course_title}
                                       </Link>
                                     </h6>
-                                    <p>By {instructorName}</p>
+                                    <p>By Zahid Saleem</p>
                                     <h5>
-                                      <span>${coursePrice}</span>
+                                      <span>${course_price}</span>
                                     </h5>
                                   </div>
                                 </div>
                                 <div className="remove-btn">
-                                  <Link to={"#"} onClick={(e) => {                                    
+                                  <Link to={"#"} onClick={(e) => {
                                     removeFromCart(course)
                                   }} className="btn">
                                     Remove
@@ -298,8 +297,14 @@ export default function StudentHeader({ activeMenu }) {
                       }
                     </ul>
                     <div className="total-item">
-                      <h6>Subtotal : $ 600</h6>
-                      <h5>Total : $ 600</h5>
+                      {
+                        cartTotal > 0 &&
+                        <>
+                          <h6>Subtotal : $ {cartTotal}</h6>
+                          <h5>Total : $ {cartTotal}</h5>
+                        </>
+                      }
+
                     </div>
                   </div>
                 </div>

@@ -1,43 +1,34 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Chapter,
-  Chart,
-  Cloud,
   Course11,
-  Icon1,
-  Import,
-  Key,
-  Mobile,
-  People,
-  Play,
-  Teacher,
-  Timer,
   Timer2,
   User1,
-  Users,  
+  Users,
   Video2,
 } from "../../../imagepath";
 import OverView from "./overView";
-import FeatherIcon from "feather-icons-react";
 import Footer from "../../../footer";
 import StudentHeader from "../../../student/header";
 import { useLocation } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { ViewSectionsAndLecturesOfCourses, IsCoursePurchased } from "../../../../api/get";
 import { useNavigate } from "react-router-dom";
+import useCartStore from "../../../../store/cartStore";
 
 const CourseDetails1 = () => {
-
+  const addToCart = useCartStore((state) => state.addToCart);
   const cookie = new Cookies()
   const token = cookie.get('token')
 
   const location = useLocation()
-  const course_guid = location.state.course_guid
+  const course_guid = location?.state?.course_guid
 
   const navigate = useNavigate()
 
   const [courseDetails, setCourseDetails] = useState([])
+  console.log('Course Details', courseDetails);
   const [purchaseStatus, setPurchaseStatus] = useState(false)
 
   useEffect(() => {
@@ -47,26 +38,22 @@ const CourseDetails1 = () => {
 
   const isCoursePurchased = async () => {
     let response = await IsCoursePurchased(token, course_guid)
-    if (response.status === 200)
-    {
+    if (response.status === 200) {
       setPurchaseStatus(response.data)
     }
-    else
-    {
+    else {
       navigate("/login")
     }
   }
 
   const viewLecturesAnsSections = async () => {
     let response = await ViewSectionsAndLecturesOfCourses(token, course_guid)
-    if (response.status === 200)
-    {
+    if (response.status === 200) {
       console.log(response.data)
       setCourseDetails(response.data)
     }
-    else 
-    {
-      navigate('/login')      
+    else {
+      navigate('/login')
     }
 
   }
@@ -75,36 +62,6 @@ const CourseDetails1 = () => {
     <>
       <div className="main-wrapper">
         <StudentHeader />
-        {/* <div className="breadcrumb-bar">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 col-12">
-                <div className="breadcrumb-list">
-                  <nav aria-label="breadcrumb" className="page-breadcrumb">
-                    <ol className="breadcrumb">
-                      <li className="breadcrumb-item">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li className="breadcrumb-item" aria-current="page">
-                        Courses
-                      </li>
-                      <li className="breadcrumb-item" aria-current="page">
-                        All Courses
-                      </li>
-                      <li
-                        className="breadcrumb-item active"
-                        aria-current="page"
-                      >
-                        The Complete Web Developer Course 2.0
-                      </li>
-                    </ol>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
         <section className="course-content course-sec">
           <div className="container">
             <div className="row">
@@ -178,7 +135,7 @@ const CourseDetails1 = () => {
                 </div>
               </div>
 
-              <OverView courseDetails={courseDetails}/>
+              <OverView courseDetails={courseDetails} />
 
               <div className="col-lg-4">
                 {/* Video */}
@@ -197,14 +154,16 @@ const CourseDetails1 = () => {
                           <div className="col-sm-12">
                             {
                               purchaseStatus ?
-                              ' Already purchased '
-                              :  
-                              <Link
-                                to="/checkout"
-                                className="btn btn-enroll w-100"
-                              >
-                                Buy Now
-                              </Link>
+                                ' Already purchased '
+                                :
+                                <button
+                                  onClick={() => {
+                                    addToCart(courseDetails[0])
+                                  }}
+                                  className="btn btn-enroll w-100"
+                                >
+                                  Add To Cart
+                                </button>
                             }
                           </div>
                         </div>
