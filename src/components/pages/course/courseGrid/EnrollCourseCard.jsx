@@ -24,7 +24,8 @@ export default function EnrollCourseCard({ course_guid, title, level, price }) {
             navigate('/login')
         }
     }
-
+    // const course = {courseGuid, courseName, coursePrice, instructorName};
+    // const addToCart = useCartStore((state)=> state.addToCart);
     return (
         <div className="col-lg-4 col-md-6 d-flex">
             <div className="course-box course-design d-flex ">

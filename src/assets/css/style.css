@@ -12878,7 +12878,7 @@ input[type=password]::-ms-clear
 	font-weight: 700;
 	font-size: 30px;
 	/* color: #159F46; */
-	color: #F66962; 
+	color: #941FAD; 
 	font-family: 'Poppins', sans-serif;
 	margin-bottom: 12px;
 }
@@ -12892,8 +12892,8 @@ input[type=password]::-ms-clear
 	text-decoration: line-through;
 }
 .btn.btn-enroll {
-	background: #159F46;
-	border: 1px solid #159F46;
+	background: #941FAD;
+	border: 1px solid #941FAD;
 	border-radius: 50px;
 	font-weight: 500;
 	font-size: 13px;
@@ -12902,7 +12902,7 @@ input[type=password]::-ms-clear
 }
 .btn.btn-enroll:hover {
 	color: #FFF;
-	background: #0c993e;
+	background: #A41FAD;
 }
 .btn.btn-wish {
     background: #FFFFFF;

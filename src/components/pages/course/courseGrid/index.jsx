@@ -59,9 +59,6 @@ const CourseGrid = () => {
     <>
       <div className="main-wrapper">
         <StudentHeader activeMenu={"Enroll"} />
-
-
-
         <section className="course-content">
           <div className="container">
             <div className="row">
@@ -122,6 +119,7 @@ const CourseGrid = () => {
                 {/* /Filter */}
                 {
                   view === 'Grid' ?
+                  // courseName, coursePrice, instructorName
                     <div className="row">
                       {
                         courses?.map((obj) => (

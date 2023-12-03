@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Course11, Icon1, Icon2, User2 } from "../../../imagepath";
+import useCartStore from '../../../../store/cartStore';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 
 export default function EnrollCourseListCard({ course_guid, title, level, price }) {
-
     const cookie = new Cookies()
     const token = cookie.get('token')
     const navigate = useNavigate()
@@ -24,7 +24,6 @@ export default function EnrollCourseListCard({ course_guid, title, level, price 
             navigate('/login')
         }
     }
-
     return (
         <div className="row">
             <div className="col-lg-12 col-md-12 d-flex">

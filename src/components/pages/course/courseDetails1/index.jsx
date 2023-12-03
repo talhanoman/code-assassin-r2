@@ -179,29 +179,8 @@ const CourseDetails1 = () => {
                           </p>
                         </div>
                         <div className="row gx-2">
-                          <div className="col-sm-6">
-                            <Link
-                              to="/course-wishlist"
-                              className="btn btn-wish w-100"
-                            >
-                              {/* <i className="feather-heart" /> */}
-                              <FeatherIcon icon="heart" />
-                              Add to Wishlist
-                            </Link>
-                          </div>
-                          <div className="col-sm-6">
-                            <Link to="/#" className="btn btn-wish w-100">
-                              {/* <i className="feather-share-2" />  */}
-                              <FeatherIcon icon="share-2" />
-                              Share
-                            </Link>
-                          </div>
-                          <div className="col-sm-6">
-                            <Link to="/cart" className="btn btn-cart w-100">
-                              Add To Cart
-                            </Link>
-                          </div>
-                          <div className="col-sm-6">
+
+                          <div className="col-sm-12">
                             <Link
                               to="/checkout"
                               className="btn btn-enroll w-100"

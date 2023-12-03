@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
 import {
   Cart,
+  Course11,
   Course14,
   Course15,
   Course4,
@@ -18,10 +19,13 @@ import {
 } from "../../imagepath";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
+import useCartStore from "../../../store/cartStore";
 
 // eslint-disable-next-line react/prop-types
 export default function StudentHeader({ activeMenu }) {
   const [navbar, setNavbar] = useState(false);
+  const cartItems = useCartStore((state) => state.cartItems);
+  const removeFromCart = useCartStore((state)=> state.removeFromCart);
 
   const cookie = new Cookies()
 
@@ -188,7 +192,7 @@ export default function StudentHeader({ activeMenu }) {
 
                 </li>
 
-                
+
                 <li className={activeMenu === "Enroll" ? "active" : ""}>
                   <Link to="/course-grid">
                     Enroll{" "}
@@ -230,7 +234,15 @@ export default function StudentHeader({ activeMenu }) {
                   }
                   data-bs-toggle="dropdown"
                 >
-                  <ShoppingCart onClick={cartClick} />
+                  <div className="position-relative">
+                    <ShoppingCart onClick={cartClick} />
+                    {
+                      cartItems?.length > 0 &&
+                      <div className="position-absolute top-0 start-100 translate-middle">
+                        <span className="p-1 small rounded-circle bg-primary text-white">{cartItems.length} </span>
+                      </div>
+                    }
+                  </div>
                 </Link>
                 <div
                   ref={cart}
@@ -248,87 +260,42 @@ export default function StudentHeader({ activeMenu }) {
                   </div>
                   <div className="wish-content">
                     <ul>
-                      <li>
-                        <div className="media">
-                          <div className="d-flex media-wide">
-                            <div className="avatar">
-                              <Link to="/course-details">
-                                <img alt="" src={Course4} />
-                              </Link>
-                            </div>
-                            <div className="media-body">
-                              <h6>
-                                <Link to="/course-details">
-                                  Learn Angular...
-                                </Link>
-                              </h6>
-                              <p>By Dave Franco</p>
-                              <h5>
-                                $200 <span>$99.00</span>
-                              </h5>
-                            </div>
-                          </div>
-                          <div className="remove-btn">
-                            <Link to="#" className="btn">
-                              Remove
-                            </Link>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="media">
-                          <div className="d-flex media-wide">
-                            <div className="avatar">
-                              <Link to="/course-details">
-                                <img alt="" src={Course14} />
-                              </Link>
-                            </div>
-                            <div className="media-body">
-                              <h6>
-                                <Link to="/course-details">
-                                  Build Responsive Real...
-                                </Link>
-                              </h6>
-                              <p>Jenis R.</p>
-                              <h5>
-                                $200 <span>$99.00</span>
-                              </h5>
-                            </div>
-                          </div>
-                          <div className="remove-btn">
-                            <Link to="#" className="btn">
-                              Remove
-                            </Link>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="media">
-                          <div className="d-flex media-wide">
-                            <div className="avatar">
-                              <Link to="/course-details">
-                                <img alt="" src={Course15} />
-                              </Link>
-                            </div>
-                            <div className="media-body">
-                              <h6>
-                                <Link to="/course-details">
-                                  C# Developers Double ...
-                                </Link>
-                              </h6>
-                              <p>Jesse Stevens</p>
-                              <h5>
-                                $200 <span>$99.00</span>
-                              </h5>
-                            </div>
-                          </div>
-                          <div className="remove-btn">
-                            <Link to="#" className="btn">
-                              Remove
-                            </Link>
-                          </div>
-                        </div>
-                      </li>
+                      {
+                        cartItems.map((course) => {
+                          const { courseGuid, courseName, coursePrice, instructorName } = course;
+                          return (
+                            <li key={courseGuid}>
+                              <div className="media">
+                                <div className="d-flex media-wide">
+                                  <div className="avatar">
+                                    <Link to="/course-details">
+                                      <img alt="" src={Course11} />
+                                    </Link>
+                                  </div>
+                                  <div className="media-body">
+                                    <h6>
+                                      <Link to="/course-details">
+                                        {courseName}
+                                      </Link>
+                                    </h6>
+                                    <p>By {instructorName}</p>
+                                    <h5>
+                                      <span>${coursePrice}</span>
+                                    </h5>
+                                  </div>
+                                </div>
+                                <div className="remove-btn">
+                                  <Link to={"#"} onClick={(e) => {                                    
+                                    removeFromCart(course)
+                                  }} className="btn">
+                                    Remove
+                                  </Link>
+                                </div>
+                              </div>
+                            </li>
+                          )
+                        })
+                      }
                     </ul>
                     <div className="total-item">
                       <h6>Subtotal : $ 600</h6>

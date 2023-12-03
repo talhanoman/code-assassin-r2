@@ -1,9 +1,9 @@
 import React from "react";
-import PageHeader from "../header";
 import Select from "react-select";
 import { useState } from "react";
 import Footer from "../../footer";
 import { Link } from "react-router-dom";
+import StudentHeader from "../../student/header";
 
 const Checkout = () => {
 
@@ -43,8 +43,8 @@ const Checkout = () => {
   return (
     <>
       <div className="main-wrapper">
-        <PageHeader activeMenu="Checkout"/>
-
+        <StudentHeader activeMenu="Checkout"/>
+{/* 
         <div className="breadcrumb-bar">
           <div className="container">
             <div className="row">
@@ -67,7 +67,7 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <section className="course-content checkout-widget">
           <div className="container">

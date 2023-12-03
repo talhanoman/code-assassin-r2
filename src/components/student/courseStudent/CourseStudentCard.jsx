@@ -9,7 +9,7 @@ export default function CourseStudentCard() {
             <div className="course-box course-design d-flex ">
                 <div className="product">
                     <div className="product-img">
-                        <Link to="/course-details1">
+                        <Link to="/course-details">
                             <img
                                 className="img-fluid"
                                 alt=""
@@ -21,7 +21,7 @@ export default function CourseStudentCard() {
                     </div>
                     <div className="product-content">
                         <h3 className="title">
-                            <Link to="/course-details1">
+                            <Link to="/course-details">
                                 Web Dev for Beginners - Master Web Dev
                                 Quickly
                             </Link>
