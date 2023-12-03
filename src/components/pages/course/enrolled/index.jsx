@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
     Chapter,
@@ -17,13 +17,50 @@ import {
     User1,
     Users,
     Video2,
+    Video1
 } from "../../../imagepath";
-import OverView from "../courseDetails1/overView";
+import OverViewEnrolled from "../courseDetails1/OverviewEnrolled";
 import FeatherIcon from "feather-icons-react";
 import Footer from "../../../footer";
 import StudentHeader from "../../../student/header";
+import Cookies from "universal-cookie";
+import { ViewSectionsAndLecturesOfCoursesForStudent } from "../../../../api/get";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CourseEnrolled = () => {
+
+    const cookie = new Cookies()
+    const token = cookie.get('token')
+  
+    const location = useLocation()
+    const course_guid = location.state.course_guid
+    const course_title = location.state.course_title
+    const course_description = location.state.course_description
+    const course_level = location.state.course_level
+    const course_category = location.state.course_category
+  
+    const navigate = useNavigate()
+  
+    const [courseDetails, setCourseDetails] = useState([])
+  
+    useEffect(() => {
+      viewLecturesAnsSections()
+    }, [])
+  
+    const viewLecturesAnsSections = async () => {
+      let response = await ViewSectionsAndLecturesOfCoursesForStudent(token, course_guid)
+      if (response.status === 200)
+      {
+        console.log(response.data)
+        setCourseDetails(response.data)
+      }
+      else 
+      {
+        navigate('/login')      
+      }
+  
+    }
+
     return (
         <>
             <div className="main-wrapper">
@@ -66,12 +103,8 @@ const CourseEnrolled = () => {
                                     <div className="card-body">
                                         <div className="com-info">
                                             <div>
-                                                <h2>The Complete Web Developer Course 3.0</h2>
-                                                <p>
-                                                    Learn Web Development by building 25 websites and
-                                                    mobile apps using HTML, CSS, Javascript, PHP, Python,
-                                                    MySQL &amp; more!
-                                                </p>
+                                                <h2>{course_title}</h2>
+                                                
                                                 <div className="instructor-wrap border-bottom-0 m-0">
                                                     <div className="about-instructor align-items-center">
                                                         <div className="abt-instructor-img">
@@ -106,20 +139,6 @@ const CourseEnrolled = () => {
                                                         WEB DEVELPMENT
                                                     </span>
                                                 </div>
-                                                <div className="course-info d-flex align-items-center border-bottom-0 p-0 m-0">
-                                                    <div className="cou-info">
-                                                        <img src={Icon1} alt="" />
-                                                        <p>12+ Lesson</p>
-                                                    </div>
-                                                    <div className="cou-info">
-                                                        <img src={Timer} alt="" />
-                                                        <p>9hr 30min</p>
-                                                    </div>
-                                                    <div className="cou-info">
-                                                        <img src={People} alt="" />
-                                                        <p>32 students enrolled</p>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <Link
                                                 to="https://www.youtube.com/embed/1trvO6dqQUI"
@@ -136,50 +155,14 @@ const CourseEnrolled = () => {
                                 </div>
                             </div>
 
-                            <OverView />
+                            <OverViewEnrolled courseDetails={courseDetails} course_description={course_description}/>
 
                             <div className="col-lg-4">
                                 {/* Video */}
                                 <div className="video-secs vid-bg no-video">
                                
                                 </div>
-                                {/* /Video */}
-                                {/* Include */}
-                                <div className="card include-sec">
-                                    <div className="card-body">
-                                        <div className="cat-title">
-                                            <h4>Includes</h4>
-                                            <span>
-                                                <i className="fas fa-angle-down" />
-                                            </span>
-                                        </div>
-                                        <ul>
-                                            <li>
-                                                <img src={Import} className="me-2" alt="" /> 11 hours
-                                                on-demand video
-                                            </li>
-                                            <li>
-                                                <img src={Play} className="me-2" alt="" /> 69
-                                                downloadable resources
-                                            </li>
-                                            <li>
-                                                <img src={Key} className="me-2" alt="" /> Full lifetime
-                                                access
-                                            </li>
-                                            <li>
-                                                <img src={Mobile} className="me-2" alt="" /> Access on
-                                                mobile and TV
-                                            </li>
-                                            <li>
-                                                <img src={Cloud} className="me-2" alt="" /> Assignments
-                                            </li>
-                                            <li>
-                                                <img src={Teacher} className="me-2" alt="" />{" "}
-                                                Certificate of Completion
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                     
                                 {/* /Include */}
                                 {/* Features */}
                                 <div className="card feature-sec">
@@ -191,30 +174,50 @@ const CourseEnrolled = () => {
                                             </span>
                                         </div>
                                         <ul>
-                                            <li>
-                                                <img src={Users} className="me-2" alt="" /> Enrolled:{" "}
-                                                <span>32 students</span>
-                                            </li>
-                                            <li>
-                                                <img src={Timer2} className="me-2" alt="" /> Duration:{" "}
-                                                <span>20 hours</span>
-                                            </li>
-                                            <li>
-                                                <img src={Chapter} className="me-2" alt="" /> Chapters:{" "}
-                                                <span>15</span>
-                                            </li>
-                                            <li>
-                                                <img src={Video2} className="me-2" alt="" /> Video:
-                                                <span> 12 hours</span>
-                                            </li>
-                                            <li>
-                                                <img src={Chart} className="me-2" alt="" /> Level:{" "}
-                                                <span>Beginner</span>
-                                            </li>
+                                        <li>
+                                            <img src={Users} className="me-2" alt="" /> Difficult level:{" "}
+                                            <span>{course_level}</span>
+                                        </li>
+                                        <li>
+                                            <img src={Timer2} className="me-2" alt="" /> Course category:{" "}
+                                            <span>{course_category}</span>
+                                        </li>
+                                        <li>
+                                            <img src={Chapter} className="me-2" alt="" /> Chapters:{" "}
+                                            <span>15</span>
+                                        </li>
+                                        <li>
+                                            <img src={Video2} className="me-2" alt="" /> Course type:
+                                            <span> Web development</span>
+                                        </li>
                                         </ul>
                                     </div>
                                 </div>
                                 {/* /Features */}
+                            </div>
+                        </div>
+                        <div className="col-lg-12">
+                            {/* Introduction */}
+                            <div className="student-widget lesson-introduction">
+                            <div className="lesson-widget-group">
+                                <h4 className="tittle">Introduction</h4>
+                                <div className="introduct-video">
+                                <Link
+                                    to="https://www.youtube.com/embed/1trvO6dqQUI"
+                                    className="video-thumbnail"
+                                    data-fancybox=""
+                                >
+                                    <div className="play-icon">
+                                    <i className="fa-solid fa-play" />
+                                    </div>
+                                    <img
+                                    className=""
+                                    src={Video1}
+                                    alt=""
+                                    />
+                                </Link>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>

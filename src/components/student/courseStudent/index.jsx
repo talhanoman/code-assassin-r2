@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../footer";
 import {
@@ -9,8 +9,35 @@ import { Search } from "react-feather";
 import Select from "react-select";
 import DepositMenu from "../depositMenu";
 import CourseStudentCard from "./CourseStudentCard";
+import { ViewAllCoursesOfStudent } from "../../../api/get";
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 
 export default function CourseStudent() {
+  
+  const cookie = new Cookies()
+  const token = cookie.get('token')
+
+  const navigate = useNavigate()
+
+  const [courses, setCourses] = useState([])
+
+  useEffect(() => {
+    viewAllCourses()
+  }, [])
+
+  const viewAllCourses = async () => {
+    let response = await ViewAllCoursesOfStudent(token)
+    if (response.status === 200)
+    {
+      setCourses(response.data)
+    }
+    else
+    {
+      navigate('/login')
+    }
+  }
+  
   const [setValue] = useState(null);
   const options = [
     { label: "Newly Published", value: "new" },
@@ -135,14 +162,11 @@ export default function CourseStudent() {
                   </div>
 
                   <div className="row">
-                    <CourseStudentCard />
-                    <CourseStudentCard />
-                    <CourseStudentCard />
-                    <CourseStudentCard />
-                    <CourseStudentCard />
-                    <CourseStudentCard />
-                    <CourseStudentCard />
-                    <CourseStudentCard />
+                    {
+                      courses?.map((obj) => (
+                        <CourseStudentCard course_guid={obj.course_guid} course_title={obj.course_title} course_description = {obj.course_description} course_level = {obj.course_level} course_category = {obj.course_category}/>
+                      ))
+                    }
                   </div>
                 </div>
               </div>
