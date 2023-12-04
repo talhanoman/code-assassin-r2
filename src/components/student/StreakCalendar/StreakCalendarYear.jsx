@@ -5,7 +5,7 @@ export default function StreakCalendarYear() {
     const [yearsRange, setYearsRange] = useState([]);
     const [selectYear, setSelectYear] = useState(new Date().getFullYear())
     const handleYearChange = (e) => {
-        setSelectYear(e.target.value);      
+        setSelectYear(e.target.value);
     };
 
     useEffect(() => {
@@ -35,20 +35,22 @@ export default function StreakCalendarYear() {
                     ))}
                 </select>
             </div>
-            <div className="d-flex gx-2 flex-wrap mx-auto">
-                <StreakCalendar month={0} year={selectYear} />
-                <StreakCalendar month={1} year={selectYear} />
-                <StreakCalendar month={2} year={selectYear} />
-                <StreakCalendar month={3} year={selectYear} />
-                <StreakCalendar month={4} year={selectYear} />
-                <StreakCalendar month={5} year={selectYear} />
-                <StreakCalendar month={6} year={selectYear} />
-                <StreakCalendar month={7} year={selectYear} />
-                <StreakCalendar month={8} year={selectYear} />
-                <StreakCalendar month={9} year={selectYear} />
-                <StreakCalendar month={10} year={selectYear} />
-                <StreakCalendar month={11} year={selectYear} />
-            </div>           
+            <div className="d-flex align-items-center">
+                <div className="d-flex gx-2 flex-wrap mx-auto w-100">
+                    <StreakCalendar month={0} year={selectYear} />
+                    <StreakCalendar month={1} year={selectYear} />
+                    <StreakCalendar month={2} year={selectYear} />
+                    <StreakCalendar month={3} year={selectYear} />
+                    <StreakCalendar month={4} year={selectYear} />
+                    <StreakCalendar month={5} year={selectYear} />
+                    <StreakCalendar month={6} year={selectYear} />
+                    <StreakCalendar month={7} year={selectYear} />
+                    <StreakCalendar month={8} year={selectYear} />
+                    <StreakCalendar month={9} year={selectYear} />
+                    <StreakCalendar month={10} year={selectYear} />
+                    <StreakCalendar month={11} year={selectYear} />
+                </div>              
+            </div>
         </div>
     )
 }

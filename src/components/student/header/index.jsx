@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { LogOut, Moon, Star, User, Bell, Heart, ShoppingCart } from "react-feather";
+import { FaFire } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
 import {
@@ -14,7 +15,7 @@ import {
   User1,
   User11,
   User2,
-  User3  
+  User3
 } from "../../imagepath";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
@@ -220,11 +221,12 @@ export default function StudentHeader({ activeMenu }) {
               </ul>
             </div>
             <ul className="nav header-navbar-rht">
-              {/* <li className="nav-item">
-                <Link to="/course-message">
-                  <img src={Messages} alt="img" />
-                </Link>
-              </li> */}
+              <li className="nav-item d-flex align-items-center gx-1">
+                <h2>
+                  <FaFire className="text-orange p-1 border rounded-circle" />
+                </h2>
+                <span className="small fw-bolder ms-1">1</span>
+              </li>
               <li className="nav-item cart-nav">
                 <Link
                   to="#"

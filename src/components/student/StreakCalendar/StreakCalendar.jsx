@@ -70,7 +70,7 @@ const StreakCalendar = ({ month, year }) => {
             <div className="streak-calendar">
                 <div className='bg-white calendar-container'>
                     <p className='small text-center my-1'>{months[selectedMonth]}</p>
-                    <div className="calendar border rounded">
+                    <div className="calendar rounded">
                         {daysArray.map((day) => (
                             <div
                                 key={day}
