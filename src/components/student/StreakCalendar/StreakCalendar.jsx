@@ -1,37 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { ViewCalendarStreak } from '../../../api/get';
-import Cookies from 'universal-cookie'
-import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-const StreakCalendar = ({ month, year }) => {    
+
+const StreakCalendar = ({ month, year, allDays }) => {    
     const months = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
-    const navigate = useNavigate()
-
-    const cookie = new Cookies()
-    const token = cookie.get('token')
-
     useEffect(() => {
-        ViewStreaks(new Date().getMonth() + 1)
-    }, [])
 
-    const ViewStreaks = async (month) => {
-        let response = await ViewCalendarStreak(token, month)
-        if (response.status === 200) {
-            handleStreakMarks(response.data)
-        }
-        else if (response.status === 400) {
-            toast(response.message)
-        }
-        else {
-            navigate('/login')
-        }
-    }
+        let thisMonthData = []
+        allDays?.map((obj) => {
+            let my_month = parseInt(obj?.date_created.split('T')[0].split('-')[1]) - 1
+            if (my_month === month)
+            {
+                thisMonthData.push(obj)
+            } 
+        })
+
+        handleStreakMarks(thisMonthData)
+    })
 
     const [selectedMonth, setSelectedMonth] = useState(month);
     console.log(selectedMonth)
@@ -47,7 +35,6 @@ const StreakCalendar = ({ month, year }) => {
     const handleMonthChange = (e) => {
         resetStreaks()
         setSelectedMonth(e.target.value);
-        ViewStreaks(parseInt(e.target.value) + 1)
     };
 
     const resetStreaks = () => {
@@ -81,7 +68,6 @@ const StreakCalendar = ({ month, year }) => {
                         ))}
                     </div>
                 </div>
-                <ToastContainer />
             </div>
         </div>
     );

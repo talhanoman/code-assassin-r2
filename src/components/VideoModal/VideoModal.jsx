@@ -11,7 +11,7 @@ export default function VideoModal({ currentVideo }) {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <ReactPlayer url={currentVideo?.lecture_url} />
+                            <ReactPlayer url={currentVideo?.lecture_url} playing={true} loop={true} controls={true} />
                         </div>                    
                     </div>
                 </div>
