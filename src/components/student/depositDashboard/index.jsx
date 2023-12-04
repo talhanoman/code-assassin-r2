@@ -6,6 +6,7 @@ import StudentHeader from "../../student/header";
 import DepositMenu from "../depositMenu";
 import StreakCalendar from "../StreakCalendar/StreakCalendar";
 import CourseCard from "./CourseCard";
+import StreakCalendarYear from "../StreakCalendar/StreakCalendarYear";
 
 export default function StudentDepositDashboard() {
   return (
@@ -46,20 +47,8 @@ export default function StudentDepositDashboard() {
       <div className="page-content">
         <div className="container">
           <div className="row mb-3">
-            <div className="col-xl-12 col-md-12">
-              <StreakCalendar />
-            </div>
-          </div>
-          {/* <div className="p-5 bg-white">
-            <h4 className="mb-4">Enrolled <span className="text-orange">Courses</span></h4>
-            <div className="row">
-              <CourseCard />
-              <CourseCard />
-              <CourseCard />
-              <CourseCard />
-            </div>
-          </div> */}
-
+            <StreakCalendarYear />         
+          </div>          
         </div>
       </div>
       {/* Dashboard Student */}
