@@ -152,7 +152,7 @@ export const Home2 = () => {
         {/* Home banner */}
 
         {/* About */}
-        <section className="about-section">
+        <section className="about-section bg-white">
           <div className="container">
             <div className="row">
               <div

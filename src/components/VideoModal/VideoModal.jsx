@@ -18,8 +18,7 @@ export default function VideoModal({ currentVideo }) {
         }
 
         let response = await UpdateLectureCompletion(token, videoData)
-        if (response.status === 200)
-        {
+        if (response.status === 200) {
             toast('Status updated')
         }
     }
@@ -27,19 +26,19 @@ export default function VideoModal({ currentVideo }) {
     return (
         <>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-dialog-centered">
-                    <div class="modal-content">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content p-3">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">{currentVideo?.title}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className='d-flex'>
+                        <div className='d-flex mx-auto'>
                             <div class="modal-body">
                                 <ReactPlayer url={currentVideo?.lecture_url} playing={true} loop={true} controls={true} />
                             </div>
-                            <div className='me-2 mt-3'>
-                                <button onClick={() => {updateLectureCompletion()}} type="button" class="btn btn-info">{currentVideo?.is_completed == 1 ? 'Mark as uncomplete' : 'Mark as complete'}</button>
-                            </div>                    
+                        </div>
+                        <div className='mt-1 text-center'>
+                            <button onClick={() => { updateLectureCompletion() }} type="button" class="btn btn-primary">{currentVideo?.is_completed == 1 ? 'Mark as uncomplete' : 'Mark as complete'}</button>
                         </div>
                     </div>
                 </div>

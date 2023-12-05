@@ -79,7 +79,7 @@ const Lecture = ({ title, level, index, sample_problems, course_guid, lecture_gu
                         sample_problems ?
                         <p className=''> {level} </p>
                         :
-                        <p onClick={() => {assignLecture(course_guid, lecture_guid, video_url, is_completed)}} className='pe-auto text-decoration-underline'> {'Preview'} </p>
+                        <p role='button' onClick={() => {assignLecture(course_guid, lecture_guid, video_url, is_completed)}} className='pe-auto text-decoration-underline'> {'Preview'} </p>
                     }
                 </div>
             </div>
