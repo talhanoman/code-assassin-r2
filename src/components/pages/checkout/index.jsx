@@ -4,8 +4,53 @@ import { useState } from "react";
 import Footer from "../../footer";
 import { Link } from "react-router-dom";
 import StudentHeader from "../../student/header";
+import useCartStore from "../../../store/cartStore";
+import { AssignACourse } from "../../../api/post";
+import Cookies from "universal-cookie";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+
+    const cookie = new Cookies()
+    const token = cookie.get('token')
+
+    const navigate = useNavigate()
+
+    const cartItems = useCartStore((state) => state.cartItems);
+    const cartTotal = useCartStore((state) => state.cartTotal);
+    const emptyCart = useCartStore((state) => state.emptyCart);
+
+    const assignCourse = async () => {
+      let courses = []
+      cartItems?.map((obj) => {
+        courses.push(obj.course_guid)
+      })
+
+      const courseData = {
+        CourseGuid: courses
+      }
+
+      let response = await AssignACourse(token, courseData)
+      
+      if (response.status === 200)
+      {
+        emptyCart()
+        toast('Your courses has been registered successfully')
+        setTimeout(() => {
+          navigate('/cart')
+        }, 2000)
+      }
+      else if (response.status === 400)
+      {
+        toast('There was an issue in registering courses, Please try again')
+      }
+      else
+      {
+        navigate('/login')
+      }
+    }
 
     const [value] = useState(null);
     const [value2] = useState(null);
@@ -80,7 +125,7 @@ const Checkout = () => {
                       <h4>Billing Address</h4>
                     </div>
                     <div className="checkout-form">
-                      <form action="#">
+                      <div>
                         <div className="row">
                           <div className="col-lg-6">
                             <div className="form-group">
@@ -189,7 +234,7 @@ const Checkout = () => {
                             </div>
                           </div>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -201,7 +246,7 @@ const Checkout = () => {
                       <h4>Payment Method</h4>
                     </div>
                     <div className="checkout-form">
-                      <form action="cart">
+                      <form>
                         <div className="row">
                           <div className="col-lg-12">
                             <div className="wallet-method">
@@ -285,7 +330,7 @@ const Checkout = () => {
                             </div>
                           </div>
                           <div className="payment-btn">
-                            <button className="btn btn-primary" type="submit">
+                            <button  onClick={assignCourse} className="btn btn-primary" type="button">
                               Make a Payment
                             </button>
                           </div>
@@ -311,7 +356,7 @@ const Checkout = () => {
                       </p>
                       <p>per user, per month when billed monthly</p>
                       <h2>
-                        <span>$</span>10
+                        <span>$</span>{cartTotal}
                       </h2>
                     </div>
                     <div className="benifits-feature">
@@ -360,6 +405,7 @@ const Checkout = () => {
               </div>
               </div>
             </div>
+            <ToastContainer />
           </div>
         </section>
 

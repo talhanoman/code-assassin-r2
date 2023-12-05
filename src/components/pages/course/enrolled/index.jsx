@@ -61,10 +61,13 @@ const CourseEnrolled = () => {
     }
 
     const [currentVideo, setCurrentVideo] = useState(null);
-    const handleVideoModal = (lecture_url, title)=>{
+    const handleVideoModal = (lecture_url, title, is_completed, course_guid, lecture_guid)=>{
         setCurrentVideo({
             lecture_url,
-            title
+            title,
+            is_completed,
+            course_guid,
+            lecture_guid
         })
         videoModalRef.current.click();
     }

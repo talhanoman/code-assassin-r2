@@ -26,6 +26,12 @@ const useCartStore = create((set) => ({
   getCartTotal: () => {
     return useCartStore.getState().cartItems.reduce((total, item) => total + item.course_price, 0);
   },
+  emptyCart: () => {
+    set((state) => ({
+      cartItems: [],
+      cartTotal: 0
+    }));
+  },
 }));
 
 export default useCartStore;
