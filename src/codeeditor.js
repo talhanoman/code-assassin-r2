@@ -10,8 +10,7 @@ function CodeEditor() {
   const [output, setOutput] = useState('')
   const [lang, setLang] = useState('Cpp')
   const [value, setValue] = React.useState("console.log('hello world!');");
-  const onChange = React.useCallback((val, viewUpdate) => {
-    console.log('val:', val);
+  const onChange = React.useCallback((val, viewUpdate) => {    
     setValue(val);
   }, []);
 
@@ -44,10 +43,11 @@ function CodeEditor() {
         <div className="col-12 w-25">
           <label className="visually-hidden" for="inlineFormSelectPref">Preference</label>
           <select value={lang} onChange={(e) => setLang(e.target.value)} className="form-select" id="inlineFormSelectPref">
-      <option value="Java">Java</option>
-      <option value="Cpp">Cpp</option>
-      <option value="Python">Python</option>
-    </select>
+            <option value="Java">Java</option>
+            <option value="Cpp">C++</option>
+            <option value="C">C</option>
+            <option value="Python">Python</option>
+          </select>
 
         </div>
         <div>
@@ -63,26 +63,29 @@ function CodeEditor() {
         </div>
         <div className="w-25 h-100 d-flex flex-column p-4">
 
+          <label className='text-white' htmlFor="">Input</label>
+          <textarea
+            type="text"
+            disabled
+            id="input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="form-control flex-fill"
+            aria-label="Input"
+            rows={10}
+          ></textarea>
 
-        <textarea
-      type="text"
-      disabled
-      id="input"
-      value={input}
-      onChange={(e) => setInput(e.target.value)}
-      className="form-control flex-fill"
-      aria-label="Input"
-    ></textarea>
-
-    <textarea
-      type="text"
-      disabled
-      id="output"
-      value={output}
-      onChange={(e) => setOutput(e.target.value)}
-      className="form-control flex-fill"
-      aria-label="Output"
-    ></textarea>
+          <label className='text-white mt-5' htmlFor="">Output</label>
+          <textarea
+            type="text"
+            disabled
+            id="output"
+            value={output}
+            onChange={(e) => setOutput(e.target.value)}
+            className="form-control flex-fill h-50"
+            aria-label="Output"
+            rows={10}
+          ></textarea>
 
         </div>
       </div>
