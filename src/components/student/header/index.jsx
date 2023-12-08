@@ -309,6 +309,21 @@ export default function StudentHeader({ activeMenu }) {
 
                     </div>
                   </div>
+                      {
+                        cartTotal > 0 ?
+                        <div className={``}>
+                          <div className="condinue-shop">
+                            <Link
+                              to='/checkout'
+                              className="btn btn-primary"
+                            >
+                              Checkout
+                            </Link>
+                          </div>
+                        </div>
+                        :
+                        ""
+                      }
                 </div>
               </li>
               <li className="nav-item wish-nav">

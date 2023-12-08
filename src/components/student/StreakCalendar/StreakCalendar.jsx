@@ -22,7 +22,6 @@ const StreakCalendar = ({ month, year, allDays }) => {
     })
 
     const [selectedMonth, setSelectedMonth] = useState(month);
-    console.log(selectedMonth)
     const [streaks, setStreaks] = useState(Array(31).fill(false)); // Placeholder for streak data
 
     const isLeapYear = (year) => {

@@ -117,6 +117,92 @@ export const UpdateLectureCompletion = async (token, data) => {
     }
 };
 
+export const AssignAQuestion = async (token, data) => {
+    try {
+        const response = await fetch(HOST + '/question/assign', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(data),
+            // CourseGuid
+            // SampleQuestionGuid
+        });
+
+        const responseData = await response.json();
+        return responseData
+        
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
+export const UpdateQuestionCompletion = async (token, data) => {
+    try {
+        const response = await fetch(HOST + '/question/status/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(data),
+            // SampleQuestionStatus
+            // SampleQuestionGuid
+        });
+
+        const responseData = await response.json();
+        return responseData
+        
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
+export const UpdateLectureDuration = async (token, data) => {
+    try {
+        const response = await fetch(HOST + '/lecture/duration/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(data),
+            // CourseGuid
+            // LectureGuid
+            // Duration
+        });
+
+        const responseData = await response.json();
+        return responseData
+        
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
+export const UpdateLectureProgressForStudent = async (token, data) => {
+    try {
+        const response = await fetch(HOST + '/lecture/student/progress/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(data),
+            // CourseGuid
+            // LectureGuid
+            // CurrentDuration
+        });
+
+        const responseData = await response.json();
+        return responseData
+        
+    } catch (error) {
+        console.error('Error during POST request:', error.message);
+    }
+};
+
 export const HandleForgotPassword = async (data) => {
     try {
         const response = await fetch(HOST, {

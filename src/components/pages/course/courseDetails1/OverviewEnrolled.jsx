@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { Icon1, Icon2, People, Play, User1 } from "../../../imagepath";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import CourseContentCardEnrolled from "./CourseContentCardEnrolled";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const OverViewEnrolled = ({ courseDetails, course_description, handleVideoModal }) => {
+const OverViewEnrolled = ({ courseDetails, course_description, handleVideoModal, viewLecturesAnsSections }) => {
 
   return (
     <>
@@ -34,9 +36,9 @@ const OverViewEnrolled = ({ courseDetails, course_description, handleVideoModal 
             </div>
             {courseDetails?.map((obj, index) => (
                 index != courseDetails.length - 1 ?
-                <CourseContentCardEnrolled title={obj.section_title} lectures={obj.lectures} sample_problems = {false} handleVideoModal={handleVideoModal}/>
+                <CourseContentCardEnrolled sectionLength={obj.lectures.length} toast={toast} title={obj.section_title} lectures={obj.lectures} sample_problems = {false} handleVideoModal={handleVideoModal} viewLecturesAnsSections={viewLecturesAnsSections}/>
                 :
-                <CourseContentCardEnrolled title={'Sample Problems'} lectures={obj.questions} sample_problems = {true} handleVideoModal={handleVideoModal}/>
+                <CourseContentCardEnrolled sectionLength={obj.questions.length} toast={toast} title={'Sample Problems'} lectures={obj.questions} sample_problems = {true} handleVideoModal={handleVideoModal} viewLecturesAnsSections={viewLecturesAnsSections}/>
               )) 
             }
           </div>
@@ -162,7 +164,8 @@ const OverViewEnrolled = ({ courseDetails, course_description, handleVideoModal 
             </Link>
           </div>
         </div> */}
-        {/* /Reviews */}    
+        {/* /Reviews */}   
+        <ToastContainer /> 
       </div>
     </>
   );

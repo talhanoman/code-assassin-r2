@@ -1,26 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
-import { UpdateLectureCompletion } from '../../api/post'
 import Cookies from 'universal-cookie'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { UpdateLectureDuration, UpdateLectureProgressForStudent } from '../../api/post';
+import { useNavigate } from 'react-router-dom';
 
 export default function VideoModal({ currentVideo }) {
 
     const cookie = new Cookies()
     const token = cookie.get('token')
 
-    const updateLectureCompletion = async () => {
+    console.log(currentVideo)
 
-        const videoData = {
-            VideoGuid: currentVideo.lecture_guid,
-            VideoStatus: currentVideo.is_completed == 1 ? 0 : 1
+    const navigate = useNavigate()
+
+    const [lectureTotalDuration, setTotalDuration] = useState(0)
+
+    const updateLectureTotalDuration = async (duration) => {
+
+        if (currentVideo.lecture_duration == 0)
+        {
+            let lectureData = {
+                CourseGuid: currentVideo.course_guid,
+                LectureGuid: currentVideo.lecture_guid,
+                Duration: duration
+            }
+    
+            let response = await UpdateLectureDuration(token, lectureData)
+            if (response.status === 200)
+            {
+    
+            }
+            else
+            {
+                navigate('/login')
+            }
         }
 
-        let response = await UpdateLectureCompletion(token, videoData)
-        if (response.status === 200) {
-            toast('Status updated')
-        }
     }
 
     return (
@@ -34,11 +51,13 @@ export default function VideoModal({ currentVideo }) {
                         </div>
                         <div className='d-flex mx-auto'>
                             <div class="modal-body">
-                                <ReactPlayer url={currentVideo?.lecture_url} playing={true} loop={true} controls={true} />
+                                <ReactPlayer url={currentVideo?.lecture_url} playing={true} loop={true} controls={true} 
+                                    onDuration={(duration) => {
+                                        setTotalDuration(duration)
+                                        updateLectureTotalDuration(duration)
+                                    }}
+                                />
                             </div>
-                        </div>
-                        <div className='mt-1 text-center'>
-                            <button onClick={() => { updateLectureCompletion() }} type="button" class="btn btn-primary">{currentVideo?.is_completed == 1 ? 'Mark as uncomplete' : 'Mark as complete'}</button>
                         </div>
                     </div>
                 </div>

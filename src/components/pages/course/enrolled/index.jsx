@@ -61,13 +61,15 @@ const CourseEnrolled = () => {
     }
 
     const [currentVideo, setCurrentVideo] = useState(null);
-    const handleVideoModal = (lecture_url, title, is_completed, course_guid, lecture_guid)=>{
+    const handleVideoModal = (lecture_url, title, is_completed, course_guid, lecture_guid, lecture_duration, video_progress)=>{
         setCurrentVideo({
             lecture_url,
             title,
             is_completed,
             course_guid,
-            lecture_guid
+            lecture_guid,
+            lecture_duration,
+            video_progress
         })
         videoModalRef.current.click();
     }
@@ -165,7 +167,7 @@ const CourseEnrolled = () => {
                                 </div>
                             </div>
 
-                            <OverViewEnrolled courseDetails={courseDetails} course_description={course_description} handleVideoModal={handleVideoModal} />
+                            <OverViewEnrolled courseDetails={courseDetails} course_description={course_description} handleVideoModal={handleVideoModal} viewLecturesAnsSections={viewLecturesAnsSections}/>
 
                             <div className="col-lg-4">
                                 {/* Video */}

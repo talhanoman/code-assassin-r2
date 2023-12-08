@@ -119,7 +119,7 @@ const Checkout = () => {
             <div className="row">
               <div className="col-lg-8">
                 {/* Billing Address */}
-                <div className="student-widget">
+                {/* <div className="student-widget">
                   <div className="student-widget-group add-course-info">
                     <div className="cart-head">
                       <h4>Billing Address</h4>
@@ -237,7 +237,7 @@ const Checkout = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* /Billing Address */}
                 {/* /Payment Method */}
                 <div className="student-widget pay-method">
@@ -315,10 +315,24 @@ const Checkout = () => {
                               <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Address"
+                                placeholder="Name"
                               />
                             </div>
                           </div>
+
+                          <div className="col-lg-12">
+                            <div className="form-group">
+                              <label className="form-control-label">
+                                Coupon Code
+                              </label>
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Coupon code"
+                              />
+                            </div>
+                          </div>
+
                           <div className="col-md-12 col-lg-10">
                             <div className="form-group ship-check">
                               <input
