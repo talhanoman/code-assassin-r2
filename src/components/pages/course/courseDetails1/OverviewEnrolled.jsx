@@ -6,7 +6,7 @@ import CourseContentCardEnrolled from "./CourseContentCardEnrolled";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const OverViewEnrolled = ({ courseDetails, course_description, handleVideoModal, viewLecturesAnsSections }) => {
+const OverViewEnrolled = ({ courseDetails, course_description, handleVideoModal, handleQuestionModal, viewLecturesAnsSections }) => {
 
   return (
     <>
@@ -36,9 +36,9 @@ const OverViewEnrolled = ({ courseDetails, course_description, handleVideoModal,
             </div>
             {courseDetails?.map((obj, index) => (
                 index != courseDetails.length - 1 ?
-                <CourseContentCardEnrolled sectionLength={obj.lectures.length} toast={toast} title={obj.section_title} lectures={obj.lectures} sample_problems = {false} handleVideoModal={handleVideoModal} viewLecturesAnsSections={viewLecturesAnsSections}/>
+                <CourseContentCardEnrolled sectionLength={obj.lectures.length} toast={toast} title={obj.section_title} lectures={obj.lectures} sample_problems = {false} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections}/>
                 :
-                <CourseContentCardEnrolled sectionLength={obj.questions.length} toast={toast} title={'Sample Problems'} lectures={obj.questions} sample_problems = {true} handleVideoModal={handleVideoModal} viewLecturesAnsSections={viewLecturesAnsSections}/>
+                <CourseContentCardEnrolled sectionLength={obj.questions.length} toast={toast} title={'Sample Problems'} lectures={obj.questions} sample_problems = {true} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections}/>
               )) 
             }
           </div>

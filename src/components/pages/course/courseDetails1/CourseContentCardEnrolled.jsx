@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { AssignALecture, UpdateLectureCompletion, AssignAQuestion, UpdateQuestionCompletion } from '../../../../api/post';
 import Cookies from 'universal-cookie';
 
-export default function CourseContentCardEnrolled({ sectionLength, title, lectures, sample_problems, handleVideoModal, toast, viewLecturesAnsSections }) {
+export default function CourseContentCardEnrolled({ sectionLength, title, lectures, sample_problems, handleVideoModal, handleQuestionModal, toast, viewLecturesAnsSections }) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -27,7 +27,7 @@ export default function CourseContentCardEnrolled({ sectionLength, title, lectur
                 <div id="collapseOne" className="card-collapse collapse" style={{}} >
                         {
                             lectures?.map((obj, index) => (
-                                <Lecture toast={toast} viewLecturesAnsSections={viewLecturesAnsSections} title={ sample_problems ? obj.question : obj.lecture_title} level = { sample_problems ? obj.question_difficulty : ' '} index={index} sample_problems = {sample_problems} course_guid = {obj.course_guid} lecture_guid = {obj.lecture_guid} sample_question_guid={obj.sample_question_guid} handleVideoModal={handleVideoModal} video_url = {obj.lecture_url} is_completed = {obj.is_completed} lecture_duration = {obj.lecture_duration} video_progress = {obj.video_progress}/>
+                                <Lecture handleQuestionModal={handleQuestionModal} toast={toast} viewLecturesAnsSections={viewLecturesAnsSections} title={ sample_problems ? obj.question : obj.lecture_title} level = { sample_problems ? obj.question_difficulty : ' '} question_description = { sample_problems ? obj.question_description : ' '}  index={index} sample_problems = {sample_problems} course_guid = {obj.course_guid} lecture_guid = {obj.lecture_guid} sample_question_guid={obj.sample_question_guid} handleVideoModal={handleVideoModal} video_url = {obj.lecture_url} is_completed = {obj.is_completed} lecture_duration = {obj.lecture_duration} video_progress = {obj.video_progress}/>
                             ))
                         }
                 </div>
@@ -37,7 +37,7 @@ export default function CourseContentCardEnrolled({ sectionLength, title, lectur
 }
 
 
-const Lecture = ({ toast, viewLecturesAnsSections, title, level, index, sample_problems, course_guid, lecture_guid, sample_question_guid, handleVideoModal, video_url, is_completed, lecture_duration, video_progress }) => {
+const Lecture = ({ handleQuestionModal, toast, viewLecturesAnsSections, title, level, question_description, index, sample_problems, course_guid, lecture_guid, sample_question_guid, handleVideoModal, video_url, is_completed, lecture_duration, video_progress }) => {
 
     const navigate = useNavigate()
 
@@ -114,6 +114,8 @@ const Lecture = ({ toast, viewLecturesAnsSections, title, level, index, sample_p
     }
 
     const assignQuestion = async (course_guid, question_guid, is_completed) => {
+
+        handleQuestionModal(course_guid, question_guid, is_completed, title, question_description, level)
 
         if (is_completed === null)
         {
