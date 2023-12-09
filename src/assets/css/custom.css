@@ -428,3 +428,8 @@ body {
     background: #FF9800;
     box-shadow: 0 20px 20px -10px rgba(255, 152, 0, 0.5);
 }
+
+.hovered:hover {
+    cursor: pointer;
+    background-color: #f8f9fa; /* Light Gray Background Color */
+  }

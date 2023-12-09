@@ -2,25 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
     Chapter,
-    Chart,
-    Cloud,
     Course11,
-    Icon1,
-    Import,
-    Key,
-    Mobile,
-    People,
-    Play,
-    Teacher,
-    Timer,
     Timer2,
     User1,
     Users,
     Video2,
-    Video1
 } from "../../../imagepath";
-import OverViewEnrolled from "../courseDetails1/OverviewEnrolled";
-import FeatherIcon from "feather-icons-react";
+import CourseContentCardEnrolled from "../courseDetails1/CourseContentCardEnrolled";
+import { ToastContainer, toast } from 'react-toastify';
 import Footer from "../../../footer";
 import StudentHeader from "../../../student/header";
 import Cookies from "universal-cookie";
@@ -30,8 +19,8 @@ import VideoModal from "../../../VideoModal/VideoModal";
 import QuestionModal from "../../../QuestionModal/QuestionModal";
 
 const CourseEnrolled = () => {
-    const videoModalRef = useRef(null);
-    const questionModalRef = useRef(null)
+    
+    
     const cookie = new Cookies()
     const token = cookie.get('token')
 
@@ -65,7 +54,7 @@ const CourseEnrolled = () => {
     const [currentVideo, setCurrentVideo] = useState(null);
     const [currentQuestion, setCurrentQuestion] = useState(null);
 
-    const handleVideoModal = (lecture_url, title, is_completed, course_guid, lecture_guid, lecture_duration, video_progress)=>{
+    const handleVideoModal = (lecture_url, title, is_completed, course_guid, lecture_guid, lecture_duration, video_progress) => {
         setCurrentVideo({
             lecture_url,
             title,
@@ -74,8 +63,7 @@ const CourseEnrolled = () => {
             lecture_guid,
             lecture_duration,
             video_progress
-        })
-        videoModalRef.current.click();
+        })        
     }
 
     const handleQuestionModal = (course_guid, sample_question_guid, is_completed, question_title, question_description, question_difficulty) => {
@@ -86,44 +74,12 @@ const CourseEnrolled = () => {
             question_title,
             question_description,
             question_difficulty
-        })
-
-        questionModalRef.current.click();
+        })        
     }
     return (
         <>
             <div className="main-wrapper">
                 <StudentHeader />
-                {/* <div className="breadcrumb-bar">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 col-12">
-                <div className="breadcrumb-list">
-                  <nav aria-label="breadcrumb" className="page-breadcrumb">
-                    <ol className="breadcrumb">
-                      <li className="breadcrumb-item">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li className="breadcrumb-item" aria-current="page">
-                        Courses
-                      </li>
-                      <li className="breadcrumb-item" aria-current="page">
-                        All Courses
-                      </li>
-                      <li
-                        className="breadcrumb-item active"
-                        aria-current="page"
-                      >
-                        The Complete Web Developer Course 2.0
-                      </li>
-                    </ol>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
                 <section className="course-content course-sec">
                     <div className="container">
                         <div className="row">
@@ -182,17 +138,24 @@ const CourseEnrolled = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                          
+                        </div>
+                        <div className="row">
+                            <div className="col-lg-8">
+                                {/* Overview */}
+                                <div className="card overview-sec">
+                                    <div className="card-body">
+                                        <h5 className="subs-title">Overview</h5>
+                                        <h6>Course Description</h6>
+                                        <p>
+                                            {course_description}
+                                        </p>
 
-                            <OverViewEnrolled courseDetails={courseDetails} course_description={course_description} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections}/>
-
-                            <div className="col-lg-4">
-                                {/* Video */}
-                                <div className="video-secs vid-bg no-video">
-
+                                    </div>
                                 </div>
-
-                                {/* /Include */}
+                                {/* /Overview */}
+                            </div>
+                            <div className="col-lg-4">
                                 {/* Features */}
                                 <div className="card feature-sec">
                                     <div className="card-body">
@@ -224,20 +187,45 @@ const CourseEnrolled = () => {
                                 </div>
                                 {/* /Features */}
                             </div>
-                        </div>
-                        <button type="button" ref={videoModalRef} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Launch demo modal
-                        </button>
-                        <VideoModal currentVideo={currentVideo} />
+                            {/* Video */}
+                            <div className="col-lg-8">
+                                <div className="card content-sec">
+                                    <div className="card-body">
+                                        <VideoModal currentVideo={currentVideo} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-4">
+                                <div className="card content-sec">
+                                    <div className="card-body">
+                                        <div className="row">
+                                            <div className="col-sm-6">
+                                                <h5 className="subs-title">Course Content</h5>
+                                            </div>
+                                            <div className="col-sm-6 text-sm-end">
+                                                <h6>All Lectures</h6>
+                                            </div>
+                                        </div>
+                                        {courseDetails?.map((obj, index) => (
+                                            index != courseDetails.length - 1 ?
+                                                <CourseContentCardEnrolled sectionLength={obj.lectures.length} toast={toast} title={obj.section_title} lectures={obj.lectures} sample_problems={false} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
+                                                :
+                                                <CourseContentCardEnrolled sectionLength={obj.questions.length} toast={toast} title={'Sample Problems'} lectures={obj.questions} sample_problems={true} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
+                                        ))
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Course Content */}
 
-                        <button type="button" ref={questionModalRef} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#questionModal">
-                            Launch question modal
-                        </button>
-                        <QuestionModal currentQuestion={currentQuestion}/>
+                            {/* /Reviews */}
+                            <ToastContainer />
+                        </div>                                         
+                        <QuestionModal currentQuestion={currentQuestion} />
                     </div>
-                </section>
+                </section >
                 <Footer />
-            </div>
+            </div >
         </>
     );
 };

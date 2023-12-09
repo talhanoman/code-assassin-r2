@@ -19,21 +19,18 @@ export default function VideoModal({ currentVideo }) {
 
     const updateLectureTotalDuration = async (duration) => {
 
-        if (currentVideo.lecture_duration == 0)
-        {
+        if (currentVideo.lecture_duration == 0) {
             let lectureData = {
                 CourseGuid: currentVideo.course_guid,
                 LectureGuid: currentVideo.lecture_guid,
                 Duration: duration
             }
-    
+
             let response = await UpdateLectureDuration(token, lectureData)
-            if (response.status === 200)
-            {
-    
+            if (response.status === 200) {
+
             }
-            else
-            {
+            else {
                 navigate('/login')
             }
         }
@@ -42,27 +39,15 @@ export default function VideoModal({ currentVideo }) {
 
     return (
         <>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content p-3">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">{currentVideo?.title}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className='d-flex mx-auto'>
-                            <div class="modal-body">
-                                <ReactPlayer url={currentVideo?.lecture_url} playing={true} loop={true} controls={true} 
-                                    onDuration={(duration) => {
-                                        setTotalDuration(duration)
-                                        updateLectureTotalDuration(duration)
-                                    }}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <ToastContainer />
+            <div className="d-flex justify-content-center">
+                <ReactPlayer url={currentVideo?.lecture_url} playing={true} loop={true} controls={true}
+                    onDuration={(duration) => {
+                        setTotalDuration(duration)
+                        updateLectureTotalDuration(duration)
+                    }}
+                />
             </div>
+            <ToastContainer />
         </>
     )
 }
