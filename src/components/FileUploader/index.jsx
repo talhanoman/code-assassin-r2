@@ -1,27 +1,73 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 
-const FileUploader = () => {
-
-
-    return (
-        <fieldset class="upload_dropZone text-center mb-3 p-4">
-
-            <legend class="visually-hidden">Image uploader</legend>
-
-            <svg class="upload_svg" width="60" height="60" aria-hidden="true">
-                <use href="#icon-imageUpload"></use>
-            </svg>
-
-            <p class="small my-2">Drag &amp; Drop background image(s) inside dashed region<br /><i>or</i></p>
-
-            <input id="upload_image_background" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" type="file" multiple accept="image/jpeg, image/png, image/svg+xml" />
-
-            <label class="btn btn-upload mb-3" for="upload_image_background">Choose file(s)</label>
-
-            <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
-
-        </fieldset>
-    );
+const baseStyle = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '20px',
+    borderWidth: 2,
+    borderRadius: 2,
+    borderColor: '#eeeeee',
+    borderStyle: 'dashed',
+    backgroundColor: '#fafafa',
+    color: '#bdbdbd',
+    outline: 'none',
+    transition: 'border .24s ease-in-out'
 };
 
-export default FileUploader;
+const focusedStyle = {
+    borderColor: '#FF602E'
+};
+
+const acceptStyle = {
+    borderColor: '#00e676'
+};
+
+const rejectStyle = {
+    borderColor: '#ff1744'
+};
+
+function FileUploader() {
+    const [fileAccepted, setFileAccepted] = useState("Drag 'n' drop some files here, or click to select files");
+    const handleOnDrop = (acceptedFiles) => {
+        setFileAccepted(`${acceptedFiles.length} file(s) uploaded!`);
+    };
+
+    const {
+        getRootProps,
+        getInputProps,
+        isFocused,
+        isDragAccept,
+        isDragReject,
+        acceptedFiles,
+    } = useDropzone({ accept: { 'image/*': [] }, onDrop: handleOnDrop });
+
+    const style = useMemo(() => ({
+        ...baseStyle,
+        ...(isFocused ? focusedStyle : {}),
+        ...(isDragAccept ? acceptStyle : {}),
+        ...(isDragReject ? rejectStyle : {}),
+    }), [isFocused, isDragAccept, isDragReject]);
+
+  
+    return (
+        <div className="">
+            <div {...getRootProps({ style })}>
+                <input {...getInputProps()} />
+                <p>{fileAccepted}</p>
+            </div>
+            {acceptedFiles.length > 0 && (
+                <div>
+                    {acceptedFiles.map((file) => (
+                        <p className='small' key={file.name}>{file.name}</p>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
+
+export default FileUploader
