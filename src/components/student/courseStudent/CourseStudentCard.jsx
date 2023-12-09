@@ -5,7 +5,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-export default function CourseStudentCard({ course_guid, course_title, course_description, course_level, course_category }) {
+export default function CourseStudentCard({ course_guid, course_title, course_description, course_level, course_category, progress, index }) {
 
     const navigate = useNavigate()
 
@@ -57,13 +57,49 @@ export default function CourseStudentCard({ course_guid, course_title, course_de
                                 <Link to="#;">Edit rating</Link>
                             </div>
                         </div>
-                        <div className="progress-stip">
-                            <div className="progress-bar bg-success progress-bar-striped "></div>
+
+
+                        <div className='d-flex justify-content-between'>
+                            <div>
+                                <div className='small'>
+                                    Lectures Progress: 
+                                </div>
+                                <div className="progress-stip" style={{ height: '8px' }}>
+                                    <div style={{ width: `${progress[index]?.allLectures != 0 ? parseInt((progress[index]?.completedLectures / progress[index]?.allLectures) * 100) : 0}%` }} className="progress-bar bg-success progress-bar-striped">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span className='small'>
+                                    {progress[index]?.allLectures != 0 ? parseInt((progress[index]?.completedLectures / progress[index]?.allLectures) * 100) : 0}%
+                                </span>
+                            </div>
                         </div>
-                        <div className="student-percent">
-                            <p>0% Completed</p>
+
+                        <div className='d-flex justify-content-between'>
+                            <div>
+                                <div className='small'>
+                                    Questions Progress: 
+                                </div>
+                                <div className="progress-stip" style={{ height: '8px' }}>
+                                    <div style={{ width: `${ progress[index]?.allQuestions != 0 ? parseInt((progress[index]?.completedQuestions / progress[index]?.allQuestions) * 100) : 0 }%` }} className="progress-bar bg-primary progress-bar-striped">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span className='small'>
+                                    {progress[index]?.allQuestions != 0 ? parseInt((progress[index]?.completedQuestions / progress[index]?.allQuestions) * 100) : 0}%
+                                </span>
+                            </div>
                         </div>
-                        <div className="start-leason hoverBlue d-flex align-items-center">
+            
+
+                        {/* <div className="student-percent"> */}
+                            {/* <p>{progress[index]?.completedLectures} / {progress[index]?.allLectures}</p> */}
+                        {/* </div> */}
+                        <div className="start-leason hoverBlue d-flex align-items-center mt-4">
                             <button
                                 onClick={() => {GoToCourseDetails()}}
                                 className="btn btn-primary"

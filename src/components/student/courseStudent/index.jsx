@@ -22,14 +22,68 @@ export default function CourseStudent() {
 
   const [courses, setCourses] = useState([])
 
+  const [progress, setProgress] = useState([])
+
   useEffect(() => {
     viewAllCourses()
   }, [])
+
+  const TrackCourseProgress = (allCourses) => {
+    let allLectures = 0
+    let completedLectures = 0
+
+    let allQuestions = 0
+    let completedQuestions = 0
+
+    let allProgresses = []
+
+    allCourses?.map((singleCourse, index) => {
+      
+      allLectures = 0
+      completedLectures = 0
+      allQuestions = 0
+      completedQuestions = 0
+
+      singleCourse?.sections?.map((singleSection, sectionIndex) => {
+          sectionIndex != singleCourse.sections.length - 1 ?
+          singleSection?.lectures?.map((singleLecture) => {
+            if (singleLecture.is_completed == 1)
+            {
+              completedLectures += 1
+            }
+            allLectures += 1
+          })
+          :
+          singleSection?.questions?.map((singleLecture) => {
+            if (singleLecture.is_completed == 1)
+            {
+              completedQuestions += 1
+            }
+            allQuestions += 1
+          })
+      })
+
+      let oneProgress = {
+        index,
+        allLectures,
+        completedLectures, 
+        allQuestions, 
+        completedQuestions
+      }
+
+      allProgresses.push(oneProgress)
+
+    })
+
+    setProgress(allProgresses)
+  }
 
   const viewAllCourses = async () => {
     let response = await ViewAllCoursesOfStudent(token)
     if (response.status === 200)
     {
+      console.log(response.data)
+      TrackCourseProgress(response.data)
       setCourses(response.data)
     }
     else
@@ -163,8 +217,8 @@ export default function CourseStudent() {
 
                   <div className="row">
                     {
-                      courses?.map((obj) => (
-                        <CourseStudentCard course_guid={obj.course_guid} course_title={obj.course_title} course_description = {obj.course_description} course_level = {obj.course_level} course_category = {obj.course_category}/>
+                      courses?.map((obj, index) => (
+                        <CourseStudentCard course_guid={obj.course.course_guid} course_title={obj.course.course_title} course_description = {obj.course.course_description} course_level = {obj.course.course_level} course_category = {obj.course.course_category} progress={progress} index={index}/>
                       ))
                     }
                   </div>
