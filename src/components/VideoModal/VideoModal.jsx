@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UpdateLectureDuration, UpdateLectureProgressForStudent } from '../../api/post';
 import { useNavigate } from 'react-router-dom';
-
+import { Course11 } from '../imagepath';
 export default function VideoModal({ currentVideo }) {
 
     const cookie = new Cookies()
@@ -40,7 +40,7 @@ export default function VideoModal({ currentVideo }) {
     return (
         <>
             <div className="d-flex justify-content-center">
-                <ReactPlayer url={currentVideo?.lecture_url} playing={true} loop={true} controls={true}
+                <ReactPlayer light={<img src={Course11} className='mw-100 mh-100' alt='Thumbnail' />} url={currentVideo?.lecture_url} playing={true} loop={true} controls={true}
                     onDuration={(duration) => {
                         setTotalDuration(duration)
                         updateLectureTotalDuration(duration)

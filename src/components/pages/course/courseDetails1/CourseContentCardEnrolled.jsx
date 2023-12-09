@@ -22,11 +22,13 @@ export default function CourseContentCardEnrolled({ sectionLength, title, lectur
             {/* Progress bar of section */}
 
             <Collapse in={open}>
-                <div id={`collapse${index}`} className="card-collapse collapse" style={{}} >
+                <div id={`collapse${index}`} className="card-collapse collapse" >
                     {
-                        lectures?.map((obj, index) => (
-                            <Lecture handleQuestionModal={handleQuestionModal} toast={toast} viewLecturesAnsSections={viewLecturesAnsSections} title={sample_problems ? obj.question : obj.lecture_title} level={sample_problems ? obj.question_difficulty : ' '} question_description={sample_problems ? obj.question_description : ' '} index={index} sample_problems={sample_problems} course_guid={obj.course_guid} lecture_guid={obj.lecture_guid} sample_question_guid={obj.sample_question_guid} handleVideoModal={handleVideoModal} video_url={obj.lecture_url} is_completed={obj.is_completed} lecture_duration={obj.lecture_duration} video_progress={obj.video_progress} />
-                        ))
+                        lectures?.map((obj, index) => {                          
+                            return (
+                                <Lecture handleQuestionModal={handleQuestionModal} toast={toast} viewLecturesAnsSections={viewLecturesAnsSections} title={sample_problems ? obj.question : obj.lecture_title} level={sample_problems ? obj.question_difficulty : ' '} question_description={sample_problems ? obj.question_description : ' '} index={index} sample_problems={sample_problems} course_guid={obj.course_guid} lecture_guid={obj.lecture_guid} sample_question_guid={obj.sample_question_guid} handleVideoModal={handleVideoModal} video_url={obj.lecture_url} is_completed={obj.is_completed} lecture_duration={obj.lecture_duration} video_progress={obj.video_progress} />
+                            )
+                        })
                     }
                 </div>
             </Collapse>
@@ -36,7 +38,33 @@ export default function CourseContentCardEnrolled({ sectionLength, title, lectur
 
 
 const Lecture = ({ handleQuestionModal, toast, viewLecturesAnsSections, title, level, question_description, index, sample_problems, course_guid, lecture_guid, sample_question_guid, handleVideoModal, video_url, is_completed, lecture_duration, video_progress }) => {
+    const assignLecture = async (course_guid, lecture_guid, video_url, is_completed) => {
 
+        let updated_video_progress = video_progress == null ? 0 : video_progress
+        handleVideoModal(video_url, title, is_completed, course_guid, lecture_guid, lecture_duration, updated_video_progress)
+        // The video progress will be null first time so need to deal it
+        if (is_completed === null) {
+            let courseData = {
+                CourseGuid: course_guid,
+                VideoGuid: lecture_guid
+            }
+
+            let response = await AssignALecture(token, courseData)
+
+            if (response.status === 200) {
+                toast('Lecture assigned to student')
+                viewLecturesAnsSections()
+            }
+            else {
+                navigate('/login')
+            }
+        }
+    }
+
+    // if(index === 0)
+    // {
+    //     assignLecture(course_guid, lecture_guid , video_url, is_completed)
+    // }
     const navigate = useNavigate()
 
     const cookie = new Cookies()
@@ -81,28 +109,7 @@ const Lecture = ({ handleQuestionModal, toast, viewLecturesAnsSections, title, l
 
     }
 
-    const assignLecture = async (course_guid, lecture_guid, video_url, is_completed) => {
 
-        let updated_video_progress = video_progress == null ? 0 : video_progress
-        handleVideoModal(video_url, title, is_completed, course_guid, lecture_guid, lecture_duration, updated_video_progress)
-        // The video progress will be null first time so need to deal it
-        if (is_completed === null) {
-            let courseData = {
-                CourseGuid: course_guid,
-                VideoGuid: lecture_guid
-            }
-
-            let response = await AssignALecture(token, courseData)
-
-            if (response.status === 200) {
-                toast('Lecture assigned to student')
-                viewLecturesAnsSections()
-            }
-            else {
-                navigate('/login')
-            }
-        }
-    }
 
     const assignQuestion = async (course_guid, question_guid, is_completed) => {
 
@@ -130,7 +137,7 @@ const Lecture = ({ handleQuestionModal, toast, viewLecturesAnsSections, title, l
         <>
             {
                 sample_problems ?
-                    <>                    
+                    <>
                         <div onClick={() => { assignQuestion(course_guid, sample_question_guid, is_completed) }} role='button' className='container hovered'>
                             <div className='d-flex justify-content-between'>
                                 <div>

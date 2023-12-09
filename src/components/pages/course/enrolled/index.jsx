@@ -19,8 +19,8 @@ import VideoModal from "../../../VideoModal/VideoModal";
 import QuestionModal from "../../../QuestionModal/QuestionModal";
 
 const CourseEnrolled = () => {
-    
-    
+
+
     const cookie = new Cookies()
     const token = cookie.get('token')
 
@@ -37,13 +37,26 @@ const CourseEnrolled = () => {
 
     useEffect(() => {
         viewLecturesAnsSections()
-    }, [])
+            .then(() => {
+                if (courseDetails.length !== 0 && courseDetails[0].lectures.length !== 0) {
+                    const c_details = courseDetails[0];                    
+                    const firstLecture = c_details?.lectures[0];
+                    console.clear();
+                    console.log("First lecture", firstLecture);
+
+                    const { lecture_url, title, is_completed, lecture_guid, lecture_duration, video_progress, course_guid } = firstLecture;
+                    let updated_video_progress = video_progress == null ? 0 : video_progress
+                    handleVideoModal(lecture_url, title, is_completed, course_guid, lecture_guid, lecture_duration, updated_video_progress)
+                }
+            })
+    }, [courseDetails.length])
 
     const viewLecturesAnsSections = async () => {
         let response = await ViewSectionsAndLecturesOfCoursesForStudent(token, course_guid)
         if (response.status === 200) {
-            console.log(response.data)
+            console.log("View Lectures", response.data);
             setCourseDetails(response.data)
+
         }
         else {
             navigate('/login')
@@ -63,7 +76,7 @@ const CourseEnrolled = () => {
             lecture_guid,
             lecture_duration,
             video_progress
-        })        
+        })
     }
 
     const handleQuestionModal = (course_guid, sample_question_guid, is_completed, question_title, question_description, question_difficulty) => {
@@ -74,7 +87,7 @@ const CourseEnrolled = () => {
             question_title,
             question_description,
             question_difficulty
-        })        
+        })
     }
     return (
         <>
@@ -138,7 +151,7 @@ const CourseEnrolled = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>                          
+                            </div>
                         </div>
                         <div className="row">
                             <div className="col-lg-8">
@@ -206,12 +219,14 @@ const CourseEnrolled = () => {
                                                 <h6>All Lectures</h6>
                                             </div>
                                         </div>
-                                        {courseDetails?.map((obj, index) => (
-                                            index != courseDetails.length - 1 ?
-                                                <CourseContentCardEnrolled sectionLength={obj.lectures.length} toast={toast} title={obj.section_title} lectures={obj.lectures} sample_problems={false} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
-                                                :
-                                                <CourseContentCardEnrolled sectionLength={obj.questions.length} toast={toast} title={'Sample Problems'} lectures={obj.questions} sample_problems={true} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
-                                        ))
+                                        {courseDetails?.map((obj, index) => {
+                                            return (
+                                                index != courseDetails.length - 1 ?
+                                                    <CourseContentCardEnrolled sectionLength={obj.lectures.length} toast={toast} title={obj.section_title} lectures={obj.lectures} sample_problems={false} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
+                                                    :
+                                                    <CourseContentCardEnrolled sectionLength={obj.questions.length} toast={toast} title={'Sample Problems'} lectures={obj.questions} sample_problems={true} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
+                                            )
+                                        })
                                         }
                                     </div>
                                 </div>
@@ -220,7 +235,7 @@ const CourseEnrolled = () => {
 
                             {/* /Reviews */}
                             <ToastContainer />
-                        </div>                                         
+                        </div>
                         <QuestionModal currentQuestion={currentQuestion} />
                     </div>
                 </section >
