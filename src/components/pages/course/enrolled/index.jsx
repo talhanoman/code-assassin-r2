@@ -39,7 +39,7 @@ const CourseEnrolled = () => {
         viewLecturesAnsSections()
             .then(() => {
                 if (courseDetails.length !== 0 && courseDetails[0].lectures.length !== 0) {
-                    const c_details = courseDetails[0];                    
+                    const c_details = courseDetails[0];
                     const firstLecture = c_details?.lectures[0];
                     console.clear();
                     console.log("First lecture", firstLecture);
@@ -207,6 +207,15 @@ const CourseEnrolled = () => {
                                         <VideoModal currentVideo={currentVideo} />
                                     </div>
                                 </div>
+                                {
+                                    currentQuestion !== null &&
+                                    <div className="col-lg-12">
+                                        <div className="">
+                                            <QuestionModal setCurrentQuestion={setCurrentQuestion} currentQuestion={currentQuestion} />
+                                        </div>
+                                    </div>
+                                }
+
                             </div>
                             <div className="col-lg-4">
                                 <div className="card content-sec">
@@ -236,7 +245,10 @@ const CourseEnrolled = () => {
                             {/* /Reviews */}
                             <ToastContainer />
                         </div>
-                        <QuestionModal currentQuestion={currentQuestion} />
+
+                        {
+
+                        }
                     </div>
                 </section >
                 <Footer />
