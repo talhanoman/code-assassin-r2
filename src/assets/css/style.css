@@ -1529,7 +1529,7 @@ html.menu-opened body {
 .footer-top {
 	padding-top: 60px;
 	position: relative;
-	z-index: 9;
+	z-index: 0;
 	font-size: 14px;
 }
 .footer-top .footer-about-content {
@@ -1537,7 +1537,7 @@ html.menu-opened body {
 }
 .footer-bottom {
 	position: relative;
-	z-index: 9;
+	z-index: 0;
 }
 .footer-title {
     color: #0A142F;

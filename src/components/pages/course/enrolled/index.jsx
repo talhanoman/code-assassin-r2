@@ -49,7 +49,7 @@ const CourseEnrolled = () => {
                     handleVideoModal(lecture_url, title, is_completed, course_guid, lecture_guid, lecture_duration, updated_video_progress)
                 }
             })
-    }, [courseDetails.length])
+    }, [])
 
     const viewLecturesAnsSections = async () => {
         let response = await ViewSectionsAndLecturesOfCoursesForStudent(token, course_guid)

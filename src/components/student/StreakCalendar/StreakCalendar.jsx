@@ -19,7 +19,7 @@ const StreakCalendar = ({ month, year, allDays }) => {
         })
 
         handleStreakMarks(thisMonthData)
-    })
+    } , [])
 
     const [selectedMonth, setSelectedMonth] = useState(month);
     const [streaks, setStreaks] = useState(Array(31).fill(false)); // Placeholder for streak data

@@ -61,7 +61,7 @@ html, body {
   height: 300px;
 }
 .floating-container:hover .floating-button {
-  box-shadow: 0 10px 25px rgba(44, 179, 240, 0.6);
+  box-shadow: 0 20px 20px -10px rgba(10, 19, 63, 0.7);
   -webkit-transform: translatey(5px);
           transform: translatey(5px);
   -webkit-transition: all 0.3s;
@@ -83,7 +83,7 @@ html, body {
   position: absolute;
   width: 65px;
   height: 65px;
-  background: #2cb3f0;
+  background: #FAFAFA;
   bottom: 0;
   border-radius: 50%;
   left: 0;
@@ -94,7 +94,7 @@ html, body {
   text-align: center;
   font-size: 23px;
   z-index: 100;
-  box-shadow: 0 10px 25px -5px rgba(44, 179, 240, 0.6);
+  box-shadow: 0 10px 25px -5px rgba(123, 29, 130, 0.6);
   cursor: pointer;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -115,13 +115,14 @@ html, body {
   -webkit-transform: translateY(100px);
           transform: translateY(100px);
 }
-.floating-container .float-element .material-icons {
+/* .floating-container .float-element .material-icons {
   vertical-align: middle;
   font-size: 16px;
 }
 .floating-container .float-element:nth-child(1) {
   background: #42A5F5;
   box-shadow: 0 20px 20px -10px rgba(66, 165, 245, 0.5);
+  z-index: 1000;
 }
 .floating-container .float-element:nth-child(2) {
   background: #4CAF50;
@@ -130,4 +131,4 @@ html, body {
 .floating-container .float-element:nth-child(3) {
   background: #FF9800;
   box-shadow: 0 20px 20px -10px rgba(255, 152, 0, 0.5);
-}
+} */
