@@ -218,7 +218,7 @@ export default function CourseStudent() {
                   <div className="row">
                     {
                       courses?.map((obj, index) => (
-                        <CourseStudentCard course_guid={obj.course.course_guid} course_title={obj.course.course_title} course_description = {obj.course.course_description} course_level = {obj.course.course_level} course_category = {obj.course.course_category} progress={progress} index={index}/>
+                        <CourseStudentCard course_guid={obj?.course?.course_guid} course_title={obj?.course?.course_title} course_description = {obj?.course?.course_description} course_level = {obj?.course?.course_level} course_category = {obj?.course?.course_category} progress={progress} index={index}/>
                       ))
                     }
                   </div>
