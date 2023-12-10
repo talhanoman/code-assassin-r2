@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import { IoCloseSharp } from "react-icons/io5";
+import React from 'react'
 import 'react-toastify/dist/ReactToastify.css';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 export default function QuestionModal({ currentQuestion, setCurrentQuestion }) {
-    const [show, setShow] = useState(currentQuestion !== null ? true : false);
-
     const handleClose = () => setCurrentQuestion(null);
-    const handleShow = () => setShow(true);
     return (
         <>
-            <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas show={currentQuestion} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>
                         {
@@ -34,7 +29,6 @@ export default function QuestionModal({ currentQuestion, setCurrentQuestion }) {
                     {currentQuestion?.question_description}
                 </Offcanvas.Body>
             </Offcanvas>
-            <ToastContainer />
         </>
     )
 }

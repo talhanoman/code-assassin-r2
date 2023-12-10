@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
 
-const StreakCalendar = ({ month, year, allDays }) => {    
+const StreakCalendar = ({ month, year, allDays }) => {
     const months = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
-
+    const handleStreakMarks = (data) => {
+        const updatedStreaks = [...streaks];
+        data?.map((obj) => {
+            let day = parseInt(obj?.date_created.split('T')[0].split('-')[2])
+            updatedStreaks[day - 1] = true;
+        })
+        setStreaks(updatedStreaks);
+    };
     useEffect(() => {
 
         let thisMonthData = []
         allDays?.map((obj) => {
             let my_month = parseInt(obj?.date_created.split('T')[0].split('-')[1]) - 1
-            if (my_month === month)
-            {
+            if (my_month === month) {
                 thisMonthData.push(obj)
-            } 
+            }
         })
 
         handleStreakMarks(thisMonthData)
-    } , [])
+    }, [handleStreakMarks])
 
     const [selectedMonth, setSelectedMonth] = useState(month);
     const [streaks, setStreaks] = useState(Array(31).fill(false)); // Placeholder for streak data
@@ -42,14 +48,7 @@ const StreakCalendar = ({ month, year, allDays }) => {
         }
     }
 
-    const handleStreakMarks = (data) => {
-        const updatedStreaks = [...streaks];
-        data?.map((obj) => {
-            let day = parseInt(obj?.date_created.split('T')[0].split('-')[2])
-            updatedStreaks[day - 1] = true;
-        })
-        setStreaks(updatedStreaks);
-    };
+
 
     return (
         <div className="d-flex">
