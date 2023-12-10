@@ -1,31 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-
 const StreakCalendar = ({ month, year, allDays }) => {
     const months = [
         'January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
-    const handleStreakMarks = (data) => {
-        const updatedStreaks = [...streaks];
-        data?.map((obj) => {
-            let day = parseInt(obj?.date_created.split('T')[0].split('-')[2])
-            updatedStreaks[day - 1] = true;
-        })
-        setStreaks(updatedStreaks);
-    };
-    useEffect(() => {
-
-        let thisMonthData = []
-        allDays?.map((obj) => {
-            let my_month = parseInt(obj?.date_created.split('T')[0].split('-')[1]) - 1
-            if (my_month === month) {
-                thisMonthData.push(obj)
-            }
-        })
-
-        handleStreakMarks(thisMonthData)
-    }, [handleStreakMarks])
 
     const [selectedMonth, setSelectedMonth] = useState(month);
     const [streaks, setStreaks] = useState(Array(31).fill(false)); // Placeholder for streak data
@@ -43,12 +22,32 @@ const StreakCalendar = ({ month, year, allDays }) => {
     };
 
     const resetStreaks = () => {
-        for (let i = 0; i < streaks.length; i++) {
-            streaks[i] = false
-        }
+        setStreaks(Array(31).fill(false));
     }
 
+    const handleStreakMarks = (data) => {
+        setStreaks(prevStreaks => {
+            const updatedStreaks = [...prevStreaks];
+            data?.forEach((obj) => {
+                let day = parseInt(obj?.date_created.split('T')[0].split('-')[2]);
+                updatedStreaks[day - 1] = true;
+            });
 
+            return updatedStreaks;
+        });
+    };
+
+    useEffect(() => {
+        let thisMonthData = [];
+        allDays?.forEach((obj) => {
+            let my_month = parseInt(obj?.date_created.split('T')[0].split('-')[1]) - 1
+            if (my_month === month) {
+                thisMonthData.push(obj);
+            }
+        });
+
+        handleStreakMarks(thisMonthData);
+    }, [allDays, month]);
 
     return (
         <div className="d-flex">
@@ -59,7 +58,7 @@ const StreakCalendar = ({ month, year, allDays }) => {
                         {daysArray.map((day) => (
                             <div
                                 key={day}
-                                className={streaks[day - 1] ? 'day streak' : 'day no-streak'}
+                                className={streaks[day - 2] ? 'day streak' : 'day no-streak'}
                             >
                                 {day}
                             </div>

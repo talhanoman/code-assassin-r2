@@ -20,6 +20,7 @@ export { default as Lead6 } from "../assets/img/lead-06.png";
 //
 //emptycart-illustration
 export { default as EmptyCartIllustration } from "../assets/img/emptycart-illustration.png";
+export { default as NotEnrolledIllustration } from "../assets/img/not-enrolled.jpeg";
 // Placements
 export { default as google } from "../assets/img/placements/google-9542.png";
 export { default as microsoft } from "../assets/img/placements/microsoft-9541.png";

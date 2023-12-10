@@ -37,10 +37,10 @@ const Checkout = () => {
       if (response.status === 200)
       {
         emptyCart()
-        toast('Your courses has been registered successfully')
-        setTimeout(() => {
-          navigate('/cart')
-        }, 2000)
+        toast('Your course(s) has been registered successfully')
+        // setTimeout(() => {
+        //   navigate('/cart')
+        // }, 2000)
       }
       else if (response.status === 400)
       {

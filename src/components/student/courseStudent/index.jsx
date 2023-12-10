@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../footer";
 import {
+  EmptyCartIllustration,
+  NotEnrolledIllustration,
   User11,
 } from "../../imagepath";
 import StudentHeader from "../header";
@@ -14,7 +16,7 @@ import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 
 export default function CourseStudent() {
-  
+
   const cookie = new Cookies()
   const token = cookie.get('token')
 
@@ -38,25 +40,23 @@ export default function CourseStudent() {
     let allProgresses = []
 
     allCourses?.map((singleCourse, index) => {
-      
+
       allLectures = 0
       completedLectures = 0
       allQuestions = 0
       completedQuestions = 0
 
       singleCourse?.sections?.map((singleSection, sectionIndex) => {
-          sectionIndex != singleCourse.sections.length - 1 ?
+        sectionIndex != singleCourse.sections.length - 1 ?
           singleSection?.lectures?.map((singleLecture) => {
-            if (singleLecture.is_completed == 1)
-            {
+            if (singleLecture.is_completed == 1) {
               completedLectures += 1
             }
             allLectures += 1
           })
           :
           singleSection?.questions?.map((singleLecture) => {
-            if (singleLecture.is_completed == 1)
-            {
+            if (singleLecture.is_completed == 1) {
               completedQuestions += 1
             }
             allQuestions += 1
@@ -66,8 +66,8 @@ export default function CourseStudent() {
       let oneProgress = {
         index,
         allLectures,
-        completedLectures, 
-        allQuestions, 
+        completedLectures,
+        allQuestions,
         completedQuestions
       }
 
@@ -80,18 +80,16 @@ export default function CourseStudent() {
 
   const viewAllCourses = async () => {
     let response = await ViewAllCoursesOfStudent(token)
-    if (response.status === 200)
-    {
+    if (response.status === 200) {
       console.log(response.data)
       TrackCourseProgress(response.data)
       setCourses(response.data)
     }
-    else
-    {
+    else {
       navigate('/login')
     }
   }
-  
+
   const [setValue] = useState(null);
   const options = [
     { label: "Newly Published", value: "new" },
@@ -214,11 +212,19 @@ export default function CourseStudent() {
                       </div>
                     </div>
                   </div>
+                  {
+                    courses?.length === 0
+                    &&
+                    <div className="text-center">
+                      <img src={NotEnrolledIllustration} className="w-25 mx-auto h-auto rounded-circle" alt="" srcset="" />
+                      <h5 className=" pt-2">You haven't enrolled into a course.</h5>
+                    </div>
+                  }
 
                   <div className="row">
                     {
                       courses?.map((obj, index) => (
-                        <CourseStudentCard course_guid={obj?.course?.course_guid} course_title={obj?.course?.course_title} course_description = {obj?.course?.course_description} course_level = {obj?.course?.course_level} course_category = {obj?.course?.course_category} progress={progress} index={index}/>
+                        <CourseStudentCard course_guid={obj?.course?.course_guid} course_title={obj?.course?.course_title} course_description={obj?.course?.course_description} course_level={obj?.course?.course_level} course_category={obj?.course?.course_category} progress={progress} index={index} />
                       ))
                     }
                   </div>
