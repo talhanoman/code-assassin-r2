@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import { IoCloseSharp } from "react-icons/io5";
 import 'react-toastify/dist/ReactToastify.css';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 export default function QuestionModal({ currentQuestion, setCurrentQuestion }) {
+    const [show, setShow] = useState(currentQuestion !== null ? true : false);
 
+    const handleClose = () => setCurrentQuestion(null);
+    const handleShow = () => setShow(true);
     return (
         <>
-            <div className='row mx-auto card position-relative'>
-
-                <div class="card-body col-md-12">
-                    <div class="position-absolute top-0 start-0 translate-middle px-1 border bg-white shadow-lg hovered rounded-circle" onClick={() => setCurrentQuestion(null)} >
-                        <IoCloseSharp className='rounded-circle' />
-                    </div>
-                    <div>
+            <Offcanvas show={show} onHide={handleClose}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>
                         {
                             currentQuestion?.question_difficulty === 'Medium'
                             &&
@@ -28,13 +28,12 @@ export default function QuestionModal({ currentQuestion, setCurrentQuestion }) {
                                 Question difficulty: <span className='badge bg-primary'> {currentQuestion?.question_difficulty}</span>
                             </section>
                         }
-                    </div>
-                    <hr />
-                    <div className='small text-secondary'>
-                        {currentQuestion?.question_description}
-                    </div>
-                </div>
-            </div>
+                    </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body className='text-secondary text-start small'>
+                    {currentQuestion?.question_description}
+                </Offcanvas.Body>
+            </Offcanvas>
             <ToastContainer />
         </>
     )
