@@ -39,6 +39,7 @@ export default function StudentEditProfile() {
 
     if (response?.status === 200)
     {
+      console.log(response.data)
       setFirstName(response?.data[0].first_name)
       setLastName(response?.data[0].last_name)
       setEmail(response?.data[0].email)
@@ -46,6 +47,9 @@ export default function StudentEditProfile() {
       setUsername(response?.data[0].username)
       setSkill(response?.data[0].skill)
       setBio(response?.data[0].biography)
+      setAddress(response?.data[0].address)
+      setCollege(response?.data[0].college)
+      setBranch(response?.data[0].branch)
     }
     else if (response?.status === 400)
     {
@@ -66,7 +70,10 @@ export default function StudentEditProfile() {
       Phone: phone,
       Username: username,
       Skill: skill,
-      Bio: bio
+      Bio: bio,
+      Address: address,
+      College: college,
+      Branch: branch
     }
 
     let response = await UpdateProfileData(token, studentData)

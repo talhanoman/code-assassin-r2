@@ -5,8 +5,9 @@ import Collapse from 'react-bootstrap/Collapse';
 import { useNavigate } from 'react-router-dom';
 import { AssignALecture, UpdateLectureCompletion, AssignAQuestion, UpdateQuestionCompletion } from '../../../../api/post';
 import Cookies from 'universal-cookie';
+import ProblemSectionCard from './ProblemSectionCard';
 
-export default function CourseContentCardEnrolled({ sectionLength, title, lectures, sample_problems, handleVideoModal, handleQuestionModal, toast, viewLecturesAnsSections, index }) {
+export default function CourseContentCardEnrolled({ sectionLength, title, lectures, problems, sample_problems, handleVideoModal, handleQuestionModal, toast, viewLecturesAnsSections, index }) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -30,7 +31,15 @@ export default function CourseContentCardEnrolled({ sectionLength, title, lectur
                             )
                         })
                     }
+                    {
+                        problems?.map((obj, index) => {                          
+                            return (
+                                <ProblemSectionCard subsection_title = {obj.sample_problem_section_title} sample_problems = {obj.sampleProblems} index={index}/>
+                            )
+                        })
+                    }
                 </div>
+
             </Collapse>
         </div>
     )
@@ -136,31 +145,10 @@ const Lecture = ({ handleQuestionModal, toast, viewLecturesAnsSections, title, l
     return (
         <>
             {
-                sample_problems ?
-                    <>
-                        <div onClick={() => { assignQuestion(course_guid, sample_question_guid, is_completed) }} role='button' className='container hovered'>
-                            <div className='d-flex justify-content-between'>
-                                <div>
-                                    <input class="form-check-input hovered" type="checkbox" value="" id="flexCheckDefault" checked={is_completed == 1 ? true : false} onClick={() => { updateQuestionCompletion(sample_question_guid, is_completed) }}></input>
-                                    <span className='small ms-1'>{index + 1}.</span>
-                                    <span className='small' >{title}</span>
-                                </div>
-
-                            </div>
-                            <div>
-                                {/* <div className="progress-stip">
-                                 <div className={`progress-bar bg-success progress-bar-striped ${is_completed == 1 ? 'w-100' : ''}`}></div>
-                                 </div> */}
-                            </div>
-                            <hr></hr>
-                        </div>
-                    </>
-                    :
                     <>
                         <div className='container hovered' onClick={() => { assignLecture(course_guid, lecture_guid, video_url, is_completed) }}>
                             <div className='d-flex justify-content-between'>
                                 <div >
-                                    <input class="form-check-input hovered" type="checkbox" value="" id="flexCheckDefault" checked={is_completed == 1 ? true : false} onClick={() => { updateLectureCompletion(lecture_guid, is_completed) }}></input>
                                     <span className='ms-1 small'>{title}</span>
                                 </div>
 

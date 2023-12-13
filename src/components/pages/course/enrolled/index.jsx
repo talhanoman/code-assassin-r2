@@ -230,10 +230,7 @@ const CourseEnrolled = () => {
                                         </div>
                                         {courseDetails?.map((obj, index) => {
                                             return (
-                                                index != courseDetails.length - 1 ?
-                                                    <CourseContentCardEnrolled sectionLength={obj.lectures.length} toast={toast} title={obj.section_title} lectures={obj.lectures} sample_problems={false} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
-                                                    :
-                                                    <CourseContentCardEnrolled sectionLength={obj.questions.length} toast={toast} title={'Sample Problems'} lectures={obj.questions} sample_problems={true} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
+                                                    <CourseContentCardEnrolled sectionLength={obj.lectures.length} toast={toast} title={obj.section_title} lectures={obj.lectures} problems={obj.problems} sample_problems={false} handleVideoModal={handleVideoModal} handleQuestionModal={handleQuestionModal} viewLecturesAnsSections={viewLecturesAnsSections} index={index} />
                                             )
                                         })
                                         }
