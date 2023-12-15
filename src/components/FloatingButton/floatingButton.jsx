@@ -95,6 +95,15 @@ const DoubtScreen = () => {
                         required
                     />
                 </div>
+                <div className="form-group">
+                    <label className='text-sm'>Question Link</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter Question Link"
+                        required
+                    />
+                </div>
                 <CopyToClipboard text="" onCopy={() => console.log('Text copied')}>
                     <div className="form-group">
                         <label className='text-sm'>Doubt Description</label>
