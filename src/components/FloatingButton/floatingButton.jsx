@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import ReactDOM from 'react-dom';
 import Overlay from 'react-bootstrap/Overlay';
 // import { MdOutlineEmail } from "react-icons/md";
 import { logo } from '../imagepath'
@@ -10,42 +11,60 @@ import { Link } from 'react-router-dom';
 export default function FloatingButton() {
     const [show, setShow] = useState(false);
     const target = useRef(null);
-    return (
-        <div class="floating-container">
-            <div onClick={() => setShow(!show)} ref={target} class="floating-button">
-                <img src={logo} alt="Logo" className='mw-100 mh-100 p-1' />
-            </div>
 
-            <Overlay target={target.current} show={show} placement="top">
-                {({
-                    placement: _placement,
-                    arrowProps: _arrowProps,
-                    show: _show,
-                    popper: _popper,
-                    hasDoneInitialMeasure: _hasDoneInitialMeasure,
-                    ...props
-                }) => (
-                    <div
-                        {...props}
-                        style={{
-                            position: 'absolute',
-                            boxShadow: '0 8px 8px -4px #95abbb',
-                            // backgroundColor: '#FBFCFF',
-                            overflowY : 'auto',
-                            height : '70vh',
-                            // padding: '2px 2px',
-                            borderRadius: 3,
-                            zIndex: 1000000,
-                            ...props.style,
-                        }}
-                    >
-                        <div className="card">
-                            <DoubtScreen />
+    const portalContainer = document.createElement('div');
+    document.body.appendChild(portalContainer);
+
+
+    const handleClick = () => setShow(!show);
+    const renderPortalContent = () => (
+        <div className="floating-button-portal">
+              <Overlay target={target.current} show={show} placement="top">
+                    {({
+                        placement: _placement,
+                        arrowProps: _arrowProps,
+                        show: _show,
+                        popper: _popper,
+                        hasDoneInitialMeasure: _hasDoneInitialMeasure,
+                        ...props
+                    }) => (
+                        <div
+                            {...props}
+                            style={{
+                                position: 'absolute',
+                                boxShadow: '0 8px 8px -4px #95abbb',
+                                // backgroundColor: '#FBFCFF',
+                                overflowY: 'auto',
+                                height: '70vh',
+                                // padding: '2px 2px',
+                                borderRadius: 3,
+                                zIndex: 1000000,
+                                ...props.style,
+                            }}
+                        >
+                            <div className="card">
+                                <DoubtScreen />
+                            </div>
                         </div>
-                    </div>
-                )}
-            </Overlay>
+                    )}
+                </Overlay>
         </div>
+    );
+    return (
+        <>
+            <>
+                <div class="floating-container">
+                    <div
+                        onClick={handleClick}
+                        ref={target}
+                        class="floating-button"
+                    >
+                        <img src={logo} alt="Logo" className='mw-100 mh-100 p-1' />
+                    </div>
+                    {show && ReactDOM.createPortal(renderPortalContent(), portalContainer)}
+                </div>
+            </>
+        </>
     )
 }
 
@@ -153,7 +172,7 @@ const DoubtScreen = () => {
                     </div>
                     <FileUploader />
 
-                </div>               
+                </div>
                 <div className="d-flex justify-content-center">
                     <Link to="#" className="discover-btn" style={{
                         opacity: 0.9

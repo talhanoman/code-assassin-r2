@@ -51,6 +51,7 @@ html, body {
 
 .floating-container {
   position: fixed;
+  z-index: 100000000;
   width: 100px;
   height: 100px;
   bottom: 0;
@@ -62,6 +63,7 @@ html, body {
 }
 .floating-container:hover .floating-button {
   box-shadow: 0 20px 20px -10px rgba(10, 19, 63, 0.7);
+
   -webkit-transform: translatey(5px);
           transform: translatey(5px);
   -webkit-transition: all 0.3s;
