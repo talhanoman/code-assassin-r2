@@ -31,9 +31,11 @@ export default function FloatingButton() {
                             position: 'absolute',
                             boxShadow: '0 8px 8px -4px #95abbb',
                             // backgroundColor: '#FBFCFF',
+                            overflowY : 'auto',
+                            height : '70vh',
                             // padding: '2px 2px',
                             borderRadius: 3,
-                            zIndex: 1000000000,
+                            zIndex: 1000000,
                             ...props.style,
                         }}
                     >
@@ -80,14 +82,14 @@ const DoubtScreen = () => {
 
     return (
 
-        <div className='rounded-md card-body text-white' style={{ width: '700px', margin: 'auto', zIndex: 1000000000 }}>
+        <div className='rounded-md card-body text-white' style={{ width: '700px', margin: 'auto', zIndex: 1000000 }}>
 
             <h4 className='text-center text-white bg-orange py-3 rounded' style={{
                 opacity: 0.9
             }}>Doubt Submission</h4>
             <div className='p-3'>
                 <div className="form-group">
-                    <label className='text-sm'>Title</label>
+                    <label className='text-sm text-dark'>Title</label>
                     <input
                         type="text"
                         className="form-control"
@@ -96,7 +98,7 @@ const DoubtScreen = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label className='text-sm'>Question Link</label>
+                    <label className='text-sm text-dark'>Question Link</label>
                     <input
                         type="text"
                         className="form-control"
@@ -106,7 +108,7 @@ const DoubtScreen = () => {
                 </div>
                 <CopyToClipboard text="" onCopy={() => console.log('Text copied')}>
                     <div className="form-group">
-                        <label className='text-sm'>Doubt Description</label>
+                        <label className='text-sm text-dark'>Doubt Description</label>
                         <textarea
                             ref={textareaRef}
                             onPaste={handlePaste}
@@ -124,7 +126,7 @@ const DoubtScreen = () => {
                     &&
                     <div className='d-flex' >
                         {pastedImages?.map((image, index) => (
-                            <div key={index} className="me-3">
+                            <div key={index} className="me-3 position-relative">
                                 <img
                                     src={image}
                                     className="img-thumbnail img-fluid"
@@ -141,22 +143,17 @@ const DoubtScreen = () => {
                     </div>
                 }
                 <div className='form-group'>
-                    <label className='text-sm'>Tags</label>
+                    <label className='text-sm text-dark'>Tags</label>
                     <ReactTagsInput />
                 </div>
                 <div className="form-group">
                     <div className="d-flex justify-content-between">
-                        <label className='text-sm'>Upload Attachment &lt;5MB</label>
-                        <label className='text-sm text-end small'>Upto 3 Attachments</label>
+                        <label className='text-sm text-dark'>Upload Attachment &lt;5MB</label>
+                        <label className='text-sm text-dark text-end small'>Upto 3 Attachments</label>
                     </div>
                     <FileUploader />
 
-                </div>
-                {/* <div className='w-100 text-center'>
-                <button className='w-25 btn-sm btn-primary me-2'>
-                    Submit
-                </button>
-            </div> */}
+                </div>               
                 <div className="d-flex justify-content-center">
                     <Link to="#" className="discover-btn" style={{
                         opacity: 0.9
