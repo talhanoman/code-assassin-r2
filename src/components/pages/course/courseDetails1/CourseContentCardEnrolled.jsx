@@ -21,12 +21,13 @@ export default function CourseContentCardEnrolled({ sectionLength, title, lectur
                     <h6 className="cou-title">
                         <Link className="collapsed d-flex flex-column justify-content-start" data-bs-toggle="collapse" to={`#collapse${index}`} aria-expanded={open} onClick={() => setOpen(!open)} aria-controls="example-collapse-text">
                             {title}
-                            <span className='d-block small fw-normal text-secondary py-1'> 0 / {totalProblems.current} </span>
-                            <div>
-                                <div className="progress-stip my-1" style={{
+                            <span className='d-block small fw-normal text-secondary py-1'>Problems:  0 / {totalProblems.current} </span>
+                            <div className='d-flex align-items-center'>
+                                <div className=' small fw-normal text-secondary py-1 me-1'>Lectures: </div>
+                                <div className="progress-stip my-1 flex-1 w-100" style={{
                                     height: '6px'
                                 }}>
-                                    <div style={{ width: '60%' }} className={`progress-bar bg-success progress-bar-striped`}></div>
+                                    <div style={{ width: '40%' }} className={`progress-bar bg-success progress-bar-striped`}></div>
                                 </div>
                             </div>
                         </Link>
@@ -160,6 +161,15 @@ const Lecture = ({ handleQuestionModal, toast, viewLecturesAnsSections, title, l
         }
     }
 
+    function formatVideoDuration(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+
+        const formattedDuration =
+            (minutes > 0 ? `${minutes}m` : '') + (remainingSeconds > 0 ? ` ${remainingSeconds}s` : '');
+
+        return formattedDuration.trim();
+    }
     return (
         <>
             {
@@ -168,6 +178,9 @@ const Lecture = ({ handleQuestionModal, toast, viewLecturesAnsSections, title, l
                         <div className='d-flex justify-content-between'>
                             <div >
                                 <span className='ms-1 small'>{title}</span>
+                            </div>
+                            <div>
+                                <span className='ms-1 small'>{formatVideoDuration(lecture_duration)}</span>
                             </div>
 
                         </div>
