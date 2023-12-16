@@ -94,7 +94,7 @@ const CourseEnrolled = () => {
             <div className="main-wrapper">
                 <StudentHeader />
                 <section className="course-content course-sec">
-                    <div className="container">
+                    <div className="p-3">
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="card complete-sec">

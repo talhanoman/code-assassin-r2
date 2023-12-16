@@ -16,6 +16,13 @@ export default function CourseContentCardEnrolled({ sectionLength, title, lectur
                 <Link className="collapsed d-flex flex-column justify-content-start" data-bs-toggle="collapse" to={`#collapse${index}`} aria-expanded={open} onClick={() => setOpen(!open)} aria-controls="example-collapse-text">
                     {title}
                     <span className='d-block small fw-normal text-secondary py-1'> 0 / {sectionLength} </span>
+                    <div>
+                        <div className="progress-stip my-1" style={{
+                            height: '6px'
+                        }}>
+                            <div style={{ width: '60%' }} className={`progress-bar bg-success progress-bar-striped`}></div>
+                        </div>
+                    </div>
                 </Link>
 
             </h6>
@@ -25,19 +32,21 @@ export default function CourseContentCardEnrolled({ sectionLength, title, lectur
             <Collapse in={open}>
                 <div id={`collapse${index}`} className="card-collapse collapse" >
                     {
-                        lectures?.map((obj, index) => {                          
+                        lectures?.map((obj, index) => {
                             return (
                                 <Lecture handleQuestionModal={handleQuestionModal} toast={toast} viewLecturesAnsSections={viewLecturesAnsSections} title={sample_problems ? obj.question : obj.lecture_title} level={sample_problems ? obj.question_difficulty : ' '} question_description={sample_problems ? obj.question_description : ' '} index={index} sample_problems={sample_problems} course_guid={obj.course_guid} lecture_guid={obj.lecture_guid} sample_question_guid={obj.sample_question_guid} handleVideoModal={handleVideoModal} video_url={obj.lecture_url} is_completed={obj.is_completed} lecture_duration={obj.lecture_duration} video_progress={obj.video_progress} />
                             )
                         })
                     }
-                    {
-                        problems?.map((obj, index) => {                          
-                            return (
-                                <ProblemSectionCard subsection_title = {obj.sample_problem_section_title} sample_problems = {obj.sampleProblems} index={index}/>
-                            )
-                        })
-                    }
+                    <div className='px-4'>
+                        {
+                            problems?.map((obj, index) => {
+                                return (
+                                    <ProblemSectionCard subsection_title={obj.sample_problem_section_title} sample_problems={obj.sampleProblems} index={index} />
+                                )
+                            })
+                        }
+                    </div>
                 </div>
 
             </Collapse>
@@ -145,25 +154,25 @@ const Lecture = ({ handleQuestionModal, toast, viewLecturesAnsSections, title, l
     return (
         <>
             {
-                    <>
-                        <div className='container hovered' onClick={() => { assignLecture(course_guid, lecture_guid, video_url, is_completed) }}>
-                            <div className='d-flex justify-content-between'>
-                                <div >
-                                    <span className='ms-1 small'>{title}</span>
-                                </div>
-
-                            </div>
-                            <div>
-                                <div className="progress-stip my-1 ms-4" style={{
-                                    height: '6px'
-                                }}>
-                                    <div style={{ width: `${parseInt((parseInt(video_progress) / parseInt(lecture_duration)) * 100)}%` }} className={`progress-bar bg-success progress-bar-striped`}></div>
-                                </div>
+                <>
+                    <div className='container hovered' onClick={() => { assignLecture(course_guid, lecture_guid, video_url, is_completed) }}>
+                        <div className='d-flex justify-content-between'>
+                            <div >
+                                <span className='ms-1 small'>{title}</span>
                             </div>
 
-                            <hr></hr>
                         </div>
-                    </>
+                        <div>
+                            <div className="progress-stip my-1 ms-4" style={{
+                                height: '6px'
+                            }}>
+                                <div style={{ width: `${parseInt((parseInt(video_progress) / parseInt(lecture_duration)) * 100)}%` }} className={`progress-bar bg-success progress-bar-striped`}></div>
+                            </div>
+                        </div>
+
+                        <hr></hr>
+                    </div>
+                </>
             }
         </>
 
