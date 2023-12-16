@@ -39,11 +39,29 @@ export default function VideoModal({ currentVideo }) {
 
     return (
         <>
-            <div className="d-flex justify-content-center">
-                <ReactPlayer light={<img src={Course11} className='mw-100 mh-100' alt='Thumbnail' />} url={currentVideo?.lecture_url} playing={true} loop={true} controls={true}
+            <div
+                style={{
+                    position: 'relative',
+                    width: '100%',
+                    paddingTop: '56.25%',
+                }}
+            >
+                <ReactPlayer
+                    style={{
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                    }}
+                    width='100%'
+                    height='100%'
+                    light={<img src={Course11} className='mw-100 mh-100' alt='Thumbnail' />}
+                    url={currentVideo?.lecture_url}
+                    playing={true}
+                    loop={true}
+                    controls={true}
                     onDuration={(duration) => {
-                        setTotalDuration(duration)
-                        updateLectureTotalDuration(duration)
+                        setTotalDuration(duration);
+                        updateLectureTotalDuration(duration);
                     }}
                 />
             </div>

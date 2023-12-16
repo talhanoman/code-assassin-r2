@@ -1,56 +1,65 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Collapse from 'react-bootstrap/Collapse';
 import { useNavigate } from 'react-router-dom';
 import { AssignALecture, UpdateLectureCompletion, AssignAQuestion, UpdateQuestionCompletion } from '../../../../api/post';
 import Cookies from 'universal-cookie';
 import ProblemSectionCard from './ProblemSectionCard';
 
-export default function CourseContentCardEnrolled({ sectionLength, title, lectures, problems, sample_problems, handleVideoModal, handleQuestionModal, toast, viewLecturesAnsSections, index }) {
+export default function CourseContentCardEnrolled({ sectionLength, title, lectures, problems, sample_problems, handleVideoModal, handleQuestionModal, toast, viewLecturesAnsSections, index, setCurrentVideo }) {
     const [open, setOpen] = useState(false);
+    // const [totalProblems, setTotalProblems] = useState(0);
+    const totalProblems = useRef(0);
 
     return (
-        <div className="course-card">
-            <h6 className="cou-title">
-                <Link className="collapsed d-flex flex-column justify-content-start" data-bs-toggle="collapse" to={`#collapse${index}`} aria-expanded={open} onClick={() => setOpen(!open)} aria-controls="example-collapse-text">
-                    {title}
-                    <span className='d-block small fw-normal text-secondary py-1'> 0 / {sectionLength} </span>
-                    <div>
-                        <div className="progress-stip my-1" style={{
-                            height: '6px'
-                        }}>
-                            <div style={{ width: '60%' }} className={`progress-bar bg-success progress-bar-striped`}></div>
+        <>
+            {
+                sectionLength !== 0
+                &&
+                <div className="course-card">
+                    <h6 className="cou-title">
+                        <Link className="collapsed d-flex flex-column justify-content-start" data-bs-toggle="collapse" to={`#collapse${index}`} aria-expanded={open} onClick={() => setOpen(!open)} aria-controls="example-collapse-text">
+                            {title}
+                            <span className='d-block small fw-normal text-secondary py-1'> 0 / {totalProblems.current} </span>
+                            <div>
+                                <div className="progress-stip my-1" style={{
+                                    height: '6px'
+                                }}>
+                                    <div style={{ width: '60%' }} className={`progress-bar bg-success progress-bar-striped`}></div>
+                                </div>
+                            </div>
+                        </Link>
+
+                    </h6>
+
+                    {/* Progress bar of section */}
+
+                    <Collapse in={open}>
+                        <div id={`collapse${index}`} className="card-collapse collapse" >
+                            {
+                                lectures?.map((obj, index) => {
+                                    return (
+                                        <Lecture handleQuestionModal={handleQuestionModal} toast={toast} viewLecturesAnsSections={viewLecturesAnsSections} title={sample_problems ? obj.question : obj.lecture_title} level={sample_problems ? obj.question_difficulty : ' '} question_description={sample_problems ? obj.question_description : ' '} index={index} sample_problems={sample_problems} course_guid={obj.course_guid} lecture_guid={obj.lecture_guid} sample_question_guid={obj.sample_question_guid} handleVideoModal={handleVideoModal} video_url={obj.lecture_url} is_completed={obj.is_completed} lecture_duration={obj.lecture_duration} video_progress={obj.video_progress} />
+                                    )
+                                })
+                            }
+                            <div className='px-4'>
+                                {
+                                    problems?.map((obj, index) => {
+                                        return (
+                                            <ProblemSectionCard key={obj?.student_sample_problem_guid} subsection_title={obj?.sample_problem_section_title} sample_problems={obj?.sampleProblems} index={index} setCurrentVideo={setCurrentVideo} totalProblems={totalProblems} />
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
-                    </div>
-                </Link>
 
-            </h6>
-
-            {/* Progress bar of section */}
-
-            <Collapse in={open}>
-                <div id={`collapse${index}`} className="card-collapse collapse" >
-                    {
-                        lectures?.map((obj, index) => {
-                            return (
-                                <Lecture handleQuestionModal={handleQuestionModal} toast={toast} viewLecturesAnsSections={viewLecturesAnsSections} title={sample_problems ? obj.question : obj.lecture_title} level={sample_problems ? obj.question_difficulty : ' '} question_description={sample_problems ? obj.question_description : ' '} index={index} sample_problems={sample_problems} course_guid={obj.course_guid} lecture_guid={obj.lecture_guid} sample_question_guid={obj.sample_question_guid} handleVideoModal={handleVideoModal} video_url={obj.lecture_url} is_completed={obj.is_completed} lecture_duration={obj.lecture_duration} video_progress={obj.video_progress} />
-                            )
-                        })
-                    }
-                    <div className='px-4'>
-                        {
-                            problems?.map((obj, index) => {
-                                return (
-                                    <ProblemSectionCard subsection_title={obj.sample_problem_section_title} sample_problems={obj.sampleProblems} index={index} />
-                                )
-                            })
-                        }
-                    </div>
+                    </Collapse>
                 </div>
+            }
 
-            </Collapse>
-        </div>
+        </>
     )
 }
 

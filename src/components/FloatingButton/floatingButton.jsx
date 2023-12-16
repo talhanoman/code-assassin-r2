@@ -32,11 +32,9 @@ export default function FloatingButton() {
                             {...props}
                             style={{
                                 position: 'absolute',
-                                boxShadow: '0 8px 8px -4px #95abbb',
-                                // backgroundColor: '#FBFCFF',
+                                boxShadow: '0 8px 8px -4px #95abbb',                                
                                 overflowY: 'auto',
-                                height: '70vh',
-                                // padding: '2px 2px',
+                                height: '70vh',                              
                                 borderRadius: 3,
                                 zIndex: 1000000,
                                 ...props.style,
@@ -103,9 +101,9 @@ const DoubtScreen = () => {
 
         <div className='rounded-md card-body text-white' style={{ width: '700px', margin: 'auto', zIndex: 1000000 }}>
 
-            <h4 className='text-center text-white bg-orange py-3 rounded' style={{
+            {/* <h4 className='text-center text-white bg-orange py-3 rounded' style={{
                 opacity: 0.9
-            }}>Doubt Submission</h4>
+            }}>Doubt Submission</h4> */}
             <div className='p-3'>
                 <div className="form-group">
                     <label className='text-sm text-dark'>Title</label>

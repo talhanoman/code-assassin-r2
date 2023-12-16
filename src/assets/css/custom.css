@@ -344,3 +344,7 @@ label {
     background: rgb(2,0,36);
 background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(255,65,0,0.9) 100%);
 }
+
+.underline-on-hover:hover {
+    text-decoration: underline !important;
+}
